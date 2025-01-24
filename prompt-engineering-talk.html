@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,76 +8,113 @@
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/night.css">
     <style>
-        .reveal h1, .reveal h2 {
-            color: #ffcc00; /* Gold for emphasis */
+        .reveal h1,
+        .reveal h2 {
+            color: #ffcc00;
+            /* Gold for emphasis */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         }
-        .reveal h3{
-            color: #ffae00; /* Gold for emphasis */
+
+        .reveal h2.small {
+            font-size: 1.1em;
+        }
+
+        .reveal h3.small {
+            font-size: 1.1em;
+        }
+
+        .reveal h3 {
+            color: #ffae00;
+            /* Gold for emphasis */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         }
+
         .reveal ul li {
-            font-size: 1.2em; /* Slightly larger text */
+            font-size: 1.2em;
+            /* Slightly larger text */
             margin-bottom: 20px;
         }
+
         .reveal .slides section {
-            background: linear-gradient(to bottom, #1e1e1e, #333333); /* Subtle gradient */
+            background: linear-gradient(to bottom, #1e1e1e, #333333);
+            /* Subtle gradient */
             color: #f0f0f0;
             padding: 20px;
             border-radius: 10px;
         }
-        .reveal .slides section .background-image {            
+
+        .reveal .slides section .background-image {
             width: 100%;
             height: 100%;
             background-size: cover;
-            background-position: center;            
-            z-index: -1; /* Ensure it is behind the content */
+            background-position: center;
+            z-index: -1;
+            /* Ensure it is behind the content */
         }
+
         .reveal p {
-            font-size: 1.1em;
+            font-size: 1.0em;
         }
-        .r-vstack-bottom {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            height: 100%;
+
+        .reveal li {
+            font-size: 1.0em;
         }
     </style>
 </head>
+
 <body>
     <div class="reveal">
         <div class="slides">
             <!-- Slide 1: Title -->
-            <section >
+            <section>
                 <div class="r-vstack r-stretch">
-                    <h2 >"Is Prompt Engineering the Next Programming Language?"</h2>
+                    <h2>"Is Prompt Engineering the Next Programming Language?"</h2>
                     <h3>An Oxford style debate</h3>
-                    <p>Presented by <strong>Joris van Hien</strong> and <strong>Marco van de Haar</strong></p>                
-            </div>
+                    <p>Presented by <strong>Joris van Hien</strong> and <strong>Marco van de Haar</strong></p>
+                </div>
             </section>
 
             <!-- New Slide: Credits -->
-            <section >
+            <section>
                 <div class="background-image" style="background-image: url('/assets/img/Hien1.jpg');">
-                <div class="r-vstack-bottom r-stretch">
-                    <h2>Inspiration</h2>                                        
-                    <h3><strong>Hien Luu</strong></h3>
-                    <div style="height: 300px;"></div>
+                    <div class="r-vstack r-stretch">
+                        <h2>Inspiration</h2>
+                        <h3><strong>Hien Luu</strong></h3>
+                        <div style="height: 300px;"></div>
 
-                    <p>www.linkedin.com/in/hienluu</p>
+                        <p>www.linkedin.com/in/hienluu</p>
+                    </div>
                 </div>
-            </div>
             </section>
 
+
+            <section class="r-vstack r-stretch">
+                <h2 class="small">Programming languages...</h2>
+                <div class="r-stack">
+                    <div class="fragment fade-in-then-out">
+                        <p>Most have you have spent years studying....</p>
+                        <ul>
+                            <li>Studying syntax...</li>
+                            <li>Libraries...</li>
+                        </ul>
+                        <img src="/assets/img/code.png" alt="code" style="border-radius: 10px; width: 80%;">
+                    </div>
+                    <div class="fragment fade-in-then-out">
+                        <div class="r-vstack">                                                      
+                            <h3 class="small">Asking the right question!</h3>
+                        <img src="/assets/img/prompt.png" alt="code" style="border-radius: 10px;">
+                    </div>
+                </div>
+            </section>
 
             <!-- Slide 2: Introduction -->
             <section>
                 <h2>Introduction</h2>
                 <ul>
-                    <li><strong>Purpose:</strong> Understand prompt engineering's significance</li>
+                    <li><strong>Purpose:</strong> Explore prompt engineering's significance</li>
                     <li><strong>Format:</strong> Oxford-style debate</li>
                 </ul>
-                <img src="https://via.placeholder.com/600x400" alt="Introduction visual" style="border-radius: 10px;">
+                <img src="assets/img/debate.png" alt="A debate!" style="border-radius: 10px; width: 80%;">
             </section>
 
             <!-- Slide 3: Definitions -->
@@ -86,14 +124,17 @@
                     <li><strong>Programming Language:</strong> Formal instructions for a computer</li>
                     <li><strong>Prompt Engineering:</strong> Crafting inputs for AI systems</li>
                 </ul>
-                <img src="https://via.placeholder.com/600x400" alt="Definitions graphic" style="margin-top: 10px; border-radius: 10px;">
+                <img src="https://via.placeholder.com/600x400" alt="Definitions graphic"
+                    style="margin-top: 10px; border-radius: 10px;">
             </section>
 
             <!-- Slide 4: Initial Vote -->
             <section>
                 <h2>Initial Vote</h2>
                 <p>Is prompt engineering the next programming language?</p>
-                <button style="font-size: 1.2em; padding: 10px; background-color: #ffcc00; border: none; border-radius: 5px;">Vote Now</button>
+                <button
+                    style="font-size: 1.2em; padding: 10px; background-color: #ffcc00; border: none; border-radius: 5px;">Vote
+                    Now</button>
             </section>
 
             <!-- Grouped Slides: Syntax and Structure -->
@@ -124,7 +165,8 @@
                 <h2>Interactive Demo</h2>
                 <p>Demonstration: Effects of prompt parameters (e.g., temperature)</p>
                 <p>Example: AI-generated responses with varying parameters</p>
-                <img src="https://via.placeholder.com/600x400" alt="Demo graphic" style="margin-top: 10px; border-radius: 10px;">
+                <img src="https://via.placeholder.com/600x400" alt="Demo graphic"
+                    style="margin-top: 10px; border-radius: 10px;">
             </section>
 
             <!-- Grouped Slides: Knowledge and Expertise -->
@@ -185,7 +227,9 @@
             <section>
                 <h2>Closing Arguments</h2>
                 <p>Summary of For and Against</p>
-                <button style="font-size: 1.2em; padding: 10px; background-color: #ffcc00; border: none; border-radius: 5px;">Final Vote</button>
+                <button
+                    style="font-size: 1.2em; padding: 10px; background-color: #ffcc00; border: none; border-radius: 5px;">Final
+                    Vote</button>
             </section>
 
             <!-- Slide 14: Q&A -->
@@ -202,4 +246,5 @@
         Reveal.initialize();
     </script>
 </body>
+
 </html>
