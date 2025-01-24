@@ -7,13 +7,17 @@
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
     <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/night.css">
     <style>
-        .reveal h1, .reveal h2, .reveal h3 {
+        .reveal h1, .reveal h2 {
             color: #ffcc00; /* Gold for emphasis */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+        .reveal h3{
+            color: #ffae00; /* Gold for emphasis */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         }
         .reveal ul li {
             font-size: 1.2em; /* Slightly larger text */
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
         .reveal .slides section {
             background: linear-gradient(to bottom, #1e1e1e, #333333); /* Subtle gradient */
@@ -21,8 +25,21 @@
             padding: 20px;
             border-radius: 10px;
         }
+        .reveal .slides section .background-image {            
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;            
+            z-index: -1; /* Ensure it is behind the content */
+        }
         .reveal p {
             font-size: 1.1em;
+        }
+        .r-vstack-bottom {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 100%;
         }
     </style>
 </head>
@@ -30,11 +47,27 @@
     <div class="reveal">
         <div class="slides">
             <!-- Slide 1: Title -->
-            <section>
-                <h1>Prompt Engineering Debate</h1>
-                <h3>"Is Prompt Engineering the Next Programming Language?"</h3>
-                <p>Presented by <strong>[Your Name]</strong> and <strong>[Colleague's Name]</strong></p>
+            <section >
+                <div class="r-vstack r-stretch">
+                    <h2 >"Is Prompt Engineering the Next Programming Language?"</h2>
+                    <h3>An Oxford style debate</h3>
+                    <p>Presented by <strong>Joris van Hien</strong> and <strong>Marco van de Haar</strong></p>                
+            </div>
             </section>
+
+            <!-- New Slide: Credits -->
+            <section >
+                <div class="background-image" style="background-image: url('/assets/img/Hien1.jpg');">
+                <div class="r-vstack-bottom r-stretch">
+                    <h2>Inspiration</h2>                                        
+                    <h3><strong>Hien Luu</strong></h3>
+                    <div style="height: 300px;"></div>
+
+                    <p>www.linkedin.com/in/hienluu</p>
+                </div>
+            </div>
+            </section>
+
 
             <!-- Slide 2: Introduction -->
             <section>

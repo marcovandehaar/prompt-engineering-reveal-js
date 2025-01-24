@@ -6,12 +6,14 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 const TuningDemo = () => {
   const [temperature, setTemperature] = useState(1.0);
   const [topP, setTopP] = useState(0.9);
-  
-    // Ensure consistent initial state between server and client
-    useEffect(() => {
-        setTemperature(1.0);
-        setTopP(0.9);
-    }, []);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Ensure consistent initial state between server and client
+  useEffect(() => {
+    setTemperature(1.0);
+    setTopP(0.9);
+    setIsMounted(true);
+  }, []);
 
   // Initial probabilities for colors with more precise values
   const baseColors = [
@@ -56,6 +58,10 @@ const TuningDemo = () => {
       };
     });
   }, [topP]);
+
+  if (!isMounted) {
+    return null; // Render nothing on the server
+  }
 
   return (
     <div className="space-y-8">
