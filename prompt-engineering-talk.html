@@ -56,8 +56,28 @@
             font-size: 1.0em;
         }
 
+        .reveal p.small {
+            font-size: 0.8em;
+        }
+
         .reveal li {
             font-size: 1.0em;
+        }
+        .definition-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .definition-box img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .definition-box p {
+            margin: 0;
         }
     </style>
 </head>
@@ -92,10 +112,10 @@
                 <h2 class="small">Programming languages...</h2>
                 <div class="r-stack">
                     <div class="fragment fade-in-then-out">
-                        <p>Most have you have spent years studying....</p>
+                        <p>Most have you have spent years....</p>
                         <ul>
                             <li>Studying syntax...</li>
-                            <li>Libraries...</li>
+                            <li>Understanding API's...</li>
                         </ul>
                         <img src="/assets/img/code.png" alt="code" style="border-radius: 10px; width: 80%;">
                     </div>
@@ -117,16 +137,43 @@
                 <img src="assets/img/debate.png" alt="A debate!" style="border-radius: 10px; width: 80%;">
             </section>
 
-            <!-- Slide 3: Definitions -->
             <section>
-                <h2>Definitions</h2>
-                <ul>
-                    <li><strong>Programming Language:</strong> Formal instructions for a computer</li>
-                    <li><strong>Prompt Engineering:</strong> Crafting inputs for AI systems</li>
-                </ul>
-                <img src="https://via.placeholder.com/600x400" alt="Definitions graphic"
-                    style="margin-top: 10px; border-radius: 10px;">
+                <div class="r-vstack r-stretch">
+                    <h2>"Oxford style debate"</h2>
+                    <p>A motion</p>
+                    <p>Audience initial vote</p>
+                    <p>Discussions</p>
+                    <p>Closing remarks</p>
+                    <p>Audience final vote</p>
+                    <h3 class="small">Winner: Team with largest shift in audience votes</h3>
+                </div>
             </section>
+
+            <section>
+                <div class="r-vstack r-stretch">
+                    <h2>The Motion</h2>
+                    <h3>Prompt engineering: A new programming language?</h3>                    
+                </div>
+            </section>
+
+            <section>
+                <img src="/assets/img/proglang.gif" style="width: 100%;" loop="false">
+            </section>
+
+            <!--slide: what is prompt engineering-->
+            <section>
+                <div class="r-vstack r-stretch">
+                    <h2>What is Prompt Engineering?</h2>
+                    <div class="definition-box">
+                        <img src="/assets/img/claude.png" alt="Claude Logo">
+                        <p class="small">Prompt engineering is the practice of crafting and optimizing inputs to AI models to get more accurate, relevant, and useful outputs.</p>
+                    </div>
+                    <div class="definition-box">
+                        <img src="/assets/img/gpt.png" alt="ChatGPT Logo">
+                        <p class="small">Prompt engineering is the process of crafting and refining input instructions or queries to guide AI systems, like ChatGPT, toward producing the most accurate, relevant, or creative responses.</p>
+                    </div>
+                </div>
+            </section>          
 
             <!-- Slide 4: Initial Vote -->
             <section>
