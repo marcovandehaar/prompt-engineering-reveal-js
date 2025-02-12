@@ -60,6 +60,10 @@
             font-size: 0.8em;
         }
 
+        .reveal div.small {
+            font-size: 0.8em;
+        }
+
         .reveal li {
             font-size: 1.0em;
         }
@@ -184,26 +188,66 @@
                     Now</button>
             </section>
 
+            <!-- New Slide: Let the Debate Begin -->
+            <section>
+                <h2>Let the Debate Begin</h2>
+                <div style="display: flex; justify-content: space-around; align-items: center;">
+                    <div style="text-align: center;">
+                        <h3>For</h3>
+                        <img src="assets/img/marco.png" alt="Marco" style="border-radius: 10px; width: 80%;">
+                    </div>
+                    <div style="text-align: center;">
+                        <h3>Against</h3>
+                        <img src="assets/img/joris.jpg" alt="Joris" style="border-radius: 10px; width: 80%;">
+                    </div>
+                </div>
+            </section>
+
             <!-- Grouped Slides: Syntax and Structure -->
             <section>
                 <section>
                     <h2>Syntax and Structure</h2>
                     <h3>For the Motion</h3>
                     <ul>
-                        <li>Prompt engineering requires structured syntax for optimal results</li>
-                        <li>Examples of good and bad prompts</li>
-                        <li>Modular prompts enable reusability (like functions)</li>
-                        <li>Emerging best practices mirror programming patterns</li>
+                        <li>Argument #1: Prompt engineering requires structured syntax for optimal results, much like a programming language.</li>                       
                     </ul>
                 </section>
+                
                 <section>
-                    <h2>Syntax and Structure</h2>
-                    <h3>Against the Motion</h3>
-                    <ul>
-                        <li>No formalized syntax or strict rules</li>
-                        <li>Natural language is inherently ambiguous</li>
-                        <li>Probabilistic outputs lead to inconsistent results</li>
-                    </ul>
+                    <div class="r-vstack r-stretch">
+                    <img src="/assets/drawio/prompt-syntax.drawio.png" style="width: 90%;">
+                </div>
+                </section>
+
+                <section>
+                    <div class="r-vstack r-stretch">
+                        <h2>Poorly written prompt</h2>
+                        <div class="definition-box">                            
+                            <p class="small">Explain how I can improve the performance my application when retrieving information from the database.</p>
+                        </div>                        
+                    </div>
+                </section>   
+                
+                <section>
+                    <div class="r-vstack r-stretch small">
+                       
+                                <div style="border: 2px solid #ffeb3b; padding: 5px; border-radius: 5px; margin-bottom: 5px;">
+                                    You are a performance optimization expert specializing in database queries and indexing strategies.
+                                </div>
+                                <div style="border: 2px solid #c8e6c9; padding: 5px; border-radius: 5px; margin-bottom: 5px;">
+                                    Explain how I can improve the performance of my application when retrieving information from the database.
+                                </div>
+                                <div style="border: 2px solid #bbdefb; padding: 5px; border-radius: 5px; margin-bottom: 5px;">
+                                    My application uses SQL Server with a large dataset containing millions of records. The most frequent queries involve searching, filtering, and joining multiple tables. The application experiences slow response times, especially under high concurrent load.
+                                </div>
+                                <div style="border: 2px solid #ffcdd2; padding: 5px; border-radius: 5px; margin-bottom: 5px;">
+                                    Provide recommendations on indexing strategies, query optimization, caching techniques, and database schema design.
+                                </div>
+                                <div style="border: 2px solid #d1c4e9; padding: 5px; border-radius: 5px;">
+                                    Your response should include clear explanations, practical examples, and code snippets where applicable.
+                                </div>
+                           
+                </div>
                 </section>
             </section>
 
@@ -215,7 +259,16 @@
                 <img src="https://via.placeholder.com/600x400" alt="Demo graphic"
                     style="margin-top: 10px; border-radius: 10px;">
             </section>
-
+            
+            <section>
+                <h2>Syntax and Structure</h2>
+                <h3>Against the Motion</h3>
+                <ul>
+                    <li>No formalized syntax or strict rules</li>
+                    <li>Natural language is inherently ambiguous</li>
+                    <li>Probabilistic outputs lead to inconsistent results</li>
+                </ul>
+            </section>
             <!-- Grouped Slides: Knowledge and Expertise -->
             <section>
                 <section>
