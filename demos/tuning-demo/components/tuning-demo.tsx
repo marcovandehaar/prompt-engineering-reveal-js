@@ -17,11 +17,10 @@ const TuningDemo = () => {
 
   // Initial probabilities for colors with more precise values
   const baseColors = [
-    { name: 'Red', probability: 0.3145 },
-    { name: 'Blue', probability: 0.2532 },
-    { name: 'Green', probability: 0.1987 },
-    { name: 'Purple', probability: 0.1488 },
-    { name: 'Yellow', probability: 0.0848 }
+    { name: 'autumn', probability: 0.3145 },
+    { name: 'breeze', probability: 0.2532 },
+    { name: 'garden', probability: 0.1987 },
+    { name: 'water', probability: 0.1488 }
   ];
 
   // Calculate adjusted probabilities based on temperature
@@ -42,7 +41,7 @@ const TuningDemo = () => {
       'Original Probability': color.probability,
       'Adjusted Probability': color.adjustedProb / sum
     }));
-  }, [temperature]);
+  }, [baseColors, temperature]);
 
   // Calculate top-p selection
   const topPData = useMemo(() => {
@@ -72,7 +71,7 @@ const TuningDemo = () => {
         <CardContent>
           <div className="space-y-6">
             <div className="bg-slate-50 p-4 rounded-lg">
-              <p className="text-lg font-medium mb-2">Prompt: "My favorite color is..."</p>
+              <p className="text-lg font-medium mb-2">Prompt: "The leaves fall in the..."</p>
               <div className="mb-4">
                 <label className="block text-sm font-medium mb-2">
                   Temperature: {temperature.toFixed(1)}
@@ -158,7 +157,7 @@ const TuningDemo = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {topPData.map((color, idx) => (
+                  {topPData.map((color) => (
                     <tr 
                       key={color.name}
                       className={color.included ? 'bg-green-50' : 'bg-gray-50'}
