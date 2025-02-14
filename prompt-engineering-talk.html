@@ -67,6 +67,7 @@
         .reveal li {
             font-size: 1.0em;
         }
+
         .definition-box {
             border: 1px solid #ccc;
             padding: 10px;
@@ -75,11 +76,13 @@
             display: flex;
             align-items: center;
         }
+
         .definition-box img {
             width: 50px;
             height: 50px;
             margin-right: 10px;
         }
+
         .definition-box p {
             margin: 0;
         }
@@ -124,11 +127,11 @@
                         <img src="/assets/img/code.png" alt="code" style="border-radius: 10px; width: 80%;">
                     </div>
                     <div class="fragment fade-in-then-out">
-                        <div class="r-vstack">                                                      
+                        <div class="r-vstack">
                             <h3 class="small">Asking the right question!</h3>
-                        <img src="/assets/img/prompt.png" alt="code" style="border-radius: 10px;">
+                            <img src="/assets/img/prompt.png" alt="code" style="border-radius: 10px;">
+                        </div>
                     </div>
-                </div>
             </section>
 
             <!-- Slide 2: Introduction -->
@@ -156,7 +159,7 @@
             <section>
                 <div class="r-vstack r-stretch">
                     <h2>The Motion</h2>
-                    <h3>Prompt engineering: A new programming language?</h3>                    
+                    <h3>Prompt engineering: A new programming language?</h3>
                 </div>
             </section>
 
@@ -170,14 +173,17 @@
                     <h2>What is Prompt Engineering?</h2>
                     <div class="definition-box">
                         <img src="/assets/img/claude.png" alt="Claude Logo">
-                        <p class="small">Prompt engineering is the practice of crafting and optimizing inputs to AI models to get more accurate, relevant, and useful outputs.</p>
+                        <p class="small">Prompt engineering is the practice of crafting and optimizing inputs to AI
+                            models to get more accurate, relevant, and useful outputs.</p>
                     </div>
                     <div class="definition-box">
                         <img src="/assets/img/gpt.png" alt="ChatGPT Logo">
-                        <p class="small">Prompt engineering is the process of crafting and refining input instructions or queries to guide AI systems, like ChatGPT, toward producing the most accurate, relevant, or creative responses.</p>
+                        <p class="small">Prompt engineering is the process of crafting and refining input instructions
+                            or queries to guide AI systems, like ChatGPT, toward producing the most accurate, relevant,
+                            or creative responses.</p>
                     </div>
                 </div>
-            </section>          
+            </section>
 
             <!-- Slide 4: Initial Vote -->
             <section>
@@ -209,45 +215,118 @@
                     <h2>Syntax and Structure</h2>
                     <h3>For the Motion</h3>
                     <ul>
-                        <li>Argument #1: Prompt engineering requires structured syntax for optimal results, much like a programming language.</li>                       
+                        <li>Argument #1: Prompt engineering requires structured syntax for optimal results, much like a
+                            programming language.</li>
                     </ul>
                 </section>
-                
+
                 <section>
                     <div class="r-vstack r-stretch">
-                    <img src="/assets/drawio/prompt-syntax.drawio.png" style="width: 90%;">
-                </div>
+                        <img src="/assets/drawio/prompt-syntax.drawio.png" style="width: 90%;">
+                    </div>
                 </section>
 
                 <section>
                     <div class="r-vstack r-stretch">
                         <h2>Poorly written prompt</h2>
-                        <div class="definition-box">                            
-                            <p class="small">Explain how I can improve the performance my application when retrieving information from the database.</p>
-                        </div>                        
+                        <div class="definition-box">
+                            <p class="small">Explain how I can improve the performance my application when retrieving
+                                information from the database.</p>
+                        </div>
                     </div>
-                </section>   
-                
+                </section>
+
                 <section>
                     <div class="r-vstack r-stretch small">
-                       
-                                <div style="border: 2px solid #ffeb3b; padding: 5px; border-radius: 5px; margin-bottom: 5px;">
-                                    You are a performance optimization expert specializing in database queries and indexing strategies.
-                                </div>
-                                <div style="border: 2px solid #c8e6c9; padding: 5px; border-radius: 5px; margin-bottom: 5px;">
-                                    Explain how I can improve the performance of my application when retrieving information from the database.
-                                </div>
-                                <div style="border: 2px solid #bbdefb; padding: 5px; border-radius: 5px; margin-bottom: 5px;">
-                                    My application uses SQL Server with a large dataset containing millions of records. The most frequent queries involve searching, filtering, and joining multiple tables. The application experiences slow response times, especially under high concurrent load.
-                                </div>
-                                <div style="border: 2px solid #ffcdd2; padding: 5px; border-radius: 5px; margin-bottom: 5px;">
-                                    Provide recommendations on indexing strategies, query optimization, caching techniques, and database schema design.
-                                </div>
-                                <div style="border: 2px solid #d1c4e9; padding: 5px; border-radius: 5px;">
-                                    Your response should include clear explanations, practical examples, and code snippets where applicable.
-                                </div>
-                           
-                </div>
+
+                        <div style="border: 2px solid #ffeb3b; padding: 5px; border-radius: 5px; margin-bottom: 5px;">
+                            You are a performance optimization expert specializing in database queries and indexing
+                            strategies.
+                        </div>
+                        <div style="border: 2px solid #c8e6c9; padding: 5px; border-radius: 5px; margin-bottom: 5px;">
+                            Explain how I can improve the performance of my application when retrieving information from
+                            the database.
+                        </div>
+                        <div style="border: 2px solid #bbdefb; padding: 5px; border-radius: 5px; margin-bottom: 5px;">
+                            My application uses SQL Server with a large dataset containing millions of records. The most
+                            frequent queries involve searching, filtering, and joining multiple tables. The application
+                            experiences slow response times, especially under high concurrent load.
+                        </div>
+                        <div style="border: 2px solid #ffcdd2; padding: 5px; border-radius: 5px; margin-bottom: 5px;">
+                            Provide recommendations on indexing strategies, query optimization, caching techniques, and
+                            database schema design.
+                        </div>
+                        <div style="border: 2px solid #d1c4e9; padding: 5px; border-radius: 5px;">
+                            Your response should include clear explanations, practical examples, and code snippets where
+                            applicable.
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2>Syntax and Structure</h2>
+                    <h3>Parameterization in prompts</h3>
+                    <div class="definition-box r-vstack r-stretch">
+                        <p class="small" style="text-align: left;">Please translate the following text to English and determine it's theme: <span style="color: aqua;">"{{text}}"</span>.
+                       Only use words a 10 year old could understand well. Do not use any words that are
+                            not in the top 1000 most common English words. 
+                        Format your response as follows:
+                        Theme: (instruction, joke or other)
+                        Translation: [the translation]</p>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="r-vstack r-stretch">
+                        <img src="/assets/img/parameters.png" style="width: 90%;">
+                    </div>
+                </section>
+                
+                <section>
+                    <h2>Syntax and Structure</h2>
+                    <h3>For the Motion</h3>
+                    <ul>
+                        <li>Emerging best practices and patterns in prompt design parallels those in programming constructs.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Best practices and techniques</h2>
+                    <ul>
+                        <li>Few shots</li>
+                        <li>Chain-of-thought</li>
+                        <li>Tree-of-thought</li>
+                        <li>Self-consistency</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Example: Chain of thought</h2>
+                    <div class="r-vstack r-stretch">
+                        <img src="/assets/img/chainofthought.png" >
+                        <p class="small" style="text-align: right; margin-top: 10px;">Source: Kojima et al. (2022)</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>What about design patterns?</h2>
+                    <div class="r-vstack r-stretch">
+                        <img src="/assets/img/promptpatterns.png" >
+                        <p class="small" style="text-align: right; margin-top: 10px;">Source: White et al. (2023)</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Example: flipped interaction</h2>
+                    <ul>
+                        <li>For tasks you are not familliar with,</li>
+                        <li>You might not even know what to ask?</li>
+                        <li>But the Model probably does!</li>
+                        <li>So let's ask it, what to ask!</li>
+                    </ul>
+                    <p class="small" style="text-align: right; margin-top: 10px;">Let's check this out....</p>
+                    <p hidden>I am a starting hobby beer brewer and have just bought a Grainfather G40 home brewing installation. . I want to brew a west coast style IPA. I need help on which ingredients to use and help creating a recipe with temperatures and times for mashing and fermenting.
+
+                        Please ask me questions, one by one,  until you have sufficient information to make a recommendation. Once you have enough information, share your proposal.</p>
                 </section>
             </section>
 
@@ -259,7 +338,7 @@
                 <img src="https://via.placeholder.com/600x400" alt="Demo graphic"
                     style="margin-top: 10px; border-radius: 10px;">
             </section>
-            
+
             <section>
                 <h2>Syntax and Structure</h2>
                 <h3>Against the Motion</h3>
