@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport"="width=device-width, initial-scale=1.0">
     <title>Prompt Engineering Debate</title>
-    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
-    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/night.css">
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@5.2.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@5.2.0/dist/theme/night.css">
     <style>
         .reveal h1,
         .reveal h2 {
@@ -131,7 +131,6 @@
                             <h3 class="small">Asking the right question!</h3>
                             <img src="/assets/img/prompt.png" alt="code" style="border-radius: 10px;">
                         </div>
-                    </div>
             </section>
 
             <!-- Slide 2: Introduction -->
@@ -329,9 +328,16 @@
                         <li>So let's ask it, what to ask!</li>
                     </ul>
                     <p class="small" style="text-align: right; margin-top: 10px;">Let's check this out....</p>
-                    <p hidden>I am a starting hobby beer brewer and have just bought a Grainfather G40 home brewing installation. . I want to brew a west coast style IPA. I need help on which ingredients to use  and help creating a recipe with temperatures and times for mashing and fermenting.
+                    <aside class="notes">
+                        Prompt to use to demo flipped interaction:
 
-                        Please ask me questions, one by one, until you have sufficient information to make a recommendation. Once you have enough information, share your proposal.</p>
+                        I am a starting hobby beer brewer and have just bought a Grainfather G40 home brewing
+                        installation. I want to brew a west coast style IPA. I need help on which ingredients to use and
+                        help creating a recipe with temperatures and times for mashing and fermenting.
+
+                        Please ask me questions, one by one, until you have sufficient information to make a
+                        recommendation. Once you have enough information, share your proposal.
+                    </aside>
                 </section>
             </section>
 
@@ -380,9 +386,10 @@
                 <section>
                     <div class="r-vstack r-stretch">
                         <h2>Knowledge and Expertise</h3>
-                        <h3>Tuning parameters</h3>
-                        <p><span style="color: aqua;">Top-P</span> and <span style="color: aqua;">Temperature</span></p>
-                        <p>Demo: Effects of prompt parameters (e.g., temperature)</span></p>
+                            <h3>Tuning parameters</h3>
+                            <p><span style="color: aqua;">Top-P</span> and <span style="color: aqua;">Temperature</span>
+                            </p>
+                            <p>Demo: Effects of prompt parameters (e.g., temperature)</span></p>
                     </div>
                 </section>
                 <section>
@@ -448,7 +455,7 @@
                         <h3>For the Motion</h3>
                         <ul>
                             <li>A Paradigm shift in human-computer interaction</li>
-                            <li>Or just a fleeting trend???</li>                       
+                            <li>Or just a fleeting trend???</li>
                         </ul>
                     </div>
                 </section>
@@ -464,27 +471,37 @@
                 </section>
                 <section>
                     <div class="r-vstack r-stretch">
-                        <h2>Impact and Longevity</h2>
-                        <h3>Explosion of coding assistants</h3>
-                        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                        <h3>Explosion of A.I. centered dev tooling</h3>
+                        <div
+                            style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px; max-width: 800px; margin-left: auto; margin-right: auto;">
                             <!-- First row: 3 images -->
                             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-                                <img src="assets/img/assistants/blackbox.png" alt="Blackbox AI" style="width: 80%; border-radius: 5px; margin: auto;">
-                                <img src="assets/img/assistants/bolt.png" alt="Bolt" style="width: 80%; border-radius: 5px; margin: auto;">
-                                <img src="assets/img/assistants/codewhisperer.png" alt="CodeWhisperer" style="width: 80%; border-radius: 5px; margin: auto;">
+                                <img src="assets/img/assistants/blackbox.png" alt="Blackbox AI"
+                                    style="width: 80%; border-radius: 5px; margin: auto;">
+                                <img src="assets/img/assistants/bolt.png" alt="Bolt"
+                                    style="width: 80%; border-radius: 5px; margin: auto;">
+                                <img src="assets/img/assistants/codewhisperer.png" alt="CodeWhisperer"
+                                    style="width: 80%; border-radius: 5px; margin: auto;">
                             </div>
                             <!-- Second row: 4 images -->
                             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
-                                <img src="assets/img/assistants/cody.png" alt="Cody" style="width: 80%; border-radius: 5px; margin: auto;">
-                                <img src="assets/img/assistants/continue.png" alt="Continue" style="width: 80%; border-radius: 5px; margin: auto;">
-                                <img src="assets/img/assistants/copilot.png" alt="Copilot" style="width: 80%; border-radius: 5px; margin: auto;">
-                                <img src="assets/img/assistants/cursor.jpg" alt="Cursor" style="width: 80%; border-radius: 5px; margin: auto;">
+                                <img src="assets/img/assistants/cody.png" alt="Cody"
+                                    style="width: 80%; border-radius: 5px; margin: auto;">
+                                <img src="assets/img/assistants/continue.png" alt="Continue"
+                                    style="width: 80%; border-radius: 5px; margin: auto;">
+                                <img src="assets/img/assistants/copilot.png" alt="Copilot"
+                                    style="width: 80%; border-radius: 5px; margin: auto;">
+                                <img src="assets/img/assistants/cursor.jpg" alt="Cursor"
+                                    style="width: 80%; border-radius: 5px; margin: auto;">
                             </div>
                             <!-- Third row: 3 images -->
                             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-                                <img src="assets/img/assistants/devin.png" alt="Devin" style="width: 80%; border-radius: 5px; margin: auto;">
-                                <img src="assets/img/assistants/tabnine.png" alt="TabNine" style="width: 80%; border-radius: 5px; margin: auto;">
-                                <img src="assets/img/assistants/windsurf.png" alt="Windsurf" style="width: 80%; border-radius: 5px; margin: auto;">
+                                <img src="assets/img/assistants/devin.png" alt="Devin"
+                                    style="width: 80%; border-radius: 5px; margin: auto;">
+                                <img src="assets/img/assistants/tabnine.png" alt="TabNine"
+                                    style="width: 80%; border-radius: 5px; margin: auto;">
+                                <img src="assets/img/assistants/windsurf.png" alt="Windsurf"
+                                    style="width: 80%; border-radius: 5px; margin: auto;">
                             </div>
                         </div>
                     </div>
@@ -492,24 +509,32 @@
                 <section>
                     <div class="r-vstack r-stretch">
                         <h3>The future of programming?</h3>
-                        <img src="assets/img/andrej.png" alt="Andrej Karpathy Tweet" style="width: 90%; border-radius: 5px; margin: auto;">
+                        <img src="assets/img/andrej.png" alt="Andrej Karpathy Tweet"
+                            style="width: 90%; border-radius: 5px; margin: auto;">
                     </div>
                 </section>
                 <section>
                     <div class="r-vstack r-stretch">
                         <h2>Evolution</h2>
-                        <img src="/assets/drawio/evolution.drawio.svg" alt="Evolution" style="width: 90%; margin: 20px auto;">
-                        <div style="background-color: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                            <p style="font-style: italic; font-size: 0.6em;">"As we stand at the precipice of this AI revolution in software engineering, our role is not to predict a definitive future, but to illuminate the range of possibilities and their implications."</p>
+                        <img src="/assets/drawio/evolution.drawio.svg" alt="Evolution"
+                            style="width: 90%; margin: 20px auto;">
+                        <div
+                            style="background-color: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                            <p style="font-style: italic; font-size: 0.6em;">"As we stand at the precipice of this AI
+                                revolution in software engineering, our role is not to predict a definitive future, but
+                                to illuminate the range of possibilities and their implications."</p>
                             <p style="text-align: right; margin-top: 10px;font-size: 0.6em">— Vernon Keenan</p>
                         </div>
-                        <p class="small" style="text-align: right;">Source: <a href="https://salesforcedevops.net/index.php/2024/07/01/the-evolution-of-ai-in-software-engineering/" style="color: #ffcc00;">The Evolution of AI in Software Engineering</a></p>
+                        <p class="small" style="text-align: right;">Source: <a
+                                href="https://salesforcedevops.net/index.php/2024/07/01/the-evolution-of-ai-in-software-engineering/"
+                                style="color: #ffcc00;">The Evolution of AI in Software Engineering</a></p>
                     </div>
                 </section>
                 <section>
                     <div class="r-vstack r-stretch">
                         <h2>Impact and Longevity - For the Motion</h2>
-                        <p>Prompt engineering will have a lasting impact and evolve similarly to programming languages. As AI becomes integral across industries, it will become an indispensable skill.</p>                        
+                        <p>Prompt engineering will have a lasting impact and evolve similarly to programming languages.
+                            As AI becomes integral across industries, it will become an indispensable skill.</p>
                     </div>
                 </section>
             </section>
@@ -528,12 +553,81 @@
 
 
             <!-- Slide 13: Closing Arguments -->
+
+            <!-- Main Closing Arguments Slide -->
             <section>
                 <h2>Closing Arguments</h2>
-                <p>Summary of For and Against</p>
-                <button
-                    style="font-size: 1.2em; padding: 10px; background-color: #ffcc00; border: none; border-radius: 5px;">Final
-                    Vote</button>
+                <div style="display: flex; justify-content: space-around; align-items: center;">
+                    <div style="text-align: center;">
+                        <h3>For</h3>
+                        <p>↓</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <h3>Against</h3>
+                        <p>↓</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <!-- For the Motion - Vertical Slides -->
+                <section>
+                    <div class="r-vstack r-stretch">
+                        <h2>Closing Arguments</h2>
+                        <h3>For the Motion</h3>
+                        <ul>
+                            <li>Prompt engineering is evolving into a structured discipline</li>
+                            <li>Clear patterns and best practices are emerging</li>
+                            <li>Growing ecosystem of tools and frameworks</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="r-vstack r-stretch">
+                        <h2>Key Evidence For</h2>
+                        <ul>
+                            <li>Standardization of prompt patterns</li>
+                            <li>Integration into development workflows</li>
+                            <li>Rising demand in industry</li>
+                            <li>Academic research and formal methods</li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <!-- Against the Motion - Vertical Slides -->
+                <section>
+                    <div class="r-vstack r-stretch">
+                        <h2>Closing Arguments</h2>
+                        <h3>Against the Motion</h3>
+                        <ul>
+                            <li>Lacks formal specification</li>
+                            <li>Dependent on model implementation</li>
+                            <li>Natural language ambiguity</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="r-vstack r-stretch">
+                        <h2>Key Evidence Against</h2>
+                        <ul>
+                            <li>Inconsistent results across models</li>
+                            <li>No compiler or formal verification</li>
+                            <li>Rapid changes in best practices</li>
+                            <li>Limited debugging capabilities</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Final Vote -->
+                <section>
+                    <h2>Time to Vote</h2>
+                    <p>Has prompt engineering earned its place as the next programming language?</p>
+                    <button
+                        style="font-size: 1.2em; padding: 10px; background-color: #ffcc00; border: none; border-radius: 5px; margin: 20px;">Cast
+                        Your Vote</button>
+                </section>
             </section>
 
             <!-- Slide 14: Q&A -->
@@ -545,9 +639,14 @@
         </div>
     </div>
 
-    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.2.0/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js@5.2.0/plugin/notes/notes.js"></script>
     <script>
-        Reveal.initialize();
+        Reveal.initialize({
+            hash: true,
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealNotes]
+        });
     </script>
 </body>
 
