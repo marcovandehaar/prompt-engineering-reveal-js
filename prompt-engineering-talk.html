@@ -515,6 +515,16 @@
                 </section>
                 <section>
                     <div class="r-vstack r-stretch">
+                    <h2>Example: Windsurf editor</h2>
+                    <img src="assets/img/assistants/windsurf_lg.png" alt="Windsurf" style="width: 400px; margin: 20px auto; display: block;">
+                    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+                        <button data-preview-video="assets/video/windsurf1.mp4" style="padding: 10px 20px; background: #ffcc00; border: none; border-radius: 5px; cursor: pointer;">Video: A.I. coding</button>
+                        <button data-preview-video="assets/video/windsurf2.mp4" style="padding: 10px 20px; background: #ffcc00; border: none; border-radius: 5px; cursor: pointer;">Video: result</button>
+                    </div>
+                </div>
+                </section>
+                <section>
+                    <div class="r-vstack r-stretch">
                         <h2>Evolution</h2>
                         <img src="/assets/drawio/evolution.drawio.svg" alt="Evolution"
                             style="width: 90%; margin: 20px auto;">
@@ -634,6 +644,19 @@
             <section>
                 <h2>Q&A</h2>
                 <p>Open floor for questions and discussion</p>
+            </section>           
+
+            <!-- New Slide: Credits -->
+            <section>
+                <div class="background-image" style="background-image: url('/assets/img/Hien1.jpg');">
+                    <div class="r-vstack r-stretch">
+                        <h2>Inspiration</h2>
+                        <h3><strong>Hien Luu</strong></h3>
+                        <div style="height: 300px;"></div>
+
+                        <p>www.linkedin.com/in/hienluu</p>
+                    </div>
+                </div>
             </section>
 
         </div>
@@ -644,8 +667,11 @@
     <script>
         Reveal.initialize({
             hash: true,
-            // Learn about plugins: https://revealjs.com/plugins/
-            plugins: [RevealNotes]
+            plugins: [RevealNotes],
+            preview: {
+                enabled: true,
+                fit: 'contain'
+            }
         });
     </script>
 </body>
