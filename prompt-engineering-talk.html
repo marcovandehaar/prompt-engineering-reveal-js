@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,6 +100,9 @@
                     <h3>An Oxford style debate</h3>
                     <p>Presented by <strong>Joris van Hien</strong> and <strong>Marco van de Haar</strong></p>
                 </div>
+                <aside class="notes">
+                    <p>Joris: We’ll explore whether prompt engineering has evolved into a new form of programming or if it's just a powerful communication skill with AI. Feel free to think about your own experiences with ChatGPT or similar tools as we dive in!</p>
+                </aside>
             </section>
 
             <!-- New Slide: Credits -->
@@ -108,12 +112,13 @@
                         <h2>Inspiration</h2>
                         <h3><strong>Hien Luu</strong></h3>
                         <div style="height: 300px;"></div>
-
                         <p>www.linkedin.com/in/hienluu</p>
                     </div>
                 </div>
+                <aside class="notes">
+                    <p>Joris: Hien Luu is a senior engineering manager at DoorDash who emphasizes that we are in a “once in a generation” shift with large language models. He posits prompt engineering might be the next abstraction layer in software development. Keep his insights in mind as we debate!</p>
+                </aside>
             </section>
-
 
             <section class="r-vstack r-stretch">
                 <h2 class="small">Programming languages...</h2>
@@ -131,6 +136,11 @@
                             <h3 class="small">Asking the right question!</h3>
                             <img src="/assets/img/prompt.png" alt="code" style="border-radius: 10px;">
                         </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <p>Joris: (NOTE: Make one sheet of this) In Hien’s talk, he compared writing code to writing prompts. While coding involves syntax and structure, prompt engineering hinges on how effectively we phrase our queries. Let’s keep that shift from “how to do it” to “what we want done” in mind.</p>
+                </aside>
             </section>
 
             <!-- Slide 2: Introduction -->
@@ -141,6 +151,9 @@
                     <li><strong>Format:</strong> Oxford-style debate</li>
                 </ul>
                 <img src="assets/img/debate.png" alt="A debate!" style="border-radius: 10px; width: 80%;">
+                <aside class="notes">
+                    <p>Marco: We’ll be debating whether prompt engineering could be considered a genuine programming language. According to Hien, it’s “the art and science of designing inputs” for LLMs, but is that enough to qualify as programming?</p>
+                </aside>
             </section>
 
             <section>
@@ -153,6 +166,9 @@
                     <p>Audience final vote</p>
                     <h3 class="small">Winner: Team with largest shift in audience votes</h3>
                 </div>
+                <aside class="notes">
+                    <p>Marco: In Hien’s talk, he stressed that the question of whether prompt engineering is a “new programming language” is still open. Let’s replicate that questioning style here. Keep track of your stance before and after!</p>
+                </aside>
             </section>
 
             <section>
@@ -160,10 +176,16 @@
                     <h2>The Motion</h2>
                     <h3>Prompt engineering: A new programming language?</h3>
                 </div>
+                <aside class="notes">
+                    <p>Marco: This is the core question. Hien found that prompt engineering lacked formal syntax, deterministic outputs, and common programming constructs (like loops, conditionals) — but it’s also a new way of telling the computer what we want.</p>
+                </aside>
             </section>
 
             <section>
                 <img src="/assets/img/proglang.gif" style="width: 100%;" loop="false">
+                <aside class="notes">
+                    <p>Marco: Visualizing languages evolving over time. Maybe prompts are an evolution beyond high-level languages, as Hien speculated? Or maybe it’s too soon to tell!</p>
+                </aside>
             </section>
 
             <!--slide: what is prompt engineering-->
@@ -182,6 +204,9 @@
                             or creative responses.</p>
                     </div>
                 </div>
+                <aside class="notes">
+                    <p>Marco: Hien defines prompt engineering as a mixture of art and science. It’s about finding the right level of detail to guide AI. The big question is whether that synergy of art and science aligns with how we define actual programming languages.</p>
+                </aside>
             </section>
 
             <!-- Slide 4: Initial Vote -->
@@ -191,6 +216,9 @@
                 <button
                     style="font-size: 1.2em; padding: 10px; background-color: #ffcc00; border: none; border-radius: 5px;">Vote
                     Now</button>
+                <aside class="notes">
+                    <p>Joris: Let’s capture our baseline opinions now. Hien’s talk suggests many are intrigued by prompt engineering’s power but unsure if it meets formal definitions. Let’s see where everyone stands before we dive deep.</p>
+                </aside>
             </section>
 
             <!-- New Slide: Let the Debate Begin -->
@@ -206,9 +234,12 @@
                         <img src="assets/img/joris.jpg" alt="Joris" style="border-radius: 10px; width: 80%;">
                     </div>
                 </div>
+                <aside class="notes">
+                    <p>Joris: The stage is set. One side sees the art and structure of prompting as the next frontier in coding. The other sees it as more ephemeral and not quite “programming” in the strict sense. Keep Hien’s arguments about the “missing pieces” in mind.</p>
+                </aside>
             </section>
 
-            <!-- Grouped Slides: Syntax and Structure -->
+            <!-- Grouped Slides: Syntax and Structure (For) -->
             <section>
                 <section>
                     <div class="r-vstack r-stretch">
@@ -264,6 +295,7 @@
                         </div>
                     </div>
                 </section>
+
                 <section>
                     <h2>Syntax and Structure</h2>
                     <h3>Parameterization in prompts</h3>
@@ -331,16 +363,14 @@
                     <aside class="notes">
                         Prompt to use to demo flipped interaction:
 
-                        I am a starting hobby beer brewer and have just bought a Grainfather G40 home brewing
-                        installation. I want to brew a west coast style IPA. I need help on which ingredients to use and
-                        help creating a recipe with temperatures and times for mashing and fermenting.
+                        I am a starting hobby beer brewer and have just bought a Grainfather G40 home brewing installation. I want to brew a west coast style IPA. I need help on which ingredients to use and help creating a recipe with temperatures and times for mashing and fermenting.
 
-                        Please ask me questions, one by one, until you have sufficient information to make a
-                        recommendation. Once you have enough information, share your proposal.
+                        Please ask me questions, one by one, until you have sufficient information to make a recommendation. Once you have enough information, share your proposal.
                     </aside>
                 </section>
             </section>
 
+            <!-- Grouped Slides: Syntax and Structure (Against) -->
             <section>
                 <section>
                     <h2>Syntax and Structure</h2>
@@ -350,17 +380,37 @@
                         <li>Natural language is inherently ambiguous</li>
                         <li>Probabilistic outputs lead to inconsistent results</li>
                     </ul>
+                    <aside class="notes">
+                        <p>Hien noted that for a language to be recognized as a true programming language, it needs formal syntax, semantics, and predictability. Prompt engineering often yields unexpected responses because large language models produce probabilistic outputs. This ambiguity undercuts the idea that prompts function like a strict “language.”</p>
+                    </aside>
                 </section>
+
                 <section>
-                    <h2>Syntax and Structure</h2>
-                    <h3>Against the Motion</h3>
+                    <h2>Missing Typical Constructs</h2>
                     <ul>
-                        <li>TODO</li>
+                        <li>No functions, loops, or conditionals</li>
+                        <li>No error handling or debugging process</li>
+                        <li>Absent composability to create “larger programs” from smaller prompts</li>
                     </ul>
+                    <aside class="notes">
+                        <p>Hien observed that in traditional programming, you can break code into functions or reuse modules. Prompt engineering doesn’t readily allow that. We don’t define variables, handle runtime errors, or chain multiple prompts seamlessly in a single “program.”</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Unpredictability</h2>
+                    <ul>
+                        <li>Outputs can vary from run to run</li>
+                        <li>Hard to guarantee deterministic behavior</li>
+                        <li>Relies on model’s training data and random sampling</li>
+                    </ul>
+                    <aside class="notes">
+                        <p>One of Hien’s points is that we can't rely on predictable results. Without determinism, it’s tough to have the same confidence we have in compiled code or well-defined interpretive languages. The language model might guess differently next time!</p>
+                    </aside>
                 </section>
             </section>
-            <!-- Grouped Slides: Knowledge and Expertise -->
 
+            <!-- Grouped Slides: Knowledge and Expertise (For) -->
             <section>
                 <section>
                     <div class="r-vstack r-stretch">
@@ -382,14 +432,16 @@
                             <img src="/assets/drawio/next-token-generator.svg">
                         </div>
                     </div>
+                    <aside class="notes">
+                        <p>Marco: TODO: Fix colors in demo</p>
+                    </aside>
                 </section>
                 <section>
                     <div class="r-vstack r-stretch">
-                        <h2>Knowledge and Expertise</h3>
-                            <h3>Tuning parameters</h3>
-                            <p><span style="color: aqua;">Top-P</span> and <span style="color: aqua;">Temperature</span>
-                            </p>
-                            <p>Demo: Effects of prompt parameters (e.g., temperature)</span></p>
+                        <h2>Knowledge and Expertise</h2>
+                        <h3>Tuning parameters</h3>
+                        <p><span style="color: aqua;">Top-P</span> and <span style="color: aqua;">Temperature</span></p>
+                        <p>Demo: Effects of prompt parameters (e.g., temperature)</p>
                     </div>
                 </section>
                 <section>
@@ -435,6 +487,8 @@
                     </div>
                 </section>
             </section>
+
+            <!-- Grouped Slides: Knowledge and Expertise (Against) -->
             <section>
                 <section>
                     <h2>Knowledge and Expertise</h2>
@@ -444,10 +498,25 @@
                         <li>Lacks the complexity of traditional programming</li>
                         <li>Relies heavily on communication skills</li>
                     </ul>
+                    <aside class="notes">
+                        <p>Hien observed that writing prompts feels more like a conversation than coding. There is no rigorous debugging or specialized syntax. While you can get better at it, you don't need the deep algorithmic skillset typical of formal programming languages.</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Fewer Prerequisites</h2>
+                    <ul>
+                        <li>No advanced data structures or algorithms needed</li>
+                        <li>Focus on domain context and clarity, not code</li>
+                        <li>More about phrasing questions than systematically solving problems</li>
+                    </ul>
+                    <aside class="notes">
+                        <p>In Hien’s talk, the key difference is that formal languages require in-depth comprehension of computational structures. Prompt engineering can be effective simply by describing your needs well, which is more akin to communication than strict coding.</p>
+                    </aside>
                 </section>
             </section>
 
-            <!-- Grouped Slides: Impact and Longevity -->
+            <!-- Grouped Slides: Impact and Longevity (For) -->
             <section>
                 <section>
                     <div class="r-vstack r-stretch">
@@ -549,6 +618,7 @@
                 </section>
             </section>
 
+            <!-- Grouped Slides: Impact and Longevity (Against) -->
             <section>
                 <section>
                     <h2>Impact and Longevity</h2>
@@ -558,9 +628,23 @@
                         <li>Prompt engineering may become obsolete</li>
                         <li>Programming remains essential for specificity</li>
                     </ul>
+                    <aside class="notes">
+                        <p>According to Hien, prompt engineering currently lacks many standard programming constructs. Detractors believe that future AI systems could handle queries more naturally, making specialized prompting less relevant. Hence, it might not become a formal language but rather an ephemeral skill.</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Unclear Future</h2>
+                    <ul>
+                        <li>LLMs might eventually interpret vague prompts effectively</li>
+                        <li>Could reduce the need for specialized prompt design</li>
+                        <li>Industry might pivot to new AI paradigms altogether</li>
+                    </ul>
+                    <aside class="notes">
+                        <p>Hien highlighted that as AI grows more powerful, prompt engineering might not need to become a formal language. Instead, the AI could do heavy lifting, meaning our role is less about “engineering” the prompt and more about simple instructions or conversation.</p>
+                    </aside>
                 </section>
             </section>
-
 
             <!-- Slide 13: Closing Arguments -->
 
@@ -577,6 +661,9 @@
                         <p>↓</p>
                     </div>
                 </div>
+                <aside class="notes">
+                    <p>Hien’s conclusion was that prompt engineering is not yet a programming language in the traditional sense, but it’s definitely a new paradigm. Think about whether the arguments you’ve heard sway you toward a future formal “prompt language” or remain unconvinced.</p>
+                </aside>
             </section>
             <section>
                 <!-- For the Motion - Vertical Slides -->
@@ -615,6 +702,9 @@
                             <li>Dependent on model implementation</li>
                             <li>Natural language ambiguity</li>
                         </ul>
+                        <aside class="notes">
+                            <p>Hien repeatedly stressed the unpredictability and lack of formal syntax. In a real programming language, you have compilers or interpreters to catch errors. Prompt engineering still depends on how the LLM “feels” about your request.</p>
+                        </aside>
                     </div>
                 </section>
 
@@ -627,6 +717,9 @@
                             <li>Rapid changes in best practices</li>
                             <li>Limited debugging capabilities</li>
                         </ul>
+                        <aside class="notes">
+                            <p>We can’t robustly “debug” a misinterpreted prompt in the same sense we debug code. Each LLM might produce different answers. Hien pointed to the need for stable, standardized ways to talk to these models if they are ever to be considered “languages.”</p>
+                        </aside>
                     </div>
                 </section>
 
@@ -637,6 +730,9 @@
                     <button
                         style="font-size: 1.2em; padding: 10px; background-color: #ffcc00; border: none; border-radius: 5px; margin: 20px;">Cast
                         Your Vote</button>
+                    <aside class="notes">
+                        <p>Drawing from Hien’s final thoughts: it might not be a full-fledged language yet, but it’s definitely an emerging paradigm. Now, let’s see if you think the evolution will eventually cross into “language” territory or remain a specialized skill.</p>
+                    </aside>
                 </section>
             </section>
 
@@ -644,6 +740,9 @@
             <section>
                 <h2>Q&A</h2>
                 <p>Open floor for questions and discussion</p>
+                <aside class="notes">
+                    <p>Encourage the audience to reflect on Hien’s viewpoint: is the future “programming via intention,” or do we remain tethered to traditional programming structures? Ask for real-world experiences with prompting to see how the group feels.</p>
+                </aside>
             </section>           
 
             <!-- New Slide: Credits -->
@@ -677,3 +776,4 @@
 </body>
 
 </html>
+```

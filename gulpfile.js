@@ -271,9 +271,29 @@ gulp.task('eslint', () => gulp.src(['./js/**', 'gulpfile.js'])
 
 gulp.task('test', gulp.series( 'eslint', 'qunit' ))
 
-gulp.task('default', gulp.series(gulp.parallel('js', 'css', 'plugins'), 'test'))
-
 gulp.task('build', gulp.parallel('js', 'css', 'plugins'))
+
+// Create a production build in the output folder for Azure Static Web Apps
+gulp.task('build-azure', gulp.series('build', async () => {
+    const outputDir = './output';
+    
+    // Ensure output directory exists and is empty
+    if (fs.existsSync(outputDir)) {
+        fs.rmSync(outputDir, { recursive: true });
+    }
+    fs.mkdirSync(outputDir, { recursive: true });
+
+    // Copy all necessary files to output directory
+    const filesToCopy = [
+        './prompt-engineering-talk.html',
+        './dist/**/*',
+        './plugin/**/*',
+        './assets/**/*'
+    ];
+
+    return gulp.src(filesToCopy, { base: './', encoding: false })
+        .pipe(gulp.dest(outputDir));
+}))
 
 gulp.task('package', gulp.series(async () => {
 
@@ -329,3 +349,5 @@ gulp.task('serve', () => {
     gulp.watch(['test/*.html'], gulp.series('test'))
 
 })
+
+gulp.task('default', gulp.series(gulp.parallel('js', 'css', 'plugins'), 'test'))
