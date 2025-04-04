@@ -4,6 +4,7 @@ const glob = require('glob')
 const yargs = require('yargs')
 const through = require('through2');
 const qunit = require('node-qunit-puppeteer')
+const path = require('path');
 
 const {rollup} = require('rollup')
 const terser = require('@rollup/plugin-terser')
@@ -291,8 +292,20 @@ gulp.task('build-azure', gulp.series('build', async () => {
         './assets/**/*'
     ];
 
-    return gulp.src(filesToCopy, { base: './', encoding: false })
-        .pipe(gulp.dest(outputDir));
+    await new Promise((resolve, reject) => {
+        gulp.src(filesToCopy, { base: './', encoding: false })
+            .pipe(gulp.dest(outputDir))
+            .on('end', resolve)
+            .on('error', reject);
+    });
+
+    // Rename prompt-engineering-talk.html to index.html
+    if (fs.existsSync(path.join(outputDir, 'prompt-engineering-talk.html'))) {
+        fs.renameSync(
+            path.join(outputDir, 'prompt-engineering-talk.html'),
+            path.join(outputDir, 'index.html')
+        );
+    }
 }))
 
 gulp.task('package', gulp.series(async () => {
