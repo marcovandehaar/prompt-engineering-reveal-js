@@ -160,7 +160,7 @@ const TuningDemo = () => {
                   {topPData.map((color) => (
                     <tr 
                       key={color.name}
-                      className={color.included ? 'bg-green-50' : 'bg-gray-50'}
+                      className={color.included ? '' : 'bg-red-400 text-white'}
                     >
                       <td className="p-2">{color.name}</td>
                       <td className="p-2 text-right">{color.probability.toFixed(4)}</td>
