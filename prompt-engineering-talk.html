@@ -249,13 +249,16 @@
                                 like a
                                 programming language.</li>
                         </ul>
-                    </div>
+                    </div>                    
                 </section>
 
                 <section>
                     <div class="r-vstack r-stretch">
                         <img src="/assets/drawio/prompt-syntax.svg" style="width: 90%;">
                     </div>
+                    <aside class="notes">
+                        explain structure
+                    </aside>
                 </section>
 
                 <section>
@@ -265,7 +268,10 @@
                             <p class="small">Explain how I can improve the performance my application when retrieving
                                 information from the database.</p>
                         </div>
-                    </div>
+                    </div> 
+                    <aside class="notes">
+                        quick to next
+                    </aside>
                 </section>
 
                 <section>
@@ -293,20 +299,35 @@
                             applicable.
                         </div>
                     </div>
+                    <aside class="notes">
+                        <ul>
+                            <li>role</li>
+                            <li>instruction</li>
+                            <li>context</li>
+                            <li>constraints and guidelines</li>
+                            <li>output format</li>
+                        </ul>
+                        <p>try it yourself. far more effective.</p>
+                        <p>even though prompting is very forgiving. using it effectively like this, is much like strict syntax in programming languages.</p>
+                    </aside>
                 </section>
 
                 <section>
-                    <h2>Syntax and Structure</h2>
-                    <h3>Parameterization in prompts</h3>
+                    
+                    <h3>#2. Modular prompts enables reusability, similar to functions.</h3>
                     <div class="definition-box r-vstack r-stretch">
                         <p class="small" style="text-align: left;">Please translate the following text to English and
-                            determine it's theme: <span style="color: aqua;">"{{text}}"</span>.
-                            Only use words a 10 year old could understand well. Do not use any words that are
-                            not in the top 1000 most common English words.
+                            determine it's category: <span style="color: aqua;">"{{text}}"</span>.
+                            Only use words a 10 year old could understand well. 
                             Format your response as follows:
-                            Theme: (instruction, joke or other)
+                            Category: (instruction, joke or other)
                             Translation: [the translation]</p>
                     </div>
+                    <aside class="notes">
+                        Argument number 2. 
+                        Encapsulate logic in functions, reusability.
+                        same thing in prompt engineering too.
+                    </aside>
                 </section>
 
                 <section>
@@ -315,40 +336,55 @@
                     </div>
                 </section>
 
-                <section>
-                    <h2>Syntax and Structure</h2>
-                    <h3>Design patters</h3>
-                    <ul>
-                        <li>Emerging best practices and patterns in prompt design parallels those in programming
-                            constructs.</li>
-                    </ul>
+                <section>                    
+                    <div class="r-vstack r-stretch">
+                    <h3>Argument #3.</h3>
+                    <p>Emerging best practices and patterns in prompt design parallels those in programming
+                            constructs.</p>
+                    </div>
                 </section>
 
                 <section>
-                    <h2>Best practices and techniques</h2>
+                    <h3>Prompting patterns and techniques</h3>
                     <ul>
                         <li>Few shots</li>
                         <li>Chain-of-thought</li>
                         <li>Tree-of-thought</li>
                         <li>Self-consistency</li>
                     </ul>
+                    <aside class="notes">
+                        Recent years, researches fromcompanies like Google, openAi, Meta explored various prompting techniques.
+                        A few have emerged.
+                        structuring prompts in a way that aligns with a.i. learning capabilities.
+                    </aside>
                 </section>
 
                 <section>
                     <h2>Example: Chain of thought</h2>
                     <div class="r-vstack r-stretch">
                         <img src="/assets/img/chainofthought.png">
-                        <p class="small" style="text-align: right; margin-top: 10px;">Source: Kojima et al. (2022)</p>
+                        <p class="small" style="text-align: right; margin-top: 10px;">Source: <a href="https://research.google/blog/language-models-perform-reasoning-via-chain-of-thought/">Wej et al. (2022)</a></p>
                     </div>
+                    <aside class="notes">
+                        Research from Google published in 2022
+                        goal was to unlock the reasoning capabilities of a model, using very simple thechniques.
+                        btw: similar to how humans would do this when encounter complex problem.
+                        note: progress kinda cought up with this example. built into modern models.
+                    </aside>
                 </section>
 
                 <section>
                     <h2>What about design patterns?</h2>
                     <div class="r-vstack r-stretch">
                         <img src="/assets/img/promptpatterns.png">
-                        <p class="small" style="text-align: right; margin-top: 10px;">Source: White et al. (2023)</p>
+                        <p class="small" style="text-align: right; margin-top: 10px;">Source: <a href="https://arxiv.org/abs/2303.03305">White et al. (2023)</a></p>
                     </div>
-                </section>
+                    <aside class="notes">
+                        any experienced software engineer will be aware of design patterns. 
+                        also in prompt engineering.
+                        2023 in vanderbilt, published this pater, outlined 16 different patterns. 
+                    </aside>
+                    </section>
 
                 <section>
                     <h2>Example: flipped interaction</h2>
@@ -360,11 +396,15 @@
                     </ul>
                     <p class="small" style="text-align: right; margin-top: 10px;">Let's check this out....</p>
                     <aside class="notes">
+                        <ul>
+                            <li>used to ask questions and get answers</li>
+                            <li>what if, you don't know what to ask?</li>
+                            <li>domain you know little about?</li>                            
+                        </ul>
+
                         Prompt to use to demo flipped interaction:
 
-                        I am a starting hobby beer brewer and have just bought a Grainfather G40 home brewing installation. I want to brew a west coast style IPA. I need help on which ingredients to use and help creating a recipe with temperatures and times for mashing and fermenting.
-
-                        Please ask me questions, one by one, until you have sufficient information to make a recommendation. Once you have enough information, share your proposal.
+                        I am a starting hobby beer brewer and have just bought a Grainfather G40 home brewing installation. I want to brew a west coast style IPA. I need help on which ingredients to use and help creating a recipe with temperatures and times for mashing and fermenting. Please ask me questions, one by one, until you have sufficient information to make a recommendation. Once you have enough information, share your proposal.
                     </aside>
                 </section>
             </section>
@@ -761,8 +801,9 @@
             <section>
                 <div class="r-vstack r-stretch">
                     <h2>Check out the slides?</h2>
-                    <img src="/assets/img/site-qr.svg" alt="QR Code to presentation" style="width: 300px; height: 300px; margin: 20px auto;">
-                    <p>Scan to view them online!</p>
+                    <img src="/assets/img/site-qr.svg" alt="QR Code to presentation" style="width: 300px; height: 300px; margin: 20px auto;">                    
+                    <p>Or on Slack:  </p>
+                    <p><span style="color: aqua;">#topiconf-prompt-engineering</span> </p>
                 </div>
             </section>
 
