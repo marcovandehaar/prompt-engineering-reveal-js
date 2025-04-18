@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LLM Temperature Demo – Fibonacci Function</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background-color: #f9f9f9;
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.2rem;
+    }
+
+    p {
+      color: #444;
+    }
+
+    .prompt {
+      background-color: #fff;
+      padding: 1rem;
+      border-left: 4px solid #888;
+      margin-top: 1rem;
+      font-family: monospace;
+    }
+
+    .slider-container {
+      margin: 2rem 0 1rem;
+    }
+
+    .output-box {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      white-space: pre-wrap;
+      font-family: monospace;
+      font-size: 0.95rem;
+    }
+
+    .label {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    input[type="range"] {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>LLM Temperature Demo</h1>
+  <p><strong>Prompt:</strong></p>
+  <div class="prompt">Write a function that returns the nth Fibonacci number.</div>
+
+  <div class="slider-container">
+    <p class="label">Temperature: <span id="tempDisplay">0.0</span></p>
+    <input type="range" id="temperature" min="0" max="9" value="0">
+  </div>
+
+  <div class="output-box" id="output"></div>
+
+  <script>
+    const outputs = [
+`int Fibonacci(int n) {
+    if (n <= 1) return n;
+    int a = 0, b = 1, c;
+    for(int i = 2; i <= n; i++) {
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    return b;
+}`,
+`int Fibonacci(int n) {
+    if (n <= 1) return n;
+    int prev = 0, curr = 1;
+    for (int i = 2; i <= n; i++) {
+        int next = prev + curr;
+        prev = curr;
+        curr = next;
+    }
+    return curr;
+}`,
+`// Recursive solution (not the most efficient)
+int Fibonacci(int n) {
+    if (n <= 1) return n;
+    return Fibonacci(n - 1) + Fibonacci(n - 2);
+}`,
+`public static int Fibonacci(int n) =>
+    n <= 1 ? n : Fibonacci(n - 1) + Fibonacci(n - 2);`,
+`// C# version with memoization
+Dictionary<int, int> memo = new Dictionary<int, int>();
+int Fibonacci(int n) {
+    if (n <= 1) return n;
+    if (memo.ContainsKey(n)) return memo[n];
+    memo[n] = Fibonacci(n - 1) + Fibonacci(n - 2);
+    return memo[n];
+}`,
+`// Why not use LINQ?
+int Fibonacci(int n) =>
+    Enumerable.Range(0, n + 1)
+              .Aggregate(new List<int>{0, 1}, (acc, i) => {
+                  if (i > 1) acc.Add(acc[i - 1] + acc[i - 2]);
+                  return acc;
+              })[n];`,
+`// Let's do it in Python for fun
+def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a`,
+`// Performance matters: use Binet’s Formula (approximate)
+int Fibonacci(int n) {
+    double phi = (1 + Math.Sqrt(5)) / 2;
+    return (int)Math.Round(Math.Pow(phi, n) / Math.Sqrt(5));
+}`,
+`// Adds logging for fun
+int Fibonacci(int n) {
+    Console.WriteLine($"Calculating Fibonacci({n})");
+    if (n <= 1) return n;
+    return Fibonacci(n - 1) + Fibonacci(n - 2);
+}`,
+`// Completely over the top – object-oriented version
+class FibonacciGenerator {
+    private Dictionary<int, int> cache = new();
+    public int Get(int n) {
+        if (n <= 1) return n;
+        if (cache.ContainsKey(n)) return cache[n];
+        cache[n] = Get(n - 1) + Get(n - 2);
+        return cache[n];
+    }
+}`
+    ];
+
+    const slider = document.getElementById('temperature');
+    const output = document.getElementById('output');
+    const tempDisplay = document.getElementById('tempDisplay');
+
+    function updateOutput() {
+      const tempIndex = parseInt(slider.value);
+      const tempValue = (tempIndex / 10).toFixed(1);
+      tempDisplay.textContent = tempValue;
+      output.textContent = outputs[tempIndex];
+    }
+
+    slider.addEventListener('input', updateOutput);
+
+    // Init on page load
+    updateOutput();
+  </script>
+</body>
+</html>
