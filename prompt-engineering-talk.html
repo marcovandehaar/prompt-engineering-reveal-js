@@ -86,7 +86,8 @@
         .definition-box p {
             margin: 0;
         }
-          /* Progress indicator styles */
+
+        /* Progress indicator styles */
         .progress-container {
             position: fixed;
             top: 10px;
@@ -94,15 +95,18 @@
             transform: translateX(-50%);
             width: 60%;
             height: 5px;
-            background-color: rgba(255, 204, 0, 0.2); /* Subtle gold color */
+            background-color: rgba(255, 204, 0, 0.2);
+            /* Subtle gold color */
             border-radius: 3px;
             z-index: 1000;
-            pointer-events: none; /* So it doesn't interfere with clicks */
+            pointer-events: none;
+            /* So it doesn't interfere with clicks */
         }
-        
+
         .section-name {
             position: absolute;
-            top: 16px; /* 6px for the height of the progress bar + 10px margin */
+            top: 16px;
+            /* 6px for the height of the progress bar + 10px margin */
             transform: translateX(-50%);
             font-size: 0.7em;
             color: rgba(255, 204, 0, 0.8);
@@ -112,37 +116,43 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-        
+
         .section-marker {
             position: absolute;
             top: 0;
             width: 10%;
             height: 100%;
-            background-color: #ffae00; /* Orange accent color */
+            background-color: #ffae00;
+            /* Orange accent color */
             border-radius: 3px;
             transition: left 0.6s ease;
         }
-        
+
         /* Define positions for each section marker */
         body[data-section="intro"] .section-marker {
             left: 0%;
         }
+
         body[data-section="motion"] .section-marker {
             left: 20%;
         }
+
         body[data-section="syntax"] .section-marker {
             left: 40%;
         }
+
         body[data-section="knowledge"] .section-marker {
             left: 60%;
         }
+
         body[data-section="impact"] .section-marker {
             left: 80%;
         }
+
         body[data-section="closing"] .section-marker {
             left: 90%;
         }
-        
+
         /* Show only the current section name */
         body[data-section="intro"] .section-name.intro,
         body[data-section="motion"] .section-name.motion,
@@ -152,13 +162,37 @@
         body[data-section="closing"] .section-name.closing {
             opacity: 1;
         }
-          /* Position section names */
-        .section-name.intro { left: 5%; top: 16px; }
-        .section-name.motion { left: 25%; top: 16px; }
-        .section-name.syntax { left: 45%; top: 16px; }
-        .section-name.knowledge { left: 65%; top: 16px; }
-        .section-name.impact { left: 85%; top: 16px; }
-        .section-name.closing { left: 95%; top: 16px; }
+
+        /* Position section names */
+        .section-name.intro {
+            left: 5%;
+            top: 16px;
+        }
+
+        .section-name.motion {
+            left: 25%;
+            top: 16px;
+        }
+
+        .section-name.syntax {
+            left: 45%;
+            top: 16px;
+        }
+
+        .section-name.knowledge {
+            left: 65%;
+            top: 16px;
+        }
+
+        .section-name.impact {
+            left: 85%;
+            top: 16px;
+        }
+
+        .section-name.closing {
+            left: 95%;
+            top: 16px;
+        }
     </style>
 </head>
 
@@ -174,7 +208,7 @@
             <div class="section-name impact">Impact</div>
             <div class="section-name closing">Closing</div>
         </div>
-        
+
         <div class="slides">
             <!-- Slide 1: Title -->
             <section>
@@ -184,7 +218,9 @@
                     <p>Presented by <strong>Joris van Hien</strong> and <strong>Marco van de Haar</strong></p>
                 </div>
                 <aside class="notes">
-                    <p>Joris: We’ll explore whether prompt engineering has evolved into a new form of programming or if it's just a powerful communication skill with AI. Feel free to think about your own experiences with ChatGPT or similar tools as we dive in!</p>
+                    <p>Joris: We’ll explore whether prompt engineering has evolved into a new form of programming or if
+                        it's just a powerful communication skill with AI. Feel free to think about your own experiences
+                        with ChatGPT or similar tools as we dive in!</p>
                 </aside>
             </section>
 
@@ -199,7 +235,9 @@
                     </div>
                 </div>
                 <aside class="notes">
-                    <p>Joris: Hien Luu is a senior engineering manager at DoorDash who emphasizes that we are in a “once in a generation” shift with large language models. He posits prompt engineering might be the next abstraction layer in software development. Keep his insights in mind as we debate!</p>
+                    <p>Joris: Hien Luu is a senior engineering manager at DoorDash who emphasizes that we are in a “once
+                        in a generation” shift with large language models. He posits prompt engineering might be the
+                        next abstraction layer in software development. Keep his insights in mind as we debate!</p>
                 </aside>
             </section>
 
@@ -222,16 +260,22 @@
                     </div>
                 </div>
                 <aside class="notes">
-                    Let’s take a moment to reflect on what many of us have invested years into — programming. We’ve studied syntax, learned to use APIs, debugged, tested, optimized. These skills are built around precision, control, and repeatability — the fundamentals of writing code that a machine can execute the same way, every time.
-                    <br/><br/>
-                    Now compare that to prompting. Instead of writing step-by-step instructions, we describe what we want in natural language and hope the model understands what we mean.
-                    <br/><br/>
-                    That shift — from defining exact behavior to describing intent — is powerful. But it’s also fundamentally different.
-                    <br/><br/>
-                    So while Hien calls prompt engineering “the most powerful language to learn,” the real debate today is this:  
+                    Let’s take a moment to reflect on what many of us have invested years into — programming. We’ve
+                    studied syntax, learned to use APIs, debugged, tested, optimized. These skills are built around
+                    precision, control, and repeatability — the fundamentals of writing code that a machine can execute
+                    the same way, every time.
+                    <br /><br />
+                    Now compare that to prompting. Instead of writing step-by-step instructions, we describe what we
+                    want in natural language and hope the model understands what we mean.
+                    <br /><br />
+                    That shift — from defining exact behavior to describing intent — is powerful. But it’s also
+                    fundamentally different.
+                    <br /><br />
+                    So while Hien calls prompt engineering “the most powerful language to learn,” the real debate today
+                    is this:
                     Does prompt engineering meet the bar of a programming language — or is it something else entirely?
-                  </aside>
-                  
+                </aside>
+
             </section>
 
             <!-- Slide 2: Introduction -->
@@ -243,7 +287,9 @@
                 </ul>
                 <img src="assets/img/debate.png" alt="A debate!" style="border-radius: 10px; width: 80%;">
                 <aside class="notes">
-                    <p>Marco: We’ll be debating whether prompt engineering could be considered a genuine programming language. According to Hien, it’s “the art and science of designing inputs” for LLMs, but is that enough to qualify as programming?</p>
+                    <p>Marco: We’ll be debating whether prompt engineering could be considered a genuine programming
+                        language. According to Hien, it’s “the art and science of designing inputs” for LLMs, but is
+                        that enough to qualify as programming?</p>
                 </aside>
             </section>
 
@@ -258,7 +304,9 @@
                     <h3 class="small">Winner: Team with largest shift in audience votes</h3>
                 </div>
                 <aside class="notes">
-                    <p>Marco: In Hien’s talk, he stressed that the question of whether prompt engineering is a “new programming language” is still open. Let’s replicate that questioning style here. Keep track of your stance before and after!</p>
+                    <p>Marco: In Hien’s talk, he stressed that the question of whether prompt engineering is a “new
+                        programming language” is still open. Let’s replicate that questioning style here. Keep track of
+                        your stance before and after!</p>
                 </aside>
             </section>
 
@@ -268,12 +316,19 @@
                     <h3>Prompt engineering: A new programming language?</h3>
                 </div>
                 <aside class="notes">
-                    <p>Marco: This is the core question. Hien found that prompt engineering lacked formal syntax, deterministic outputs, and common programming constructs (like loops, conditionals) — but it’s also a new way of telling the computer what we want.</p>
+                    <p>Marco: This is the core question. Hien found that prompt engineering lacked formal syntax,
+                        deterministic outputs, and common programming constructs (like loops, conditionals) — but it’s
+                        also a new way of telling the computer what we want.</p>
                 </aside>
             </section>
-
             <section>
-                <img src="assets/img/proglang.gif" style="width: 100%;" loop="false">
+                <div class="r-vstack r-stretch">
+                    <div class="r-stack">
+                        <img src="assets/img/proglang1.png" style="width: 100%;">
+                        <img class="fragment" data-fragment-index="0" src="assets/img/proglang.gif" style="width: 100%;"
+                            loop="false">
+                    </div>
+                </div>
                 <aside class="notes">
                     <p>Marco: read up claude answer</p>
                 </aside>
@@ -296,7 +351,9 @@
                     </div>
                 </div>
                 <aside class="notes">
-                    <p>Marco: Hien defines prompt engineering as a mixture of art and science. It’s about finding the right level of detail to guide AI. The big question is whether that synergy of art and science aligns with how we define actual programming languages.</p>
+                    <p>Marco: Hien defines prompt engineering as a mixture of art and science. It’s about finding the
+                        right level of detail to guide AI. The big question is whether that synergy of art and science
+                        aligns with how we define actual programming languages.</p>
                 </aside>
             </section>
 
@@ -308,11 +365,13 @@
                     style="font-size: 1.2em; padding: 10px; background-color: #ffcc00; border: none; border-radius: 5px;">Vote
                     Now</button>
                 <aside class="notes">
-                    <p>Joris: Let’s capture our baseline opinions now. Hien’s talk suggests many are intrigued by prompt engineering’s power but unsure if it meets formal definitions. Let’s see where everyone stands before we dive deep.</p>
+                    <p>Joris: Let’s capture our baseline opinions now. Hien’s talk suggests many are intrigued by prompt
+                        engineering’s power but unsure if it meets formal definitions. Let’s see where everyone stands
+                        before we dive deep.</p>
                 </aside>
             </section>
 
-             <section>
+            <section>
                 <div class="r-vstack r-stretch">
                     <h2>3 categories</h2>
                     <p>Syntax and Structure</p>
@@ -320,7 +379,8 @@
                     <p>Impact and longevity</p>
                 </div>
                 <aside class="notes">
-                    <p>Marco: We will structure debate in 3 categories, for which we will present arguments FOR and AGAINST the motion.</p>
+                    <p>Marco: We will structure debate in 3 categories, for which we will present arguments FOR and
+                        AGAINST the motion.</p>
                 </aside>
             </section>
 
@@ -338,7 +398,9 @@
                     </div>
                 </div>
                 <aside class="notes">
-                    <p>Joris: The stage is set. One side sees the art and structure of prompting as the next frontier in coding. The other sees it as more ephemeral and not quite “programming” in the strict sense. Keep Hien’s arguments about the “missing pieces” in mind.</p>
+                    <p>Joris: The stage is set. One side sees the art and structure of prompting as the next frontier in
+                        coding. The other sees it as more ephemeral and not quite “programming” in the strict sense.
+                        Keep Hien’s arguments about the “missing pieces” in mind.</p>
                 </aside>
             </section>
 
@@ -353,7 +415,7 @@
                                 like a
                                 programming language.</li>
                         </ul>
-                    </div>                    
+                    </div>
                 </section>
 
                 <section>
@@ -372,7 +434,7 @@
                             <p class="small">Explain how I can improve the performance my application when retrieving
                                 information from the database.</p>
                         </div>
-                    </div> 
+                    </div>
                     <aside class="notes">
                         quick to next
                     </aside>
@@ -412,23 +474,24 @@
                             <li>output format</li>
                         </ul>
                         <p>try it yourself. far more effective.</p>
-                        <p>even though prompting is very forgiving. using it effectively like this, is much like strict syntax in programming languages.</p>
+                        <p>even though prompting is very forgiving. using it effectively like this, is much like strict
+                            syntax in programming languages.</p>
                     </aside>
                 </section>
 
                 <section>
-                    
+
                     <h3>#2. Modular prompts enables reusability, similar to functions.</h3>
                     <div class="definition-box r-vstack r-stretch">
                         <p class="small" style="text-align: left;">Please translate the following text to English and
                             determine it's category: <span style="color: aqua;">"{{text}}"</span>.
-                            Only use words a 10 year old could understand well. 
+                            Only use words a 10 year old could understand well.
                             Format your response as follows:
                             Category: (instruction, joke or other)
                             Translation: [the translation]</p>
                     </div>
                     <aside class="notes">
-                        Argument number 2. 
+                        Argument number 2.
                         Encapsulate logic in functions, reusability.
                         same thing in prompt engineering too.
                     </aside>
@@ -440,10 +503,10 @@
                     </div>
                 </section>
 
-                <section>                    
+                <section>
                     <div class="r-vstack r-stretch">
-                    <h3>Argument #3.</h3>
-                    <p>Emerging best practices and patterns in prompt design parallel those in programming
+                        <h3>Argument #3.</h3>
+                        <p>Emerging best practices and patterns in prompt design parallel those in programming
                             constructs.</p>
                     </div>
                 </section>
@@ -457,7 +520,8 @@
                         <li>Self-consistency</li>
                     </ul>
                     <aside class="notes">
-                        Recent years, researches fromcompanies like Google, openAi, Meta explored various prompting techniques.
+                        Recent years, researches fromcompanies like Google, openAi, Meta explored various prompting
+                        techniques.
                         A few have emerged.
                         structuring prompts in a way that aligns with a.i. learning capabilities.
                     </aside>
@@ -467,7 +531,9 @@
                     <h2>Example: Chain of thought</h2>
                     <div class="r-vstack r-stretch">
                         <img src="assets/img/chainofthought.png">
-                        <p class="small" style="text-align: right; margin-top: 10px;">Source: <a href="https://research.google/blog/language-models-perform-reasoning-via-chain-of-thought/">Wej et al. (2022)</a></p>
+                        <p class="small" style="text-align: right; margin-top: 10px;">Source: <a
+                                href="https://research.google/blog/language-models-perform-reasoning-via-chain-of-thought/">Wej
+                                et al. (2022)</a></p>
                     </div>
                     <aside class="notes">
                         Research from Google published in 2022
@@ -481,14 +547,15 @@
                     <h2>What about design patterns?</h2>
                     <div class="r-vstack r-stretch">
                         <img src="assets/img/promptpatterns.png">
-                        <p class="small" style="text-align: right; margin-top: 10px;">Source: <a href="https://arxiv.org/abs/2303.03305">White et al. (2023)</a></p>
+                        <p class="small" style="text-align: right; margin-top: 10px;">Source: <a
+                                href="https://arxiv.org/abs/2302.11382">White et al. (2023)</a></p>
                     </div>
                     <aside class="notes">
-                        any experienced software engineer will be aware of design patterns. 
+                        any experienced software engineer will be aware of design patterns.
                         also in prompt engineering.
-                        2023 in vanderbilt, published this pater, outlined 16 different patterns. 
+                        2023 in vanderbilt, published this pater, outlined 16 different patterns.
                     </aside>
-                    </section>
+                </section>
 
                 <section>
                     <h2>Example: flipped interaction</h2>
@@ -503,13 +570,18 @@
                         <ul>
                             <li>used to ask questions and get answers</li>
                             <li>what if, you don't know what to ask?</li>
-                            <li>domain you know little about?</li>                            
+                            <li>domain you know little about?</li>
 
                         </ul>
 
                         Prompt to use to demo flipped interaction:
 
-                        I am a starting hobby beer brewer and have just bought a Grainfather G40 home brewing installation.   I want to brew a west coast style IPA. I need help on which ingredients to use and help creating a recipe with temperatures and times for mashing and fermenting. Please ask me questions, one by one, until you have sufficient information to make a recommendation. I still have to learn all the technicalities of brewing, so please use common words. Once you have enough information, share your proposal.
+                        I am a starting hobby beer brewer and have just bought a Grainfather G40 home brewing
+                        installation. I want to brew a west coast style IPA. I need help on which ingredients to use and
+                        help creating a recipe with temperatures and times for mashing and fermenting. Please ask me
+                        questions, one by one, until you have sufficient information to make a recommendation. I still
+                        have to learn all the technicalities of brewing, so please use common words. Once you have
+                        enough information, share your proposal.
                     </aside>
                 </section>
             </section>
@@ -517,138 +589,195 @@
             <!-- Grouped Slides: Syntax and Structure (Against) -->
             <section>
                 <section>
-                    <h2>Syntax and Structure</h2>
-                    <h3>Against the Motion</h3>
-                    <ul>
-                        <li>No formalized syntax or strict rules</li>
-                        <li>Probabilistic outputs lead to inconsistent results</li>
-                    </ul>
+                    <div class="r-vstack r-stretch">
+                        <h2>Syntax and Structure</h2>
+                        <h3>Against the Motion</h3>
+                        <ul>
+                            <li>No formalized syntax or strict rules</li>
+                            <li>Probabilistic outputs lead to inconsistent results</li>
+                        </ul>
+                    </div>
                     <aside class="notes">
-                        Let’s now examine the case against the motion, starting with syntax and structure — the foundation of any programming language.
-                        <br/><br/>
-                        We just saw how prompting can benefit from structure — role, task, context, constraints. But here’s the key difference: in programming, structure isn’t optional. It’s enforced by compilers, interpreters, and formal grammars.
-                        <br/><br/>
-                        Prompt engineering doesn’t have that. It operates in natural language — flexible, ambiguous, and interpreted differently from one model to another.
-                        <br/><br/>
-                        So while good prompt design might look structured on the surface, underneath, it behaves more like conversation than code. And that matters — because structure without enforcement isn’t a language, it’s a suggestion.
-                      </aside>
+                        Let’s now examine the case against the motion, starting with syntax and structure — the
+                        foundation of any programming language.
+                        <br /><br />
+                        We just saw how prompting can benefit from structure — role, task, context, constraints. But
+                        here’s the key difference: in programming, structure isn’t optional. It’s enforced by compilers,
+                        interpreters, and formal grammars.
+                        <br /><br />
+                        Prompt engineering doesn’t have that. It operates in natural language — flexible, ambiguous, and
+                        interpreted differently from one model to another.
+                        <br /><br />
+                        So while good prompt design might look structured on the surface, underneath, it behaves more
+                        like conversation than code. And that matters — because structure without enforcement isn’t a
+                        language, it’s a suggestion.
+                    </aside>
                 </section>
 
                 <section>
-                    <h2>Syntax and Structure</h2>
-                    <h3>When Good Prompts Go Bad</h3>
-                    <div>
-                        <p><strong>Prompt:</strong></p>
-                    <div style="font-size: 0.8em; border: 1px solid #666; padding: 1em; border-radius: 8px; background: #2b2b2b; color: #f1f1f1;">
-                      <code>
+                    <div class="r-vstack r-stretch">
+                        <h3>When Good Prompts Go Bad</h3>
+                        <div>
+                            <p><strong>Prompt:</strong></p>
+                            <div
+                                style="font-size: 0.8em; border: 1px solid #666; padding: 1em; border-radius: 8px; background: #2b2b2b; color: #f1f1f1;">
+                                <code>
                         Refactor this method to improve readability and performance without altering its behavior.<br/>
                         Use modern C# features and follow best practices for async code and exception handling.
                       </code>
+                            </div>
+
+
+                            <p style="margin-top: 1em;">
+                                Sounds perfect, right? Clear intent, good structure,<br /> lots of detail…
+                                <strong>Even the most careful prompt can hide a forest of assumptions.</strong>
+                            </p>
+                        </div>
                     </div>
-                  
-                    <p style="margin-top: 1em;">
-                      Sounds perfect, right? Clear intent, good structure,<br/> lots of detail…
-                      <strong>Even the most careful prompt can hide a forest of assumptions.</strong>
-                    </p>
-                    </div>>
                     <aside class="notes">
-                        We just talked about how prompting lacks strict syntax or formal rules. This next example makes that gap even more tangible.
-                        <br/><br/>
-                      
-                        This is one of my favorite kinds of prompt — it looks so precise. It reads like something you’d see in a code review, or a message to Copilot Chat. It feels like code, right? Specific. Actionable. Professional.
-                        <br/><br/>
-                      
-                        But the moment you look more closely, you realize how much of it is left to interpretation — not just for an AI model, but even for experienced developers.
-                        <br/><br/>
-                      
+                        We just talked about how prompting lacks strict syntax or formal rules. This next example makes
+                        that gap even more tangible.
+                        <br /><br />
+
+
+                        This is one of my favorite kinds of prompt — it looks so precise. It reads like something you’d
+                        see in a code review, or a message to Copilot Chat. It feels like code, right? Specific.
+                        Actionable. Professional.
+                        <br /><br />
+
+
+                        But the moment you look more closely, you realize how much of it is left to interpretation — not
+                        just for an AI model, but even for experienced developers.
+                        <br /><br />
+
+
                         Take each phrase in the prompt — what seems like a clear instruction quickly becomes debatable:
-                        <br/><br/>
-                      
-                        <strong>“Readability”</strong> — for whom? Should I favor LINQ or traditional loops? Should I use <code>var</code> or explicit types?  
-                        <strong>“Performance”</strong> — are we optimizing for CPU, memory, allocations, or async throughput?  
-                        <strong>“Without altering behavior”</strong> — including side effects? Timing? Threading implications?  
-                        <strong>“Modern C#”</strong> — which version? 8? 10? Are we allowed to use preview features from 12?  
-                        <strong>“Async best practices”</strong> — does that mean using <code>ConfigureAwait</code>, cancellation tokens, <code>ValueTask</code>?  
+                        <br /><br />
+
+
+                        <strong>“Readability”</strong> — for whom? Should I favor LINQ or traditional loops? Should I
+                        use <code>var</code> or explicit types?
+                        <strong>“Performance”</strong> — are we optimizing for CPU, memory, allocations, or async
+                        throughput?
+                        <strong>“Without altering behavior”</strong> — including side effects? Timing? Threading
+                        implications?
+                        <strong>“Modern C#”</strong> — which version? 8? 10? Are we allowed to use preview features from
+                        12?
+                        <strong>“Async best practices”</strong> — does that mean using <code>ConfigureAwait</code>,
+                        cancellation tokens, <code>ValueTask</code>?
                         <strong>“Exception handling”</strong> — do we wrap, bubble, log, rethrow, or fail fast?
-                        <br/><br/>
-                      
-                        The syntax of this prompt looks clean — but the semantics are squishy. And that’s the point. When precision matters, this kind of ambiguity is exactly what separates prompting from programming.
-                      </aside>
-                </section>
-                <section>
-                    <h2>Missing Typical Constructs</h2>
-                    <div style="font-size: 0.8em; border: 1px solid #666; padding: 1em; border-radius: 8px; background: #2b2b2b; color: #f1f1f1;">
-                        You can’t build skyscrapers out of sticky notes
-                    </div>
+                        <br /><br />
 
-                    <ul style="margin-top: 1em;font-size: 0.55em;">
-                            <li>❌ <strong>No functions:</strong> Can’t extract logic into reusable named steps</li>
-                            <li>❌ <strong>No reusable variables:</strong> Can’t store intermediate results and reference them later like code</li>
-                            <li>❌ <strong>No control flow:</strong> Can’t chain or conditionally apply prompts</li>
-                          </ul>
-                    
-                      <p class="fragment" style="margin-top: 1.5em;">
-                        
-                      </p>
-                      <aside class="notes">
-                        So we’ve seen how even a carefully worded prompt can fall apart under scrutiny — and this next point shows just how deeply that limitation goes.
-                        <br/><br/>
-                      
-                        Programming languages give us powerful constructs: functions, variables, conditionals. These aren’t just nice to have — they’re what let us build complex, reliable systems by composing smaller pieces of logic.
-                        <br/><br/>
-                      
-                        But in prompt engineering, that composability is missing. You can’t extract a reusable piece of logic and apply it elsewhere. There’s no way to define a named function, pass in arguments, or return structured values.
-                        <br/><br/>
-                      
-                        You also can’t store and reuse intermediate results — there's no state, no scope. The model might "remember" what you just said, or it might reinterpret it based on new context.
-                        <br/><br/>
-                      
-                        And control flow? There’s no “if this, then that.” You can’t chain behavior or introduce logic. Every prompt is a new guess — not a continuation of a deterministic process.
-                        <br/><br/>
-                      
-                        That’s what the sticky note metaphor is about. Each prompt feels self-contained, disconnected. You can write a brilliant one — but you can’t build on it. And without modularity, there’s no real foundation for building scalable systems.
-                      </aside>
-                      
-                </section>
 
-                <section>
-                    <h2>Unpredictability</h2>
-                    <ul>
-                        <li>Outputs can vary from run to run</li>
-                        <li>Hard to guarantee deterministic behavior</li>
-                        <li>Relies on model’s training data and random sampling</li>
-                    </ul>
-                    <aside class="notes">
-                        <p>The point is that we can't rely on predictable results. Without determinism, it’s tough to have the same confidence we have in compiled code or well-defined interpretive languages. The language model might guess differently next time!</p>
+                        The syntax of this prompt looks clean — but the semantics are squishy. And that’s the point.
+                        When precision matters, this kind of ambiguity is exactly what separates prompting from
+                        programming.
                     </aside>
                 </section>
                 <section>
-                    <h2>Unpredictability</h2>
-                    <p>Even basic programming prompts yield inconsistent code:</p>
+                    <div class="r-vstack r-stretch">
+                        <h2>Missing Typical Constructs</h2>
+                        <div
+                            style="font-size: 0.8em; border: 1px solid #666; padding: 1em; border-radius: 8px; background: #2b2b2b; color: #f1f1f1;">
+                            You can’t build skyscrapers out of sticky notes
+                        </div>
 
-                    <div style="font-size: 0.85em; border-left: 3px solid #888; padding-left: 1em;">
-                        <strong>Prompt:</strong> <code>Write a C# method that validates an email address.</code>
+                        <ul style="margin-top: 1em;font-size: 0.55em;">
+                            <li>❌ <strong>No functions:</strong> Can’t extract logic into reusable named steps</li>
+                            <li>❌ <strong>No reusable variables:</strong> Can’t store intermediate results and reference
+                                them later like code</li>
+                            <li>❌ <strong>No control flow:</strong> Can’t chain or conditionally apply prompts</li>
+                        </ul>
+
+                        <p class="fragment" style="margin-top: 1.5em;">
+
+                        </p>
                     </div>
+                    <aside class="notes">
+                        So we’ve seen how even a carefully worded prompt can fall apart under scrutiny — and this next
+                        point shows just how deeply that limitation goes.
+                        <br /><br />
 
-                    <ul style="margin-top: 1em; font-size: 0.65em">
-                        <li class="fragment"> Regex-based — good, but brittle</li>
-                        <li class="fragment"> MailAddress try-catch System.Net.Mail.MailAddress — legit, but overkill?</li>
-                        <li class="fragment"> Naive check — <code>Contains("@")</code> and <code>"."</code> 😬</li>
-                        <li class="fragment">Style and error handling vary every time</li>
-                    </ul>
 
-                    <p class="fragment" style="margin-top: 1.5em;"><strong>Same input. Different code. No guarantees.</strong></p>
+                        Programming languages give us powerful constructs: functions, variables, conditionals. These
+                        aren’t just nice to have — they’re what let us build complex, reliable systems by composing
+                        smaller pieces of logic.
+                        <br /><br />
 
+
+                        But in prompt engineering, that composability is missing. You can’t extract a reusable piece of
+                        logic and apply it elsewhere. There’s no way to define a named function, pass in arguments, or
+                        return structured values.
+                        <br /><br />
+
+
+                        You also can’t store and reuse intermediate results — there's no state, no scope. The model
+                        might "remember" what you just said, or it might reinterpret it based on new context.
+                        <br /><br />
+
+
+                        And control flow? There’s no “if this, then that.” You can’t chain behavior or introduce logic.
+                        Every prompt is a new guess — not a continuation of a deterministic process.
+                        <br /><br />
+
+
+                        That’s what the sticky note metaphor is about. Each prompt feels self-contained, disconnected.
+                        You can write a brilliant one — but you can’t build on it. And without modularity, there’s no
+                        real foundation for building scalable systems.
+                    </aside>
+
+
+                </section>
+
+                <section>
+                    <div class="r-vstack r-stretch">
+                        <h2>Unpredictability</h2>
+                        <ul>
+                            <li>Outputs can vary from run to run</li>
+                            <li>Hard to guarantee deterministic behavior</li>
+                            <li>Relies on model’s training data and random sampling</li>
+                        </ul>
+                    </div>
+                    <aside class="notes">
+                        <p>The point is that we can't rely on predictable results. Without determinism, it’s tough to
+                            have the same confidence we have in compiled code or well-defined interpretive languages.
+                            The language model might guess differently next time!</p>
+                    </aside>
+                </section>
+                <section>
+                    <div class="r-vstack r-stretch">
+
+                        <p>Even basic programming prompts yield inconsistent code:</p>
+
+                        <div style="font-size: 0.85em; border-left: 3px solid #888; padding-left: 1em;">
+                            <strong>Prompt:</strong> <code>Write a C# method that validates an email address.</code>
+                        </div>
+
+                        <ul style="margin-top: 1em; font-size: 0.65em">
+                            <li class="fragment"> Regex-based — good, but brittle</li>
+                            <li class="fragment"> MailAddress try-catch System.Net.Mail.MailAddress — legit, but
+                                overkill?</li>
+                            <li class="fragment"> Naive check — <code>Contains("@")</code> and <code>"."</code> 😬</li>
+                            <li class="fragment">Style and error handling vary every time</li>
+                        </ul>
+
+                        <p class="fragment" style="margin-top: 1.5em;"><strong>Same input. Different code. No
+                                guarantees.</strong></p>
+                    </div>
                     <aside class="notes">
                         In programming, determinism is essential — you want the same code from the same instruction.
-                        <br/><br/>
+                        <br /><br />
                         But when prompting an LLM, you get variation — sometimes subtle, sometimes critical.
-                        <br/><br/>
-                        It might choose regex, or the MailAddress class, or just check for "@" — you have no way to control the approach unless you spell out every detail.
-                        <br/><br/>
-                        That’s not programming. That’s guessing. That’s not a language. That’s an interface to a probability engine.
+                        <br /><br />
+                        It might choose regex, or the MailAddress class, or just check for "@" — you have no way to
+                        control the approach unless you spell out every detail.
+                        <br /><br />
+                        That’s not programming. That’s guessing. That’s not a language. That’s an interface to a
+                        probability engine.
 
-                        <p>The point is that we can't rely on predictable results. Without determinism, it’s tough to have the same confidence we have in compiled code or well-defined interpretive languages. The language model might guess differently next time!</p>
+                        <p>The point is that we can't rely on predictable results. Without determinism, it’s tough to
+                            have the same confidence we have in compiled code or well-defined interpretive languages.
+                            The language model might guess differently next time!</p>
                     </aside>
                 </section>
             </section>
@@ -683,7 +812,8 @@
                     <div class="r-vstack r-stretch">
                         <h2>#1 Specialized knowledge</h2>
                         <h3>Tuning parameters</h3>
-                        <p><span style="color: aqua;">Sampling options</span> and <span style="color: aqua;">Temperature</span></p>
+                        <p><span style="color: aqua;">Sampling options</span> and <span
+                                style="color: aqua;">Temperature</span></p>
                         <p>Demo: Effects of prompt parameters (e.g., temperature)</p>
                     </div>
                 </section>
@@ -698,10 +828,12 @@
                     <div class="r-vstack r-stretch">
                         <img src="assets/img/promptingtechniques.png" style="width: 90%; margin: auto;">
                         <div style="display: flex; justify-content: space-between; margin-top: 10px;">
-                            <div class="definition-box" style="flex: 1; margin-right: 10px; text-align: center; color: #ffcc00;">
+                            <div class="definition-box"
+                                style="flex: 1; margin-right: 10px; text-align: center; color: #ffcc00;">
                                 <p>1565 papers</p>
                             </div>
-                            <div class="definition-box" style="flex: 1; margin-left: 10px; text-align: center; color: #ffcc00;">
+                            <div class="definition-box"
+                                style="flex: 1; margin-left: 10px; text-align: center; color: #ffcc00;">
                                 <p>~100 prompting techniques</p>
                             </div>
                         </div>
@@ -709,8 +841,8 @@
                 </section>
                 <section>
                     <div class="r-vstack r-stretch">
-                        <h2>#3 Evolution!</h2>                        
-                        <p>How we interact with these models evolves!</p>                        
+                        <h2>#3 Evolution!</h2>
+                        <p>How we interact with these models evolves!</p>
                         <div class="small">
                             <ul>
                                 <li>
@@ -726,139 +858,173 @@
                         </div>
                     </div>
                 </section>
-                <section>
-                    <div class="r-vstack r-stretch">
-                        <h2>Knowledge and Expertise</h2>
-                        <p>Mastering prompt engineering requires specialized knowledge and skills, just as mastering a
-                            programming language.</p>
-                        <p>It requires understanding of AI behavior, crafting precise instructions and continous
-                            learning about the ecosystem.</p>
-                    </div>
-                </section>
+
             </section>
 
             <!-- Grouped Slides: Knowledge and Expertise (Against) -->
             <section>
                 <section>
-                    <h2>Knowledge and Expertise</h2>
-                    <h3>Against the Motion</h3>
-                    <ul>
-                        <li>Natural language lowers the barrier to entry</li>
-                        <li>Lacks the complexity of traditional programming</li>
-                        <li>Relies heavily on communication skills</li>
-                    </ul>
+                    <div class="r-vstack r-stretch">
+                        <h2>Knowledge and Expertise</h2>
+                        <h3>Against the Motion</h3>
+                        <ul>
+                            <li>Natural language lowers the barrier to entry</li>
+                            <li>Lacks the complexity of traditional programming</li>
+                            <li>Relies heavily on communication skills</li>
+                        </ul>
+                    </div>
                     <aside class="notes">
-                        This is one of the most fundamental differences between prompt engineering and traditional programming.
-                        <br/><br/>
-                        Programming requires deep understanding of algorithms, data structures, runtime behavior, error handling — it’s logic-first, system-first.
-                        <br/><br/>
-                        Prompt engineering? It’s closer to crafting a sentence than defining a system. It requires empathy, tone, and clarity — not compilation and control flow.
-                        <br/><br/>
-                        There's no strict syntax, no type system, no tooling for step-through debugging. Even experts are operating in a space of uncertainty and interpretation.
-                        <br/><br/>
-                        So while you can *get better* at prompting, you don't need — or even use — the skillset that defines formal programming.
-                      </aside>
+                        This is one of the most fundamental differences between prompt engineering and traditional
+                        programming.
+                        <br /><br />
+                        Programming requires deep understanding of algorithms, data structures, runtime behavior, error
+                        handling — it’s logic-first, system-first.
+                        <br /><br />
+                        Prompt engineering? It’s closer to crafting a sentence than defining a system. It requires
+                        empathy, tone, and clarity — not compilation and control flow.
+                        <br /><br />
+                        There's no strict syntax, no type system, no tooling for step-through debugging. Even experts
+                        are operating in a space of uncertainty and interpretation.
+                        <br /><br />
+                        So while you can *get better* at prompting, you don't need — or even use — the skillset that
+                        defines formal programming.
+                    </aside>
                 </section>
 
                 <section>
-                    <h2>Fewer Prerequisites</h2>
-                    <div style="font-size: 0.8em; border: 1px solid #666; padding: 1em; border-radius: 8px; background: #2b2b2b; color: #f1f1f1;">
-                    Prompting isn’t writing logic. It’s making suggestions to a genie and hoping it understands your tone.
+                    <div class="r-vstack r-stretch">
+                        <h2>Fewer Prerequisites</h2>
+                        <div
+                            style="font-size: 0.8em; border: 1px solid #666; padding: 1em; border-radius: 8px; background: #2b2b2b; color: #f1f1f1;">
+                            Prompting isn’t writing logic. It’s making suggestions to a genie and hoping it understands
+                            your tone.
+                        </div>
+                        <ul style="font-size: 0.65em; margin-top: 1.5em;">
+                            <li>🧠 <strong>No need for algorithms or data structures</strong> — You don’t implement
+                                mergesort to write a good prompt.</li>
+                            <li>💬 <strong>Clarity beats cleverness</strong> — It’s more about expressing intent than
+                                optimizing logic.</li>
+                            <li>🎯 <strong>You ask questions, not define behavior</strong> — It’s persuasion, not
+                                precision.</li>
+                        </ul>
                     </div>
-                        <ul style="font-size: 0.65em; margin-top: 1.5em;">
-                          <li>🧠 <strong>No need for algorithms or data structures</strong> — You don’t implement mergesort to write a good prompt.</li>
-                          <li>💬 <strong>Clarity beats cleverness</strong> — It’s more about expressing intent than optimizing logic.</li>
-                          <li>🎯 <strong>You ask questions, not define behavior</strong> — It’s persuasion, not precision.</li>
-                        </ul>
-                      
-                        <aside class="notes">
-                          This is where prompt engineering really shows its colors.
-                          <br/><br/>
-                          You don’t need to know how memory works, or how to optimize a loop. You just need to describe your goal well — like explaining it to a smart but unpredictable intern.
-                          <br/><br/>
-                          That’s why prompting leans on communication skills, not technical depth. The model doesn’t need strict syntax — it needs clarity, tone, framing.
-                          <br/><br/>
-                          It’s not about building algorithms — it’s about nudging a black box in the right direction.
-                        </aside>
-                      </section>
-                      <section>
-                        <h2>Understanding ≠ Programming the Model</h2>
-                      
-                        <ul style="font-size: 0.65em; margin-top: 1.5em;">
-                          <li>📘 Understanding how LLMs work helps — but it’s not programming them</li>
-                          <li>🎛️ Prompting is about influencing output, not controlling execution</li>
-                          <li>🧠 Model behavior is statistical, not deterministic — you don’t write code, you shape probability</li>
-                        </ul>
-                      
-                        <p class="fragment" style="margin-top: 1.5em;">
-                          <strong>Knowing how a language model works doesn’t mean you’re writing in a language.</strong>
-                        </p>
-                      
-                        <aside class="notes">
-                          One of the common arguments for the motion is that “prompt engineering requires deep understanding of how LLMs work.”
-                          <br/><br/>
-                          And sure — knowing about transformers, tokenization, or sampling strategies can help you write better prompts. But that doesn’t mean you’re programming the model.
-                          <br/><br/>
-                          Programming means defining behavior. It means writing instructions that are executed in a controlled, repeatable way.
-                          <br/><br/>
-                          Prompting doesn’t give you that. You’re not programming — you’re influencing. You’re steering a black box that generates text based on probability, not logic flow.
-                          <br/><br/>
-                          So yes, understanding the model matters. But that’s like saying “understanding a microwave makes you an electrical engineer.” It helps — but it’s not the same thing.
-                        </aside>
-                      </section>
-                      <section>
-                        <h2>Tuning Parameters</h2>
-                      
-                        <ul style="font-size: 0.65em; margin-top: 1.5em;">
-                          <li>🎛️ Temperature doesn’t define logic — it shapes personality</li>
-                          <li>🎲 Same prompt, different mood — no consistent behavior</li>
-                          <li>🧱 Programming means control — this is suggestion + luck</li>
-                        </ul>
-
-                      
-                        <aside class="notes">
-                            Let’s look at what happens when we run the exact same prompt — something simple and well-defined: "Write a function that returns the nth Fibonacci number."
-                            <br/><br/>
-                            At temperature 0, we get a clean, iterative implementation. It's minimal, predictable, and exactly what most developers would expect.
-                            <br/><br/>
-                            But at temperature 1? The model might go recursive, add commentary, memoization, or even switch languages entirely. One version might use LINQ. Another might give you an object-oriented class.
-                            <br/><br/>
-                            This is the point. You can tweak the model’s behavior, but you're not writing deterministic logic — you're steering a probability engine.
-                            <br/><br/>
-                            Programming gives you guarantees. Prompting gives you options, interpretations, and occasionally surprises.
-                          </aside>
-                      </section>
-                      <section>
-                        <h2>Tuning Parameters</h2>
-                      
-                        <div style="margin-top: 2em; font-size: 0.65em; border-left: 3px solid #888; padding-left: 1em;">
-                            <strong>Prompt:</strong><br/>
-                            <code>Write a function that returns the nth Fibonacci number.</code>
-                          </div>
-                        
-                          <ul style="margin-top: 1em; font-size: 0.55em;">
-                                <li class="fragment">🧊 <strong>Temp 0.0:</strong> Iterative function, clean, minimal, accurate</li>
-                                <li class="fragment">🔥 <strong>Temp 1.0:</strong> Recursive version, maybe with comments, or “for fun” in Python instead of C#</li>
-                              </ul>
-                        
-                          <p class="fragment" style="margin-top: 1.5em;font-size: 0.55em;">
-                            <strong>You’re managing creative entropy.</strong>
-                          </p>
-
-                      
-                          <aside class="notes">
-                            Let’s look at what happens when we run the exact same prompt — something simple and well-defined: "Write a function that returns the nth Fibonacci number."
-                            <br/><br/>
-                            At temperature 0, we get a clean, iterative implementation. It's minimal, predictable, and exactly what most developers would expect.
-                            <br/><br/>
-                            But at temperature 1? The model might go recursive, add commentary, memoization, or even switch languages entirely. One version might use LINQ. Another might give you an object-oriented class.
-                            <br/><br/>
-                            This is the point. You can tweak the model’s behavior, but you're not writing deterministic logic — you're steering a probability engine.
-                            <br/><br/>
-                            Programming gives you guarantees. Prompting gives you options, interpretations, and occasionally surprises.
-                          </aside>
-                      </section>
+                    <aside class="notes">
+                        This is where prompt engineering really shows its colors.
+                        <br /><br />
+                        You don’t need to know how memory works, or how to optimize a loop. You just need to describe
+                        your goal well — like explaining it to a smart but unpredictable intern.
+                        <br /><br />
+                        That’s why prompting leans on communication skills, not technical depth. The model doesn’t need
+                        strict syntax — it needs clarity, tone, framing.
+                        <br /><br />
+                        It’s not about building algorithms — it’s about nudging a black box in the right direction.
+                    </aside>
                 </section>
+                <section>
+                    <div class="r-vstack r-stretch">
+                        <h3>Understanding ≠ Programming the Model</h3>
+
+
+                        <ul style="font-size: 0.65em; margin-top: 1.5em;">
+                            <li>📘 Understanding how LLMs work helps — but it’s not programming them</li>
+                            <li>🎛️ Prompting is about influencing output, not controlling execution</li>
+                            <li>🧠 Model behavior is statistical, not deterministic — you don’t write code, you shape
+                                probability</li>
+                        </ul>
+
+
+                        <p class="fragment" style="margin-top: 1.5em;">
+                            <strong>Knowing how a language model works doesn’t mean you’re writing in a
+                                language.</strong>
+                        </p>
+                    </div>
+                    <aside class="notes">
+                        One of the common arguments for the motion is that “prompt engineering requires deep
+                        understanding of how LLMs work.”
+                        <br /><br />
+                        And sure — knowing about transformers, tokenization, or sampling strategies can help you write
+                        better prompts. But that doesn’t mean you’re programming the model.
+                        <br /><br />
+                        Programming means defining behavior. It means writing instructions that are executed in a
+                        controlled, repeatable way.
+                        <br /><br />
+                        Prompting doesn’t give you that. You’re not programming — you’re influencing. You’re steering a
+                        black box that generates text based on probability, not logic flow.
+                        <br /><br />
+                        So yes, understanding the model matters. But that’s like saying “understanding a microwave makes
+                        you an electrical engineer.” It helps — but it’s not the same thing.
+                    </aside>
+                </section>
+                <section>
+                    <div class="r-vstack r-stretch">
+                        <h2>Tuning Parameters</h2>
+
+
+                        <ul style="font-size: 0.65em; margin-top: 1.5em;">
+                            <li>🎛️ Temperature doesn’t define logic — it shapes personality</li>
+                            <li>🎲 Same prompt, different mood — no consistent behavior</li>
+                            <li>🧱 Programming means control — this is suggestion + luck</li>
+                        </ul>
+
+                    </div>
+                    <aside class="notes">
+                        Let’s look at what happens when we run the exact same prompt — something simple and
+                        well-defined: "Write a function that returns the nth Fibonacci number."
+                        <br /><br />
+                        At temperature 0, we get a clean, iterative implementation. It's minimal, predictable, and
+                        exactly what most developers would expect.
+                        <br /><br />
+                        But at temperature 1? The model might go recursive, add commentary, memoization, or even switch
+                        languages entirely. One version might use LINQ. Another might give you an object-oriented class.
+                        <br /><br />
+                        This is the point. You can tweak the model’s behavior, but you're not writing deterministic
+                        logic — you're steering a probability engine.
+                        <br /><br />
+                        Programming gives you guarantees. Prompting gives you options, interpretations, and occasionally
+                        surprises.
+                    </aside>
+                </section>
+                <section>
+                    <div class="r-vstack r-stretch">
+                        <h2>Tuning Parameters</h2>
+
+
+                        <div
+                            style="margin-top: 2em; font-size: 0.65em; border-left: 3px solid #888; padding-left: 1em;">
+                            <strong>Prompt:</strong><br />
+                            <code>Write a function that returns the nth Fibonacci number.</code>
+                        </div>
+
+                        <ul style="margin-top: 1em; font-size: 0.55em;">
+                            <li class="fragment">🧊 <strong>Temp 0.0:</strong> Iterative function, clean, minimal,
+                                accurate</li>
+                            <li class="fragment">🔥 <strong>Temp 1.0:</strong> Recursive version, maybe with comments,
+                                or “for fun” in Python instead of C#</li>
+                        </ul>
+
+                        <p class="fragment" style="margin-top: 1.5em;font-size: 0.55em;">
+                            <strong>You’re managing creative entropy.</strong>
+                        </p>
+
+                    </div>
+                    <aside class="notes">
+                        Let’s look at what happens when we run the exact same prompt — something simple and
+                        well-defined: "Write a function that returns the nth Fibonacci number."
+                        <br /><br />
+                        At temperature 0, we get a clean, iterative implementation. It's minimal, predictable, and
+                        exactly what most developers would expect.
+                        <br /><br />
+                        But at temperature 1? The model might go recursive, add commentary, memoization, or even switch
+                        languages entirely. One version might use LINQ. Another might give you an object-oriented class.
+                        <br /><br />
+                        This is the point. You can tweak the model’s behavior, but you're not writing deterministic
+                        logic — you're steering a probability engine.
+                        <br /><br />
+                        Programming gives you guarantees. Prompting gives you options, interpretations, and occasionally
+                        surprises.
+                    </aside>
+                </section>
+            </section>
             </section>
 
             <!-- Grouped Slides: Impact and Longevity (For) -->
@@ -872,7 +1038,7 @@
                             <li>Or just a fleeting trend???</li>
                         </ul>
                     </div>
-                </section>                
+                </section>
                 <section>
                     <div class="r-vstack r-stretch">
                         <h3>Explosion of A.I. centered dev tooling</h3>
@@ -910,6 +1076,22 @@
                         </div>
                     </div>
                 </section>
+
+                <section>
+                    <div class="r-vstack r-stretch">
+                        <h3>Example: Windsurf editor</h3>
+                        <img src="assets/img/assistants/windsurf_lg.png" alt="Windsurf"
+                            style="width: 400px; margin: 20px auto; display: block;">
+                        <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+                            <button data-preview-video="assets/video/windsurf1.mp4"
+                                style="padding: 10px 20px; background: #ffcc00; border: none; border-radius: 5px; cursor: pointer;">Video:
+                                giving context...</button>
+                            <button data-preview-video="assets/video/windsurf2.mp4"
+                                style="padding: 10px 20px; background: #ffcc00; border: none; border-radius: 5px; cursor: pointer;">Video:
+                                A.I. coding</button>
+                        </div>
+                    </div>
+                </section>
                 <section>
                     <div class="r-vstack r-stretch">
                         <h3>The future of programming?</h3>
@@ -919,74 +1101,52 @@
                 </section>
                 <section>
                     <div class="r-vstack r-stretch">
-                    <h2>Example: Windsurf editor</h2>
-                    <img src="assets/img/assistants/windsurf_lg.png" alt="Windsurf" style="width: 400px; margin: 20px auto; display: block;">
-                    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
-                        <button data-preview-video="assets/video/windsurf1.mp4" style="padding: 10px 20px; background: #ffcc00; border: none; border-radius: 5px; cursor: pointer;">Video: giving context...</button>
-                        <button data-preview-video="assets/video/windsurf2.mp4" style="padding: 10px 20px; background: #ffcc00; border: none; border-radius: 5px; cursor: pointer;">Video: A.I. coding</button>
-                    </div>
-                </div>
-                </section>
-                <section >
-                    <div class="r-vstack r-stretch">                        
                         <h3>More powerful, and more capable Every Day.</h3>
                         <ul>
                             <li>MCP - Model Context Protocol</li>
                             <li>A2A - Agent to Agent protocol TODO</li>
                         </ul>
-                        <p class="small" style="text-align: right; margin-top: 10px;">Source: <a href="https://www.newsletter.swirlai.com/p/mcp-vs-a2a-friends-or-foes/">MCP vs. A2A: Friends or Foes?. (2025)</a></p>
+                        <p class="small" style="text-align: right; margin-top: 10px;">Source: <a
+                                href="https://www.newsletter.swirlai.com/p/mcp-vs-a2a-friends-or-foes/">MCP vs. A2A:
+                                Friends or Foes?. (2025)</a></p>
                     </div>
                 </section>
-                <section>
-                    <div class="r-vstack r-stretch">
-                        <h2>Evolution</h2>
-                        <img src="assets/drawio/evolution.drawio.svg" alt="Evolution"
-                            style="width: 90%; margin: 20px auto;">
-                        <div
-                            style="background-color: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                            <p style="font-style: italic; font-size: 0.6em;">"As we stand at the precipice of this AI
-                                revolution in software engineering, our role is not to predict a definitive future, but
-                                to illuminate the range of possibilities and their implications."</p>
-                            <p style="text-align: right; margin-top: 10px;font-size: 0.6em">— Vernon Keenan</p>
-                        </div>
-                        <p class="small" style="text-align: right;">Source: <a
-                                href="https://salesforcedevops.net/index.php/2024/07/01/the-evolution-of-ai-in-software-engineering/"
-                                style="color: #ffcc00;">The Evolution of AI in Software Engineering</a></p>
-                    </div>
-                </section>
-                <section>
-                    <div class="r-vstack r-stretch">
-                        <h2>Impact and Longevity - For the Motion</h2>
-                        <p>Prompt engineering will have a lasting impact and evolve similarly to programming languages.
-                            As AI becomes integral across industries, it will become an indispensable skill.</p>
-                    </div>
-                </section>
+
             </section>
 
             <!-- Grouped Slides: Impact and Longevity (Against) -->
             <section>
                 <section>
-                    <h2>Impact and Longevity</h2>
-                    <h3>Against the Motion</h3>
-                    <ul>
-                        <li>Trends, not transformation</li>
-                        <li>Prompt engineering may become obsolete</li>
-                        <li>Programming remains essential for specificity</li>
-                    </ul>
+                    <div class="r-vstack r-stretch">
+                        <h2>Impact and Longevity</h2>
+                        <h3>Against the Motion</h3>
+                        <ul>
+                            <li>Trends, not transformation</li>
+                            <li>Prompt engineering may become obsolete</li>
+                            <li>Programming remains essential for specificity</li>
+                        </ul>
+                    </div>
                     <aside class="notes">
-                        <p>According to Hien, prompt engineering currently lacks many standard programming constructs. Detractors believe that future AI systems could handle queries more naturally, making specialized prompting less relevant. Hence, it might not become a formal language but rather an ephemeral skill.</p>
+                        <p>According to Hien, prompt engineering currently lacks many standard programming constructs.
+                            Detractors believe that future AI systems could handle queries more naturally, making
+                            specialized prompting less relevant. Hence, it might not become a formal language but rather
+                            an ephemeral skill.</p>
                     </aside>
                 </section>
 
                 <section>
-                    <h2>Unclear Future</h2>
-                    <ul>
-                        <li>LLMs might eventually interpret vague prompts effectively</li>
-                        <li>Could reduce the need for specialized prompt design</li>
-                        <li>Industry might pivot to new AI paradigms altogether</li>
-                    </ul>
+                    <div class="r-vstack r-stretch">
+                        <h2>Unclear Future</h2>
+                        <ul>
+                            <li>LLMs might eventually interpret vague prompts effectively</li>
+                            <li>Could reduce the need for specialized prompt design</li>
+                            <li>Industry might pivot to new AI paradigms altogether</li>
+                        </ul>
+                    </div>
                     <aside class="notes">
-                        <p>Hien highlighted that as AI grows more powerful, prompt engineering might not need to become a formal language. Instead, the AI could do heavy lifting, meaning our role is less about “engineering” the prompt and more about simple instructions or conversation.</p>
+                        <p>Hien highlighted that as AI grows more powerful, prompt engineering might not need to become
+                            a formal language. Instead, the AI could do heavy lifting, meaning our role is less about
+                            “engineering” the prompt and more about simple instructions or conversation.</p>
                     </aside>
                 </section>
             </section>
@@ -995,20 +1155,17 @@
 
             <!-- Main Closing Arguments Slide -->
             <section>
+                <div class="r-vstack r-stretch"></div>
                 <h2>Closing Arguments</h2>
                 <div style="display: flex; justify-content: space-around; align-items: center;">
-                    <div style="text-align: center;">
-                        <h3>For</h3>
-                        <p>↓</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <h3>Against</h3>
-                        <p>↓</p>
-                    </div>
+                    <img src="assets/img/closing.png" alt="code" style="border-radius: 10px;">
                 </div>
-                <aside class="notes">
-                    <p>Hien’s conclusion was that prompt engineering is not yet a programming language in the traditional sense, but it’s definitely an emerging paradigm. Think about whether the arguments you’ve heard sway you toward a future formal “prompt language” or remain unconvinced.</p>
-                </aside>
+            </section>
+            <aside class="notes">
+                <p>Hien’s conclusion was that prompt engineering is not yet a programming language in the
+                    traditional sense, but it’s definitely an emerging paradigm. Think about whether the arguments
+                    you’ve heard sway you toward a future formal “prompt language” or remain unconvinced.</p>
+            </aside>
             </section>
             <section>
                 <!-- For the Motion - Vertical Slides -->
@@ -1018,7 +1175,7 @@
                         <h3>For the Motion</h3>
                         <ul>
                             <li>Prompt engineering is evolving into a structured discipline</li>
-                            <li>Clear patterns and best practices are emerging</li>
+                            <li>Clear patterns and best practices are emerging</li>                            
                             <li>Growing ecosystem of tools and frameworks</li>
                         </ul>
                     </div>
@@ -1026,13 +1183,11 @@
 
                 <section>
                     <div class="r-vstack r-stretch">
-                        <h2>Key Evidence For</h2>
-                        <ul>
-                            <li>Standardization of prompt patterns</li>
-                            <li>Integration into development workflows</li>
-                            <li>Rising demand in industry</li>
-                            <li>Academic research and formal methods</li>
-                        </ul>
+                        <h2>Vote for the Future!</h2>
+
+                        <p>Vote for the next paradigm shift in human computer interaction!</p>
+
+
                     </div>
                 </section>
             </section>
@@ -1043,19 +1198,10 @@
                         <h2>Closing Arguments</h2>
                         <h3>Against the Motion</h3>
                         <ul>
-                            <li>Lacks formal specification</li>
-                            <li>Dependent on model implementation</li>
-                            <li>Natural language ambiguity</li>
+                            <li>Prompt engineering is not a programming language</li>
+                            <li>It lacks formal syntax and semantics</li>
+                            <li>Highly dependent on the underlying AI model</li>
                         </ul>
-                        <aside class="notes">
-                            Let’s close by coming back to the core reasons prompt engineering doesn’t meet the definition of a programming language.
-                            <br/><br/>
-                            First, it lacks a formal specification. Programming languages are defined by strict syntax and behavior — through grammars, type systems, and execution models. Prompting has none of that. There’s no agreed-upon structure, no guaranteed behavior, and no enforcement.
-                            <br/><br/>
-                            Second, prompts are entirely dependent on model implementation. In programming, code compiles the same way on every standards-compliant compiler. But a prompt that works well in GPT-4 might fall apart in Claude or Gemini. It’s not a language — it’s a conversation tuned to a specific listener.
-                            <br/><br/>
-                            And finally, natural language itself is ambiguous. That’s a feature when we talk to people — but a serious limitation when trying to control a system. We’ve seen that even well-phrased prompts can be misunderstood, reinterpreted, or produce subtly different results each time.
-                          </aside>
                     </div>
                 </section>
 
@@ -1068,46 +1214,36 @@
                             <li>Rapid changes in best practices</li>
                             <li>Limited debugging capabilities</li>
                         </ul>
-                        <aside class="notes">
-                            So while the case for the motion paints a hopeful picture, these points are why we need to be careful before calling prompt engineering a programming language.
-                            <br/><br/>
-                            First — the inconsistency. A true programming language executes predictably across environments. Prompts, on the other hand, can vary wildly depending on the model or provider — and even across runs.
-                            <br/><br/>
-                            There’s no compiler. No way to formally validate a prompt before “running” it. We can’t catch errors, only observe undesired behavior after the fact.
-                            <br/><br/>
-                            Best practices in prompting change rapidly — not because we’re refining a language specification, but because we’re trying to reverse-engineer what works.
-                            <br/><br/>
-                            And lastly — debugging. In code, we isolate the issue, step through logic, and fix it with confidence. In prompting, we revise, rephrase, and hope it works better next time.
-                            <br/><br/>
-                            These aren’t just quirks — they’re fundamental differences. They show that while prompt engineering is a valuable skill, it doesn’t yet meet the bar of a true programming language.
-                          </aside>
-                          
                     </div>
                 </section>
-              
             </section>
-             <!-- Final Vote -->
-             <section>
+            <!-- Final Vote -->
+            <section>
                 <h2>Time to Vote</h2>
                 <p>Has prompt engineering earned its place as the next programming language?</p>
                 <button
                     style="font-size: 1.2em; padding: 10px; background-color: #ffcc00; border: none; border-radius: 5px; margin: 20px;">Cast
                     Your Vote</button>
                 <aside class="notes">
-                    <p>Marco: Drawing from Hien’s final thoughts: it might not be a full-fledged language yet, but it’s definitely an emerging paradigm. Now, let’s see if you think the evolution will eventually cross into “language” territory or remain a specialized skill.</p>
+                    <p>Marco: Drawing from Hien’s final thoughts: it might not be a full-fledged language yet, but it’s
+                        definitely an emerging paradigm. Now, let’s see if you think the evolution will eventually cross
+                        into “language” territory or remain a specialized skill.</p>
                 </aside>
-            </section>       
+            </section>
 
             <!-- Final Slide: QR Code -->
             <section>
                 <div class="r-vstack r-stretch">
                     <h2>Check out the slides?</h2>
-                    <img src="assets/img/site-qr.svg" alt="QR Code to presentation" style="width: 300px; height: 300px; margin: 20px auto;">                    
-                    <p>Or on slack:  </p>
+                    <img src="assets/img/site-qr.svg" alt="QR Code to presentation"
+                        style="width: 300px; height: 300px; margin: 20px auto;">
+                    <p>Or on slack: </p>
                     <p><span style="color: aqua;">#topiconf-prompt-engineering</span> </p>
                 </div>
                 <aside class="notes">
-                    <p>Encourage the audience to reflect on Hien’s viewpoint: is the future “programming via intention,” or do we remain tethered to traditional programming structures? Ask for real-world experiences with prompting to see how the group feels.</p>
+                    <p>Encourage the audience to reflect on Hien’s viewpoint: is the future “programming via intention,”
+                        or do we remain tethered to traditional programming structures? Ask for real-world experiences
+                        with prompting to see how the group feels.</p>
                 </aside>
             </section>
 
@@ -1125,24 +1261,24 @@
                 fit: 'contain'
             }
         });
-        
+
         // Progress indicator functionality
         document.body.setAttribute('data-section', 'intro'); // Default to intro section
-        
+
         // Define slide index ranges for each section
         const sectionRanges = {
             intro: { start: 0, end: 4 },      // Slides 0-5: Introduction
             motion: { start: 5, end: 10 },      // Slides 6-7: The Motion
             syntax: { start: 11, end: 12 },      // Slides 8-9: Syntax and Structure sections
             knowledge: { start: 13, end: 14 },  // Slides 10-11: Knowledge and Skills sections
-            impact: { start: 14, end: 15 },     // Slides 12-13: Impact and Longevity sections
-            closing: { start: 14, end: 17 }     // Slides 14-17: Closing arguments and final vote
+            impact: { start: 14, end: 16 },     // Slides 12-13: Impact and Longevity sections
+            closing: { start: 17, end: 21 }     // Slides 14-17: Closing arguments and final vote
         };
-        
+
         // Update the progress indicator based on current slide
         Reveal.on('slidechanged', event => {
             const indexh = Reveal.getIndices().h;
-            
+
             // Determine which section the current slide belongs to
             for (const [section, range] of Object.entries(sectionRanges)) {
                 if (indexh >= range.start && indexh <= range.end) {
