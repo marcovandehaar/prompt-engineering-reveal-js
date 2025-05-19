@@ -231,7 +231,6 @@
                 </aside>
             </section>
 
-            <!-- New Slide: Credits -->
             <section>
                 <div class="background-image" style="background-image: url('assets/img/Hien1.jpg');">
                     <div class="r-vstack r-stretch">
@@ -285,7 +284,6 @@
 
             </section>
 
-            <!-- Slide 2: Introduction -->
             <section>
                 <h2>Introduction</h2>
                 <ul>
@@ -294,9 +292,19 @@
                 </ul>
                 <img src="assets/img/debate.png" alt="A debate!" style="border-radius: 10px; width: 80%;">
                 <aside class="notes">
-                    <p>Marco: We’ll be debating whether prompt engineering could be considered a genuine programming
-                        language. According to Hien, it’s “the art and science of designing inputs” for LLMs, but is
-                        that enough to qualify as programming?</p>
+                    <p>
+                        Marco:
+                    <ul>
+                        <li>So the goal is to explore whether prompt engineering could be considered a genuine
+                            programming language</li>
+                        <li>We’ll do this through an Oxford-style debate</li>
+                        <li>We don’t aim to prove right or wrong, but by doing this debate, we hope to get you to form
+                            your own opinion. </li>
+                        <li>get you inspired and motivated to do something with this.</li>
+                        <li>And we mean to inform. So At the end, I believe that most of the people here, will have
+                            learned something new about prompt engineering.</li>
+                    </ul>
+                    </p>
                 </aside>
             </section>
 
@@ -311,9 +319,18 @@
                     <h3 class="small">Winner: Team with largest shift in audience votes</h3>
                 </div>
                 <aside class="notes">
-                    <p>Marco: In Hien’s talk, he stressed that the question of whether prompt engineering is a “new
-                        programming language” is still open. Let’s replicate that questioning style here. Keep track of
-                        your stance before and after!</p>
+                    <p>Marco: So what is an oxford style debate?</p>
+                    <ul>
+                        <li>We'll start with a motion, which we'll explain to you first.</li>
+                        <li>Then we'll hold an initial vote, together with you guys. I'll explain more about this when
+                            we get there.</li>
+                        <li>After we voted, we'll start the discussion. there's be 2 sides: I will present arguments FOR
+                            the motion, Joris will present arguments AGAINST the motion.</li>
+                        <li>We'll close the discussion with passionate closing arguments, after which you can vote
+                            again!</li>
+                        <li>As I said, there is no right or wrong here, but the winner of the debate is the site with
+                            the largest shift in votes.</li>
+                    </ul>
                 </aside>
             </section>
 
@@ -323,9 +340,13 @@
                     <h3>Prompt engineering: A new programming language?</h3>
                 </div>
                 <aside class="notes">
-                    <p>Marco: This is the core question. Hien found that prompt engineering lacked formal syntax,
-                        deterministic outputs, and common programming constructs (like loops, conditionals) — but it’s
-                        also a new way of telling the computer what we want.</p>
+                    <p>
+                    <ul>
+                        <li>Is prompt engineering truly the next programming language, or is it just fancy wordsmithing
+                            for people who cannot write code?</li>
+                        <li>To explore that, we first need to define both concepts.</li>
+                    </ul>
+                    </p>
                 </aside>
             </section>
             <section>
@@ -337,7 +358,15 @@
                     </div>
                 </div>
                 <aside class="notes">
-                    <p>Marco: read up claude answer</p>
+                    <ul>
+                        <li>So, what is a programming language?</li>
+                        <li>Let's see what Claude thinks</li>
+                        <li>a formal system of instructions .... humans use to communicate with computers....with a
+                            defined syntax and semantics</li>
+                        <li>Pretty clear right</li>
+                    </ul>
+                </aside>
+
                 </aside>
             </section>
 
@@ -358,9 +387,15 @@
                     </div>
                 </div>
                 <aside class="notes">
-                    <p>Marco: Hien defines prompt engineering as a mixture of art and science. It’s about finding the
-                        right level of detail to guide AI. The big question is whether that synergy of art and science
-                        aligns with how we define actual programming languages.</p>
+                    <ul>
+                        <li>Here we asked two major LLMs what prompt engineering is. The first one is Claude, by
+                            Anthropic, the second one ChatGpt, by Openai.</li>
+                        <li>The answers are Pretty similar,</li>
+                        <li>Apart from the fact that ChatGPT apparently has a bigger EGO, finding it necessary to
+                            mention itself.</li>
+                    </ul>
+                </aside>
+
                 </aside>
             </section>
 
@@ -386,7 +421,7 @@
                     <p>Impact and longevity</p>
                 </div>
                 <aside class="notes">
-                    <p>Marco: We will structure debate in 3 categories, for which we will present arguments FOR and
+                    <p>Joris: We will structure debate in 3 categories, for which we will present arguments FOR and
                         AGAINST the motion.</p>
                 </aside>
             </section>
@@ -424,10 +459,18 @@
 
                         </ul>
                     </div>
+                    <aside class="notes">
+                        <ul>
+                            <li>The definition of a programming language was clear, it has a clear syntax and
+                                structure..</li>
+                            <li>I will present 2 arguments to convince you that prompt engineering, DOES require a clear
+                                syntax and structure for optimal results.</li>
+                        </ul>
+                    </aside>
                 </section>
                 <section>
                     <div class="r-vstack r-stretch prompt-example" style="height: 100%;">
-                        <h2>Prompt Anatomy</h2>
+                        <h2>Prompt Structure</h2>
                         <div style="position: relative; width: 100%; height: 90%; margin-top: 20px;">
                             <!-- Vertical "PROMPT" label that appears in the final fragment -->
                             <div class="fragment fade-in" data-fragment-index="5"
@@ -494,7 +537,13 @@
                             style="position: absolute; width: 1px; height: 1px; opacity: 0;"></div>
                     </div>
                     <aside class="notes">
-                        explain structure - all these components together form a complete, effective prompt
+
+                        <ul>
+                            <li>See, you can ask an LLM anything. It'll answer any simple question you have. But, in order to improve the chance of getting anything useful, it's necessary to ask the right question. This requires structure</li>
+                            <li>Let's explore that</li>
+                            
+                        </ul>
+
                     </aside>
                 </section>
 
@@ -507,7 +556,7 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        quick to next
+                       		This will get an answer, probably even a correct one, for some situations. But the chances that it will be useful for you, are very slim.
                     </aside>
                 </section>
                 <section name="good prompt">
@@ -584,15 +633,8 @@
                             style="position: absolute; top: 0; left: 0; width: 1px; height: 1px; opacity: 0;"></div>
                     </div>
                     <aside class="notes">
-                        <ul>
-                            <li>role</li>
-                            <li>instruction</li>
-                            <li>context</li>
-                            <li>constraints and guidelines</li>
-                            <li>output format</li>
-                        </ul>
-                        <p>try it yourself. far more effective.</p>
-                        <p>even though prompting is very forgiving. using it effectively like this, is much like strict
+                        <p>..Now I'm not going to show you here, but the sheets will be available to everyone at the end, And I will cahllenge to try it yourself. far more effective.</p>
+                        <p>even though prompting is very forgiving. using it effectively like this  is much like strict
                             syntax in programming languages.</p>
                     </aside>
                 </section>
@@ -640,10 +682,15 @@
                         </ul>
                     </div>
                     <aside class="notes">
-                        Recent years, researches fromcompanies like Google, openAi, Meta explored various prompting
-                        techniques.
-                        A few have emerged.
-                        structuring prompts in a way that aligns with a.i. learning capabilities.
+                        <ul>
+                            <li>In recent years, researchers from companies like Google, OpenAI, and Meta have explored prompt patterns.</li>
+                            <li>They found that structuring prompts in ways that align with AI learning capabilities increases the likelihood of relevant, insightful responses.</li>
+                            <li>Some examples of these patterns include few-shot, chain-of-thought, and tree-of-thought prompting.</li>
+                            <li>Look them up—interesting stuff!</li>
+                            <li>I'll quickly dive into one of them: Chain of Thought.</li>
+                        </ul>
+                    </aside>
+
                     </aside>
                 </section>
 
@@ -656,10 +703,17 @@
                                 et al. (2022)</a></p>
                     </div>
                     <aside class="notes">
-                        Research from Google published in 2022
-                        goal was to unlock the reasoning capabilities of a model, using very simple thechniques.
-                        btw: similar to how humans would do this when encounter complex problem.
-                        note: progress kinda cought up with this example. built into modern models.
+                        <ul>
+                            <li>Research from Google published in 2022 aimed to unlock reasoning capabilities in these models using very simple techniques.</li>
+                            <li>Two funny things here: Joris and I decided to do this talk to share something cool we saw in SF back in November last year. My biggest fear was, seeing the sheer speed of developments in this field, that we would create a cool presentation that was hopelessly out of date.</li>
+                            <li>We did our best to keep it up to date, but just as an example, the research you see mentioned here is from 2022. That’s stone age for AI.</li>
+                            <li>But very interesting to share, because it's very illustrative of how we're researching AI.</li>
+                            <li>So back in 2022, we're talking GPT 2.5 or something, and what they found out is that when you ask a complex question, it's often wrong. But just by telling it to think step by step, it'll give you the explanation how it got the answer, and get it right.</li>
+                            <li>Much like how we humans would do this.</li>
+                            <li>So, a patterned approach to solve a common problem, just like we often see in programming.</li>
+                        </ul>
+                    </aside>
+
                     </aside>
                 </section>
 
@@ -671,9 +725,12 @@
                                 href="https://arxiv.org/abs/2302.11382">White et al. (2023)</a></p>
                     </div>
                     <aside class="notes">
-                        any experienced software engineer will be aware of design patterns.
-                        also in prompt engineering.
-                        2023 in vanderbilt, published this pater, outlined 16 different patterns.
+                        <ul>
+                            <li>Patterned approached. So what about design patterns? All experienced software engineers in this room will be aware of design patterns like Factory, Strategy, Decorator, etc.</li>
+                            <li>These also exist in prompt engineering. Research from Vanderbilt University in 2023 outlined 16 different prompt patterns—general approaches you can use to solve certain problems.</li>
+                            <li>Let's look at one of my favorites: the "flipped interaction" pattern.</li>
+                        </ul>
+
                     </aside>
                 </section>
 
@@ -688,20 +745,17 @@
                     <p class="small" style="text-align: right; margin-top: 10px;">Let's check this out....</p>
                     <aside class="notes">
                         <ul>
-                            <li>used to ask questions and get answers</li>
-                            <li>what if, you don't know what to ask?</li>
-                            <li>domain you know little about?</li>
+                        <li>Flipped interaction.</li>
+                        <li>So, when prompting, you're probably used to asking questions and getting answers, right?</li>
+                        <li>But what if you don’t know the questions?</li>
+                        <li>What if you need an answer in a domain you know nothing about?</li>
+                        <li>Let's check this out.</li>
 
                         </ul>
 
                         Prompt to use to demo flipped interaction:
 
-                        I am a starting hobby beer brewer and have just bought a Grainfather G40 home brewing
-                        installation. I want to brew a west coast style IPA. I need help on which ingredients to use and
-                        help creating a recipe with temperatures and times for mashing and fermenting. Please ask me
-                        questions, one by one, until you have sufficient information to make a recommendation. I still
-                        have to learn all the technicalities of brewing, so please use common words. Once you have
-                        enough information, share your proposal.
+                        I am a starting hobby beer brewer and have just bought a Grainfather G40 home brewing installation. I want to brew a west coast style IPA. I need help on which ingredients to use and help creating a recipe with temperatures and times for mashing and fermenting. Please ask the most important questions, one by one, until you have sufficient information to make a recommendation. it's my first time, so you can assume a lot.  I still have to learn all the technicalities of brewing, so please use common words. Once you have enough information, share your proposal.
                     </aside>
                 </section>
             </section>
@@ -916,6 +970,16 @@
                             </ul>
                         </div>
                     </div>
+                    <aside class="notes">
+                        
+                    <ul>                        
+                        <li>onto the next category, knowledge and expertise.</li>
+                        <li>Effective prompt engineering requires understanding AI model workings</li>
+                        <li>Prompt engineering has a learning curve, comparable to programming languages</li>
+                        <li>Advanced applications, comparable to programming architectures, like RAG and agents build on prompt engineering</li>
+                    </ul>
+
+                    </aside>
                 </section>
                 <section>
                     <div class="r-vstack r-stretch">
@@ -925,7 +989,14 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        <p>Marco: TODO: Fix colors in demo</p>
+                        <ul>
+                            <li>Mastering prompt engineering requires some knowledge of what happens under the hood, similar to programming languages.</li>
+                            <li>High-level language features might make it easier to write code, but you need to understand what happens on lower levels to use it effectively (e.g., how async handles threads).</li>
+                            <li>The same is true for prompt engineering.</li>
+                            <li>Let's talk a little bit about how AI models work.</li>
+                            <li>Some of the most well-known AI models now are what we call "next token generators."</li>
+                        </ul>
+                    </aside>
                     </aside>
                 </section>
                 <section>
@@ -936,6 +1007,19 @@
                                 style="color: aqua;">Temperature</span></p>
                         <p>Demo: Effects of prompt parameters (e.g., temperature)</p>
                     </div>
+                    <aside class="notes">
+                        <ul>
+                           		<li>Let's dive a little bit deeper. Because, if it's always as random as this, model wouldn’t be very useful.</li>
+	                            <li>So there are some tuning knobs you can tweak to modify how the model generates an answer. </li>
+                                    <li>Think of temperature as a dial to set how creative the model needs to be.</li>
+	                            <li>Sampling methods are a way to limit the number of possible answers it considers.</li>
+	                            <li> Let's look at a small example. The temperature adjusts the probability distribution through a mathematical function. When the temperature is low, the probability gap between words widen, favoring the high probability words. When the temperature is high, the probability distribution becomes more even, giving lower probability words a better chance of being selected.</li>
+	                            <li>A good analogy is, that at a  lower temperature, the a.i. model acts like a baker who follows the recipy exactly, step by st. And at higher temperature, the model acts like a wild experimental chef, throwing together ingredients, hoping that it will taste good</li>
+                                <li> Top-P acts like a filter or a window. When the value is high, the window size is larger, so allow more words to come in, to be selected as the next word, and vice versa, when it's low and it's narrow, so less words will get in. This will become more clear when we go into a demo.</li>
+                                
+
+                        </ul>
+                    </aside>
                 </section>
                 <section>
                     <div class="r-vstack r-stretch">
@@ -958,6 +1042,15 @@
                             </div>
                         </div>
                     </div>
+                    <aside class="notes">
+                        <ul>
+                            <li>Prompt techniques are diverse and evolving.</li>
+                            <li>This report from OpenAI and Microsoft was published in 2024.</li>
+                            <li>They conducted a literature review of over 1,500 prompt engineering related papers, analyzing different kinds of techniques.</li>
+                            <li>The point here is that mastering prompt engineering is not just about using natural language.</li>
+                            <li>There are numerous techniques, and as software engineers, we must learn or figure out how to best apply them in our specific use cases—just like using a programming language.</li>
+                        </ul>
+                        </ul>
                 </section>
                 <section>
                     <div class="r-vstack r-stretch">
@@ -977,12 +1070,32 @@
                             </ul>
                         </div>
                     </div>
+                    <aside class="notes">
+                        <ul>
+                            <li>How we interact with AI is evolving—just like programming languages did.</li>
+                            <li>Reasoning models are advancing: not just answering questions, but understanding intent more deeply.</li>
+                            <li>Complex architectures are emerging, such as:
+                                <ul>
+                                    <li><strong>RAG (Retrieval-Augmented Generation):</strong> Adds external context to improve responses.</li>
+                                    <li><strong>Agentic AI:</strong> Enables autonomous, multi-step reasoning and task execution.</li>
+                                </ul>
+                            </li>
+                           
+                        </ul>
+
+                        </ul>
+                    </aside>
                 </section>
                 <section>
                     <div class="r-vstack r-stretch">
                         <img src="assets/img/agentic.gif">
                     </div>
-
+                        <aside class="notes">
+                        <ul>
+                            <li>At the core of these systems are prompts—prompts that are reviewed, tested (even as units), and versioned.</li>
+                            <li>Just like source code in programming languages.</li>
+                        </ul>
+                    </aside>
                 </section>
 
             </section>
@@ -1208,6 +1321,17 @@
                             </div>
                         </div>
                     </div>
+                    <aside class="notes">
+                        <ul>
+                            <li>Just curious. If you're a developer, raise your hand. Now, who of you regularly uses some kind of AI tool to assist you in software engineering?</li>
+                            <li>A survey from the Pragmatic Engineer (2024) found that 75% of developers use some kind of AI tool for software engineering related work.</li>
+                            <li>It's hard to believe that it was only 2.5 years ago, November 2022, that ChatGPT was released to the world.</li>
+                            <li>By now, the world is being flooded with AI tooling for software engineers, where you can prompt to develop your software.</li>
+                            <li>There are new parties like Cursor, Windsurf, and Devin who center around the concept, but also traditional parties like GitHub Copilot and JetBrains are pivoting towards some kind of AI assistance.</li>                            
+                        </ul>
+
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
@@ -1224,6 +1348,14 @@
                                 A.I. coding</button>
                         </div>
                     </div>
+                    <aside class="notes">
+                        <li>Let's look at an example. This is Windsurf, a fork of VS Code centered around AI-assisted development.</li>
+                        <li>I've opened this presentation you are watching right now. It was made in Reveal.js and mostly built using tools like this.</li>
+                        <li>One of the most annoying things I run into every time I try to code using AI is that it has difficulty understanding the context it's working in. These new tools are way better at this—so good that you can just ask it for the context.</li>
+                        <li>Now, let's add a feature. I'll continue the thread and ask it how I can deploy this presentation to an Azure Static Website.</li>
+                        <li>I've given instructions to a computer to alter my software, just like a programming language.</li>
+
+                        </ul>
                 </section>
 
                 <section>
@@ -1237,6 +1369,18 @@
                                 href="https://www.newsletter.swirlai.com/p/mcp-vs-a2a-friends-or-foes/">MCP vs. A2A:
                                 Friends or Foes?. (2025)</a></p>
                     </div>
+                    <aside class="notes">
+                        <ul>
+                            <li>A.I. software is maturing every day.</li>
+                            <li>Protocols are being designed to standardize communication between A.I. applications.</li>
+                            <li>MCP (Model Context Protocol) provides a standard way for A.I. systems to access data sources—very useful for dev tooling.</li>
+                            <li>For example, with an MCP server linked to your test database, you could ask GitHub Copilot to consider your database structure when helping you code.</li>
+                            <li>Google released the A2A protocol to standardize communication between autonomous agentic applications.</li>
+                            <li>The key point: we're already designing protocols for A.I., just like we did with SOAP and REST.</li>
+                        </ul>
+
+                        </ul>
+                    </aside>
                 </section>
 
             </section>
@@ -1355,6 +1499,16 @@
                             <li>Growing ecosystem of tools and frameworks</li>
                         </ul>
                     </div>
+                    <aside class="notes">
+                        <ul>
+                            <li>Prompt engineering is the new programming language of the future. Like traditional programming, prompting will require careful structure, precision, and an understanding of the underlying system.</li>
+                            <li>Prompt engineering has evolved beyond mere suggestions into a structured language with its own syntax, patterns, and specialized expertise. From Chain-of-Thought to RAG to agentic systems, we're building complex computational systems through the power of well-crafted prompts.</li>
+                            <li>Just as programming languages evolved before, from punched cards, to functions, to object orientation and beyond, we now stand at the threshold of the next great paradigm shift.</li>
+                            <li>The evidence is clear—as AI tools multiply and companies invest millions upon millions, prompt engineering isn't just knocking at the door of programming languages; it has already walked through and taken a seat at the table.</li>
+                        </ul>
+                    </aside>
+
+                    </aside>
                 </section>
 
                 <section>
