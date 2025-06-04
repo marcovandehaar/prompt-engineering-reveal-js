@@ -6,13 +6,14 @@
     <meta name="viewport"="width=device-width, initial-scale=1.0">
     <title>Prompt Engineering Debate</title>
     <link rel="stylesheet" href="https://unpkg.com/reveal.js@5.2.0/dist/reveal.css">
-    <link rel="stylesheet" href="https://unpkg.com/reveal.js@5.2.0/dist/theme/night.css">
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@5.2.0/dist/theme/white.css">
     <style>
         .reveal h1,
         .reveal h2 {
-            color: #ffcc00;
-            /* Gold for emphasis */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            color: #e65100;
+            /* Vibrant orange for high contrast */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
         }
 
         .reveal h2.small {
@@ -24,58 +25,90 @@
         }
 
         .reveal h3 {
-            color: #ffae00;
-            /* Gold for emphasis */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            color: #1565c0;
+            /* Strong blue for emphasis */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
         }
 
         .reveal ul li {
-            font-size: 1.2em;
+            font-size: 0.8em;
             /* Slightly larger text */
             margin-bottom: 20px;
+            color: #212121;
         }
 
         .reveal .slides section {
-            background: linear-gradient(to bottom, #1e1e1e, #333333);
-            /* Subtle gradient */
-            color: #f0f0f0;
+            color: #212121;
             padding: 40px 20px 20px 20px;
             /* Added top padding to make room for progress indicator */
             border-radius: 10px;
         }
 
-        .reveal .slides section .background-image {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-            /* Ensure it is behind the content */
+        /* Slide background - only applied to content slides (innermost sections or standalone sections) */
+        .reveal .slides section.slide-bg {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e3f2fd 100%);
+            /* Light gradient with subtle blue tint */
+            border: 2px solid #e0e0e0;
+            margin-top: 30px;
+            /* Add space between progress bar and slide background */
+            border-radius: 8px;
+            /* Add subtle rounded corners */
+        }
+
+        /* Adjust the reveal container to account for the spacing */
+        .reveal .slides {
+            padding-top: 20px;
+            /* Additional padding to prevent overlap */
+        }        /* Full height slide class for special slides like opening slide */
+        .reveal .slides section.full-height {
+            height: calc(100vh - 30px) !important; /* Full height minus space for progress bar */
+            margin-top: 20px !important; /* Same spacing as other slides */
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: stretch !important;
+            padding: 0 !important;
+        }
+
+        .reveal .slides section.full-height > div {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
 
         .reveal p {
             font-size: 1.0em;
+            color: #424242;
         }
 
         .reveal p.small {
             font-size: 0.8em;
+            color: #616161;
         }
 
         .reveal div.small {
             font-size: 0.8em;
+            color: #616161;
         }
 
         .reveal li {
             font-size: 1.0em;
+            color: #212121;
         }
 
         .definition-box {
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
+            border: 2px solid #e0e0e0;
+            padding: 15px;
+            border-radius: 8px;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
+            background: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .definition-box img {
@@ -86,6 +119,7 @@
 
         .definition-box p {
             margin: 0;
+            color: #424242;
         }
 
         /* Progress indicator styles */
@@ -95,25 +129,26 @@
             left: 50%;
             transform: translateX(-50%);
             width: 60%;
-            height: 5px;
-            background-color: rgba(255, 204, 0, 0.2);
-            /* Subtle gold color */
+            height: 6px;
+            background-color: rgba(224, 224, 224, 0.8);
+            /* Light gray background */
             border-radius: 3px;
             z-index: 1000;
             pointer-events: none;
             /* So it doesn't interfere with clicks */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         .section-name {
             position: absolute;
-            top: 12px;
-            /* 6px for the height of the progress bar + 10px margin */
+            top: 18px;
+            /* 6px for the height of the progress bar + 12px margin */
             transform: translateX(-50%);
             font-size: 0.5em;
-            color: rgba(255, 204, 0, 0.8);
+            color: #424242;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 500;
+            font-weight: 600;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -123,10 +158,11 @@
             top: 0;
             width: 10%;
             height: 100%;
-            background-color: #ffae00;
-            /* Orange accent color */
+            background: linear-gradient(45deg, #e65100, #ff9800);
+            /* Orange gradient to match TopicConf brand */
             border-radius: 3px;
             transition: left 0.6s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
 
         /* Define positions for each section marker */
@@ -187,12 +223,49 @@
 
         .section-name.closing {
             left: 95%;
-         }
+        }
 
         /* Add specific style for slides that need more space for the progress indicator */
         .reveal .prompt-example {
             margin-top: 15px;
             /* Add additional margin to the prompt example slides */
+        }
+
+        /* Override code block styling for light theme */
+        .reveal div[style*="background: #2b2b2b"],
+        .reveal div[style*="background: #333"] {
+            background: #f8f9fa !important;
+            color: #212121 !important;
+            border: 3px solid #1565c0 !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        /* Ensure code text is dark on light backgrounds */
+        .reveal code {
+            color: #1565c0;
+            background: #e3f2fd;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Make opening slide fill the screen vertically */
+        .reveal .slides > section:first-child {
+            height: 90vh !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+
+        /* Ensure the opening slide content container also fills available space */
+        .reveal .slides > section:first-child > div {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
     </style>
 </head>
@@ -207,38 +280,70 @@
             <div class="section-name syntax">Syntax</div>
             <div class="section-name knowledge">Knowledge</div>
             <div class="section-name impact">Impact</div>
-            <div class="section-name closing">Closing</div>
-        </div>
+            <div class="section-name closing">Closing</div>        </div>
 
-        <div class="slides">
-            <!-- Slide 1: Title -->
-            <section>
-                <div class="r-vstack r-stretch">
-                    <h2>"Is Prompt Engineering the Next Programming Language?"</h2>
-                    <h3>An Oxford style debate</h3>
-                    <p>Presented by <strong>Joris van Hien</strong> and <strong>Marco van de Haar</strong></p>
+        <div class="slides">            <!-- TopicConf Opening Slide -->
+            <section class="slide-bg full-height" style="background: linear-gradient(135deg, #ffeb3b 0%, #ff9800 20%, #e91e63 40%, #9c27b0 60%, #3f51b5 80%, #00bcd4 100%) !important; color: white; position: relative; overflow: hidden;">
+                <div>
+                <!-- TopicConf Logo Top Left -->
+                <div style="position: absolute; top: 20px; left: 20px; z-index: 10;">
+                    <img src="assets/img/topiconf.svg" alt="TopicConf" style="height: 80px; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
+                    <div style="background: #e91e63; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8em; font-weight: bold; margin-top: 5px;">
+                        Editie 15
+                    </div>
                 </div>
-                <aside class="notes">
-                    Joris: Welcome! Today we’re diving into a question that sits at the heart of how we work with AI:  
-                    <br/><br/>
-                    Is prompt engineering actually becoming a programming language — or is it something else entirely?  
-                    <br/><br/>
-                    Over the next 45 minutes, we’ll explore both sides of this debate in Oxford-style: two opposing views, one central motion, and a vote before and after.
-                    <br/><br/>
-                    But before we get too technical, think about your own experience. If you’ve ever typed something into ChatGPT and tweaked it until the output was just right...  
+
+                <!-- Level Up Logo Bottom Right -->
+                <div style="position: absolute; bottom: 20px; right: 20px; z-index: 10;">
+                    <img src="assets/img/levelup.png" alt="Level Up" style="height: 80px; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
+                </div>
+
+                <!-- Decorative Elements -->
+                <div style="position: absolute; top: 10px; right: 100px; width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(45deg, #ffeb3b, #ff9800); opacity: 0.8; z-index: 1;"></div>
+                <div style="position: absolute; left: -30px; top: 200px; width: 180px; height: 180px; border-radius: 50%; background: linear-gradient(45deg, #3f51b5, #9c27b0); opacity: 0.7; z-index: 1;"></div>
+                <div style="position: absolute; bottom: -50px; left: 100px; width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(45deg, #e91e63, #ff5722); opacity: 0.6; z-index: 1;"></div>
+
+                <!-- Speaker Name Box -->
+                <div style="position: absolute; top: 120px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.3); border-radius: 8px; padding: 8px 20px; backdrop-filter: blur(10px); z-index: 5;">
+                    <span style="color: #ffeb3b; font-size: 1.0em; font-weight: bold;">/ Joris van Hien and Marco van de Haar</span>
+                </div>
+
+                <!-- Main Title -->
+                <div style="position: relative; z-index: 5; text-align: center; margin-top: 200px;">
+                    <h1 style="font-size: 1.5em; font-weight: bold; line-height: 1.1; margin: 0; text-shadow: 3px 3px 6px rgba(0,0,0,0.4); color: white;">
+                        Is Prompt Engineering the Next Programming Language?
+                    </h1>
+                    <div style="margin-top: 30px; font-size: 1.2em; color: rgba(255,255,255,0.9);">
+                        An Oxford Style Debate
+                    </div>
+                </div>                <!-- Topicus branding bottom -->
+                <div style="position: absolute; bottom: 60px; right: 120px; color: rgba(255,255,255,0.8); font-size: 0.8em; z-index: 10;">
+                    
+                </div>
+                </div>
+                 <aside class="notes">
+                    Joris: Welcome! Today we’re diving into a question that sits at the heart of how we work with AI:
+                    <br /><br />
+                    Is prompt engineering actually becoming a programming language — or is it something else entirely?
+                    <br /><br />
+                    Over the next 45 minutes, we’ll explore both sides of this debate in Oxford-style: two opposing
+                    views, one central motion, and a vote before and after.
+                    <br /><br />
+                    But before we get too technical, think about your own experience. If you’ve ever typed something
+                    into ChatGPT and tweaked it until the output was just right...
                     Was that prompting? Was that programming? Or was that something in between?
-                    <br/><br/>
+                    <br /><br />
                     Let’s find out.
                 </aside>
             </section>
-
-            <section>
-                <div class="background-image" style="background-image: url('assets/img/Hien1.jpg');">
-                    <div class="r-vstack r-stretch">
-                        <h2>Inspiration</h2>
-                        <h3><strong>Hien Luu</strong></h3>
+          
+            <section class="slide-bg">
+                <div class="background-image" style="background-image: url('assets/img/Hien1.jpg'); background-size:cover; position: relative; border-radius: 12px; overflow: hidden;">
+                    <div class="r-vstack r-stretch" style="position: relative; z-index: 2;">
+                        <h2 style="color: #ffeb3b; text-shadow: 4px 4px 8px rgba(0,0,0,0.9); font-weight: bold; font-size: 2.0em;">Inspiration</h2>
+                        <h3 style="color: #ffffff; text-shadow: 3px 3px 6px rgba(0,0,0,0.9);  font-size: 1.7em;">Hien Luu</h3>
                         <div style="height: 300px;"></div>
-                        <p>www.linkedin.com/in/hienluu</p>
+                        <p style="color: #00bcd4; text-shadow: 3px 3px 6px rgba(0,0,0,0.9); font-size: 1.3em; font-weight: bold;">www.linkedin.com/in/hienluu</p>
                     </div>
                 </div>
                 <aside class="notes">
@@ -247,8 +352,7 @@
                         next abstraction layer in software development. Keep his insights in mind as we debate!</p>
                 </aside>
             </section>
-
-            <section class="r-vstack r-stretch">
+            <section class="r-vstack r-stretch slide-bg">
                 <h2 class="small">Programming languages...</h2>
                 <div class="r-stack">
                     <div class="fragment fade-in-then-out">
@@ -268,28 +372,39 @@
                 </div>
                 <aside class="notes">
                     Joris: Let's take a moment to ground ourselves in something most of us know well — programming.
-                    <br/><br/>
-                    As programmers and software engineers, we've spent years mastering programming languages. Think about it — how many hours have you invested in learning syntax, understanding APIs, debugging complex behavior, and building systems where even a missing semicolon can break everything?
-                    <br/><br/>
-                    Programming is about precision. About control. About structure. About getting the same result, every single time, predictably and reliably.
-                    <br/><br/>
+                    <br /><br />
+                    As programmers and software engineers, we've spent years mastering programming languages. Think
+                    about it — how many hours have you invested in learning syntax, understanding APIs, debugging
+                    complex behavior, and building systems where even a missing semicolon can break everything?
+                    <br /><br />
+                    Programming is about precision. About control. About structure. About getting the same result, every
+                    single time, predictably and reliably.
+                    <br /><br />
                     But now, there's a paradigm shift happening right before our eyes — prompting.
-                    <br/><br/>
-                    What if I told you that the most powerful programming language to learn today isn't a programming language at all, but simply knowing how to ask the right questions? In the world of AI, the ability to craft the perfect prompt might be becoming more valuable than knowing how to implement a binary tree or optimize a database query.
-                    <br/><br/>
-                    Instead of writing strict instructions line by line, we now type natural language into a box. We describe what we want — and the model tries to understand and deliver what we mean.
-                    <br/><br/>
-                    It feels fundamentally different, doesn't it? We've moved from telling the computer exactly HOW to do something to simply describing WHAT we want done.
-                    <br/><br/>
-                    Some say prompt engineering is just a new kind of interface — a temporary tool until AI gets better at understanding us. Others claim it's the next evolution in programming — a new abstraction layer that will fundamentally transform how we build software.
-                    <br/><br/>
+                    <br /><br />
+                    What if I told you that the most powerful programming language to learn today isn't a programming
+                    language at all, but simply knowing how to ask the right questions? In the world of AI, the ability
+                    to craft the perfect prompt might be becoming more valuable than knowing how to implement a binary
+                    tree or optimize a database query.
+                    <br /><br />
+                    Instead of writing strict instructions line by line, we now type natural language into a box. We
+                    describe what we want — and the model tries to understand and deliver what we mean.
+                    <br /><br />
+                    It feels fundamentally different, doesn't it? We've moved from telling the computer exactly HOW to
+                    do something to simply describing WHAT we want done.
+                    <br /><br />
+                    Some say prompt engineering is just a new kind of interface — a temporary tool until AI gets better
+                    at understanding us. Others claim it's the next evolution in programming — a new abstraction layer
+                    that will fundamentally transform how we build software.
+                    <br /><br />
                     That's the question we're here to explore today:
-                    Is prompt engineering truly becoming the next programming language — or is it something entirely different?
+                    Is prompt engineering truly becoming the next programming language — or is it something entirely
+                    different?
                 </aside>
 
             </section>
 
-            <section>
+            <section class="r-vstack r-stretch slide-bg">
                 <h2>Introduction</h2>
                 <ul>
                     <li><strong>Purpose:</strong> Explore prompt engineering's significance</li>
@@ -305,40 +420,43 @@
                         <li>We don’t aim to prove right or wrong, but by doing this debate, we hope to get you to form
                             your own opinion. </li>
                         <li>get you inspired and motivated to do something with this.</li>
-                        <li>And we mean to inform. So At the end, I believe that most of the people here, will have
+                        <li>And we mean to inform. I believe that At the end of this talk ,most of the people here, will
+                            have
                             learned something new about prompt engineering.</li>
                     </ul>
                     </p>
                 </aside>
             </section>
 
-            <section>
+            <section class="r-vstack r-stretch slide-bg">
                 <div class="r-vstack r-stretch">
                     <h2>"Oxford style debate"</h2>
-                    <p>A motion</p>
-                    <p>Audience initial vote</p>
-                    <p>Discussions</p>
-                    <p>Closing arguments</p>
-                    <p>Audience final vote</p>
-                    <h3 class="small">Winner: Team with largest shift in audience votes</h3>
+                    <div style="margin-top: 20px;">
+                        <div style="font-weight: bold; margin-bottom: 2px;">A motion</div>
+                        <div style="font-weight: bold; margin-bottom: 2px;">Audience initial vote</div>
+                        <div style="font-weight: bold; margin-bottom: 2px;">Discussions</div>
+                        <div style="font-weight: bold; margin-bottom: 2px;">Closing arguments</div>
+                        <div style="font-weight: bold;">Audience final vote</div>
+                    </div>
+                    <h3 class="small" style="margin-top: 18px;">Winner: Team with largest shift in audience votes</h3>
                 </div>
                 <aside class="notes">
                     <p>Marco: So what is an oxford style debate?</p>
                     <ul>
                         <li>We'll start with a motion, which we'll explain to you first.</li>
-                        <li>Then we'll hold an initial vote, together with you guys. I'll explain more about this when
+                        <li>Then we'll hold an initial vote, together with you guys. we'll explain more about this when
                             we get there.</li>
                         <li>After we voted, we'll start the discussion. there's be 2 sides: I will present arguments FOR
                             the motion, Joris will present arguments AGAINST the motion.</li>
                         <li>We'll close the discussion with passionate closing arguments, after which you can vote
                             again!</li>
-                        <li>As I said, there is no right or wrong here, but the winner of the debate is the site with
+                        <li>As I said, there is no right or wrong here, but the winner of the debate is the side with
                             the largest shift in votes.</li>
                     </ul>
                 </aside>
             </section>
 
-            <section>
+            <section class="r-vstack r-stretch slide-bg">
                 <div class="r-vstack r-stretch">
                     <h2>The Motion</h2>
                     <h3>Prompt engineering: A new programming language?</h3>
@@ -346,23 +464,25 @@
                 <aside class="notes">
                     <p>
                     <ul>
-                        <li>Is prompt engineering truly the next programming language, or is it just fancy wordsmithing
+                        <li>MARCO:Is prompt engineering truly the next programming language, or is it just fancy
+                            wordsmithing
                             for people who cannot write code?</li>
                         <li>To explore that, we first need to define both concepts.</li>
                     </ul>
                     </p>
                 </aside>
-            </section>            <section>
+            </section>
+            <section class="r-vstack r-stretch slide-bg">
                 <div class="r-vstack r-stretch">
                     <div class="r-stack">
                         <img src="assets/img/proglang2.png" style="width: 100%;">
-                        <img class="fragment" data-fragment-index="0" src="assets/img/proglang2.gif" style="width: 100%;"
-                            loop="false">
+                        <img class="fragment" data-fragment-index="0" src="assets/img/proglang2.gif"
+                            style="width: 100%;" loop="false">
                     </div>
                 </div>
                 <aside class="notes">
                     <ul>
-                        <li>So, what is a programming language?</li>
+                        <li>MARCO: So, what is a programming language?</li>
                         <li>Let's see what Claude thinks</li>
                         <li>a formal system of instructions .... humans use to communicate with computers....with a
                             defined syntax and semantics</li>
@@ -374,7 +494,7 @@
             </section>
 
             <!--slide: what is prompt engineering-->
-            <section>
+            <section class="r-vstack r-stretch slide-bg">
                 <div class="r-vstack r-stretch">
                     <h2>What is Prompt Engineering?</h2>
                     <div class="definition-box">
@@ -391,7 +511,7 @@
                 </div>
                 <aside class="notes">
                     <ul>
-                        <li>Here we asked two major LLMs what prompt engineering is. The first one is Claude, by
+                        <li>MARCO: Here we asked two major LLMs what prompt engineering is. The first one is Claude, by
                             Anthropic, the second one ChatGpt, by Openai.</li>
                         <li>The answers are Pretty similar,</li>
                         <li>Apart from the fact that ChatGPT apparently has a bigger EGO, finding it necessary to
@@ -403,22 +523,25 @@
             </section>
 
             <!-- Slide 4: Initial Vote -->
-            <section>
+            <section class="r-vstack r-stretch slide-bg">
                 <h2>Initial Vote</h2>
-                <p>Is prompt engineering the next programming language?</p>
-                <button
-                    style="font-size: 1.2em; padding: 10px; background-color: #ffcc00; border: none; border-radius: 5px;">Vote
+                <p>Is prompt engineering the next programming language?</p> <button
+                    style="font-size: 1.2em; padding: 15px 25px; background: linear-gradient(45deg, #e65100, #ff9800); color: white; border: none; border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.2); cursor: pointer; font-weight: bold;">Vote
                     Now</button>
                 <aside class="notes">
-                    <p>Joris: Before we dive into our Oxford-style debate, I need your participation! In a moment, I'll ask you to vote on this provocative question. 
-                    Think about it: Is prompt engineering truly a new programming paradigm, or just a fancy way of talking to machines? 
-                    This vote will give us our baseline - no right or wrong answers here. By the end of our debate, we'll vote again to see if arguments from either side have swayed your thinking.
-                    Remember the proposition: "Prompt engineering IS the next programming language." Are you for or against? Flip your hat on Yellow for the motion and black against the motion
-                    Or (Raise your hand when I call your position!)</p>
+                    <p>Joris: Before we dive into our Oxford-style debate, I need your participation! In a moment, I'll
+                        ask you to vote on this provocative question.
+                        Think about it: Is prompt engineering truly a new programming paradigm, or just a fancy way of
+                        talking to machines?
+                        This vote will give us our baseline - no right or wrong answers here. By the end of our debate,
+                        we'll vote again to see if arguments from either side have swayed your thinking.
+                        Remember the proposition: "Prompt engineering IS the next programming language." Are you for or
+                        against? Flip your hat on Yellow for the motion and black against the motion
+                        Or (Raise your hand when I call your position!)</p>
                 </aside>
             </section>
 
-            <section>
+            <section class="r-vstack r-stretch slide-bg">
                 <div class="r-vstack r-stretch">
                     <h2>3 categories</h2>
                     <p>Syntax and Structure</p>
@@ -432,7 +555,7 @@
             </section>
 
             <!-- New Slide: Let the Debate Begin -->
-            <section>
+            <section class="r-vstack r-stretch slide-bg">
                 <h2>Let the Debate Begin</h2>
                 <div style="display: flex; justify-content: space-around; align-items: center;">
                     <div style="text-align: center;">
@@ -445,20 +568,22 @@
                     </div>
                 </div>
                 <aside class="notes">
-                    <p>Joris: In one corner, we have the view that prompt engineering represents the next evolution of programming - a paradigm shift that fundamentally changes how we instruct machines.
-                    <br/> <br/>
-                    In the opposite corner, the perspective that prompt engineering, while useful, lacks the essential characteristics that define a true programming language.
-                    <br/> <br/>
-                    Watch carefully as we address the three core dimensions of this debate: syntax and structure, required knowledge and expertise, and long-term impact on our field.
-                    <br/> <br/>
-                    The answer shapes how we should prepare for the future of our profession!</p>
+                    <p>Joris: In one corner, we have the view that prompt engineering represents the next evolution of
+                        programming - a paradigm shift that fundamentally changes how we instruct machines.
+                        <br /> <br />
+                        In the opposite corner, the perspective that prompt engineering, while useful, lacks the
+                        essential characteristics that define a true programming language.
+                        <br /> <br />
+                        Watch carefully as we address the three core dimensions of this debate: syntax and structure,
+                        required knowledge and expertise, and long-term impact on our field.
+                        <br /> <br />
+                        The answer shapes how we should prepare for the future of our profession!
+                    </p>
                 </aside>
-            </section>
-
-            <!-- Grouped Slides: Syntax and Structure (For) -->
+            </section> <!-- Grouped Slides: Syntax and Structure (For) -->
             <section>
-                <section>
-                    <div class="r-vstack r-stretch">
+                <section class="slide-bg">
+                    <div class="r-vstack r-stretch slide-bg">
                         <h2>Syntax and Structure</h2>
                         <h3>For the Motion</h3>
                         <ul>
@@ -470,7 +595,9 @@
                     </div>
                     <aside class="notes">
                         <ul>
-                            <li>The first category we';ll be exploring is Syntax and Structure. I will first present to you, the arguments FOR the motion. Then Joris will take over for the arguments AGAINST this motion on this subject. </li>
+                            <li>MARCO:The first category we';ll be exploring is Syntax and Structure. I will first
+                                present to you, the arguments FOR the motion. Then Joris will take over for the
+                                arguments AGAINST this motion on this subject. </li>
                             <li>The definition of a programming language was clear, it has a clear syntax and
                                 structure..</li>
                             <li>I will present 2 arguments to convince you that prompt engineering, DOES require a clear
@@ -478,79 +605,85 @@
                         </ul>
                     </aside>
                 </section>
-                <section>
-                    <div class="r-vstack r-stretch prompt-example" style="height: 100%;">                        <h2>Prompt Structure</h2>
+                <section class="slide-bg">
+                    <div class="r-vstack r-stretch prompt-example" style="height: 100%;">
+                        <h2>Prompt Structure</h2>
                         <div style="position: relative; width: 100%; margin-top: 20px;">
                             <!-- Vertical "PROMPT" label that appears in the final fragment -->
                             <div class="fragment fade-in" data-fragment-index="5"
                                 style="position: absolute; left: -40px; top: 0; bottom: 0; width: 30px; display: flex; align-items: center; justify-content: center; z-index: 10;">
                                 <div
-                                    style="transform: rotate(-90deg); transform-origin: center center; background-color: rgba(70, 70, 70, 0.9); padding: 8px 20px; border-radius: 8px; font-weight: bold; color: white; white-space: nowrap; letter-spacing: 2px; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+                                    style="transform: rotate(-90deg); transform-origin: center center; background: linear-gradient(45deg, #1565c0, #42a5f5); padding: 8px 20px; border-radius: 8px; font-weight: bold; color: white; white-space: nowrap; letter-spacing: 2px; box-shadow: 0 2px 10px rgba(0,0,0,0.3);">
                                     GOOD PROMPT</div>
-                            </div>                            <!-- Container for all the components -->
+                            </div> <!-- Container for all the components -->
                             <div
-                                style="position: relative; display: flex; flex-direction: column; width: 100%; gap: 10px; font-size: 0.85em;">                                <!-- Role Component -->
+                                style="position: relative; display: flex; flex-direction: column; width: 100%; gap: 10px; font-size: 0.85em;">
+                                <!-- Role Component -->
                                 <div class="fragment fade-in" data-fragment-index="0"
-                                    style="background-color: rgba(255, 235, 59, 0.2); border: 2px solid #ffeb3b; border-radius: 8px; padding: 8px; transition: all 0.5s ease-in-out;">
-                                    <h3 style="margin: 0; color: #b3a429; font-size: 1.3em;">Role</h3>
+                                    style="background: linear-gradient(135deg, #fff59d, #ffecb3); border: 3px solid #fbc02d; border-radius: 10px; padding: 12px; transition: all 0.5s ease-in-out; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                                    <h3 style="margin: 0; color: #f57f17; font-size: 1.3em; font-weight: bold;">Role
+                                    </h3>
                                 </div>
                                 <!-- Instruction Component -->
                                 <div class="fragment fade-in" data-fragment-index="1"
-                                    style="background-color: rgba(200, 230, 201, 0.2); border: 2px solid #c8e6c9; border-radius: 8px; padding: 8px; transition: all 0.5s ease-in-out;">
-                                    <h3 style="margin: 0; color: #55a558; font-size: 1.3em;">Instruction</h3>
+                                    style="background: linear-gradient(135deg, #c8e6c9, #a5d6a7); border: 3px solid #66bb6a; border-radius: 10px; padding: 12px; transition: all 0.5s ease-in-out; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                                    <h3 style="margin: 0; color: #2e7d32; font-size: 1.3em; font-weight: bold;">
+                                        Instruction</h3>
                                 </div>
 
                                 <!-- Context Component -->
                                 <div class="fragment fade-in" data-fragment-index="2"
-                                    style="background-color: rgba(187, 222, 251, 0.2); border: 2px solid #bbdefb; border-radius: 8px; padding: 8px; transition: all 0.5s ease-in-out;">
-                                    <h3 style="margin: 0; color: #4285b4; font-size: 1.3em;">Context</h3>
+                                    style="background: linear-gradient(135deg, #bbdefb, #90caf9); border: 3px solid #42a5f5; border-radius: 10px; padding: 12px; transition: all 0.5s ease-in-out; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                                    <h3 style="margin: 0; color: #0d47a1; font-size: 1.3em; font-weight: bold;">Context
+                                    </h3>
                                 </div>
 
                                 <!-- Constraints & Guidelines Component -->
                                 <div class="fragment fade-in" data-fragment-index="3"
-                                    style="background-color: rgba(255, 205, 210, 0.2); border: 2px solid #ffcdd2; border-radius: 8px; padding: 8px; transition: all 0.5s ease-in-out;">
-                                    <h3 style="margin: 0; color: #c75b66; font-size: 1.3em;">Constraints & Guidelines</h3>
-                                </div>
-
-                                <!-- Output Format Component -->
+                                    style="background: linear-gradient(135deg, #ffcdd2, #f8bbd9); border: 3px solid #e91e63; border-radius: 10px; padding: 12px; transition: all 0.5s ease-in-out; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                                    <h3 style="margin: 0; color: #ad1457; font-size: 1.3em; font-weight: bold;">
+                                        Constraints & Guidelines</h3>
+                                </div> <!-- Output Format Component -->
                                 <div class="fragment fade-in" data-fragment-index="4"
-                                    style="background-color: rgba(209, 196, 233, 0.2); border: 2px solid #d1c4e9; border-radius: 8px; padding: 8px; transition: all 0.5s ease-in-out;">
-                                    <h3 style="margin: 0; color: #7b5cb5; font-size: 1.3em;">Output Format</h3>
+                                    style="background: linear-gradient(135deg, #e1bee7, #ce93d8); border: 3px solid #ba68c8; border-radius: 10px; padding: 12px; transition: all 0.5s ease-in-out; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                                    <h3 style="margin: 0; color: #6a1b9a; font-size: 1.3em; font-weight: bold;">Output
+                                        Format</h3>
                                 </div>
-                            </div>                            <!-- Visual connection element that appears in the final fragment - a border that surrounds everything -->
-                            <div class="fragment fade-in" data-fragment-index="5"
-                                style="position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px; border: 3px dashed #555; border-radius: 15px; z-index: 5; pointer-events: none;">
-
-    
                             </div>
-                            
+                            <!-- Visual connection element that appears in the final fragment - a border that surrounds everything -->
+                            <div class="fragment fade-in" data-fragment-index="5"
+                                style="position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px; border: 3px dashed #1565c0; border-radius: 15px; z-index: 5; pointer-events: none;">
+
+
+                            </div>
+
                             <!-- Script to handle brightening all components when final fragment is reached -->
                             <script>
-                                Reveal.addEventListener('fragmentshown', function(event) {
-                                    if (event.fragment.classList.contains('fade-in') && 
+                                Reveal.addEventListener('fragmentshown', function (event) {
+                                    if (event.fragment.classList.contains('fade-in') &&
                                         event.fragment.getAttribute('data-fragment-index') === '5') {
-                                        
+
                                         // Role component - bright yellow
                                         document.querySelector('[data-fragment-index="0"]').style.backgroundColor = 'rgba(255, 235, 59, 0.6)';
-                                        
+
                                         // Instruction component - bright green
                                         document.querySelector('[data-fragment-index="1"]').style.backgroundColor = 'rgba(200, 230, 201, 0.6)';
-                                        
+
                                         // Context component - bright blue
                                         document.querySelector('[data-fragment-index="2"]').style.backgroundColor = 'rgba(187, 222, 251, 0.6)';
-                                        
+
                                         // Constraints component - bright red
                                         document.querySelector('[data-fragment-index="3"]').style.backgroundColor = 'rgba(255, 205, 210, 0.6)';
-                                        
+
                                         // Output Format component - bright purple
                                         document.querySelector('[data-fragment-index="4"]').style.backgroundColor = 'rgba(209, 196, 233, 0.6)';
                                     }
                                 });
-                                
-                                Reveal.addEventListener('fragmenthidden', function(event) {
-                                    if (event.fragment.classList.contains('fade-in') && 
+
+                                Reveal.addEventListener('fragmenthidden', function (event) {
+                                    if (event.fragment.classList.contains('fade-in') &&
                                         event.fragment.getAttribute('data-fragment-index') === '5') {
-                                        
+
                                         // Reset all components to original color when fragment is hidden
                                         document.querySelector('[data-fragment-index="0"]').style.backgroundColor = 'rgba(255, 235, 59, 0.2)';
                                         document.querySelector('[data-fragment-index="1"]').style.backgroundColor = 'rgba(200, 230, 201, 0.2)';
@@ -569,20 +702,29 @@
                     <aside class="notes">
 
                         <ul>
-                            <li>See, you can ask an LLM anything. It'll answer any simple question you have. But, in order to improve the chance of getting anything useful, it's necessary to ask the right question. This requires structure</li>
-                            <li><strong>Role:</strong> Define a perspective from where AI should act as (e.g., expert, assistant, teacher).</li>
-                            <li><strong>Instruction:</strong> Clearly state the main task or question for the AI to address.</li>
-                            <li><strong>Context:</strong> Provide background information or relevant details to guide the response.</li>
-                            <li><strong>Constraints & Guidelines:</strong> Specify rules, limitations, or preferences for the output. Maybe you're already looking in a certain direction for the solution.</li>
-                            <li><strong>Output Format:</strong> Clearly describe how the answer should be structured or presented.</li>
-                            
+                            <li>MARCO:See, you can ask an LLM anything. It'll answer any simple question you have. But,
+                                in order to improve the chance of getting anything useful, it's necessary to ask the
+                                right question. This requires structure</li>
+                            <li><strong>Role:</strong> Define a perspective from where AI should act as (e.g., expert,
+                                assistant, teacher).</li>
+                            <li><strong>Instruction:</strong> Clearly state the main task or question for the AI to
+                                address.</li>
+                            <li><strong>Context:</strong> Provide background information or relevant details to guide
+                                the response.</li>
+                            <li><strong>Constraints & Guidelines:</strong> Specify rules, limitations, or preferences
+                                for the output. Maybe you're already looking in a certain direction for the solution.
+                            </li>
+                            <li><strong>Output Format:</strong> If you want the answer to be consise, tell it so! Long
+                                outputs are not only costly, als o increase latency. If you want examples in your
+                                answer, tell it so..</li>
+
                         </ul>
 
                     </aside>
                 </section>
 
-                <section>
-                    <div class="r-vstack r-stretch">
+                <section class="r-vstack r-stretch slide-bg">
+                    <div >
                         <h2>Poorly written prompt</h2>
                         <div class="definition-box">
                             <p class="small">Explain how I can improve the performance of my application when retrieving
@@ -590,64 +732,85 @@
                         </div>
                     </div>
                     <aside class="notes">
-                       		This will get an answer, probably even a correct one, for some situations. But the chances that it will be useful for you, are very slim.
+                        <ul>
+                            <li>MARCO:This will get an answer, probably even a correct one, for some situations. But the
+                                chances that it will be useful for you, are very slim.</li>
+                            <li>So let's rewrite this prompt using the structure we just explained </li>
+                        </ul>
                     </aside>
-                </section>                
-                <section name="good prompt">                    <div class="r-vstack r-stretch small prompt-example">
+                </section>
+                <section name="good prompt" class="slide-bg">
+                    <div class="r-vstack r-stretch small prompt-example">
                         <!-- Slide content with simplified approach and smaller font size -->
-                        <div class="prompt-content" style="font-size: 0.8em;">
-                            <!-- Role -->
-                            <div style="display: flex; align-items: stretch; margin-bottom: 5px; border: 2px solid #ffeb3b; border-radius: 5px; overflow: hidden;">
-                                <div class="fragment current-visible" data-fragment-index="0" 
-                                     style="width: 20%; background-color: rgba(255,235,59,0.95); border-right: 2px solid #ffeb3b; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1em; color: #333; padding: 5px;">
+                        <div class="prompt-content" style="font-size: 0.8em;"> <!-- Role -->
+                            <div
+                                style="display: flex; align-items: stretch; margin-bottom: 8px; border: 3px solid #fbc02d; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+                                <div class="fragment current-visible" data-fragment-index="0"
+                                    style="width: 20%; background: linear-gradient(135deg, #fff59d, #ffecb3); border-right: 3px solid #fbc02d; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1em; color: #f57f17; padding: 8px;">
                                     Role
                                 </div>
-                                <div style="flex: 1; padding: 5px; background-color: rgba(255, 235, 59, 0.2);">
-                                    You are a performance optimization expert specializing in database queries and indexing strategies.
+                                <div
+                                    style="flex: 1; padding: 8px; background: linear-gradient(135deg, #fff9c4, #fffde7); color: #333;">
+                                    You are a performance optimization expert specializing in database queries and
+                                    indexing strategies.
                                 </div>
                             </div>
 
                             <!-- Instruction -->
-                            <div style="display: flex; align-items: stretch; margin-bottom: 5px; border: 2px solid #c8e6c9; border-radius: 5px; overflow: hidden;">
-                                <div class="fragment current-visible" data-fragment-index="1" 
-                                     style="width: 20%; background-color: rgba(200,230,201,0.95); border-right: 2px solid #c8e6c9; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1em; color: #333; padding: 5px;">
+                            <div
+                                style="display: flex; align-items: stretch; margin-bottom: 8px; border: 3px solid #66bb6a; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+                                <div class="fragment current-visible" data-fragment-index="1"
+                                    style="width: 20%; background: linear-gradient(135deg, #c8e6c9, #a5d6a7); border-right: 3px solid #66bb6a; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1em; color: #2e7d32; padding: 8px;">
                                     Instruction
                                 </div>
-                                <div style="flex: 1; padding: 5px; background-color: rgba(200, 230, 201, 0.2);">
-                                    Explain how I can improve the performance of my application when retrieving information from the database.
+                                <div
+                                    style="flex: 1; padding: 8px; background: linear-gradient(135deg, #e8f5e8, #f1f8e9); color: #333;">
+                                    Explain how I can improve the performance of my application when retrieving
+                                    information from the database.
                                 </div>
                             </div>
 
                             <!-- Context -->
-                            <div style="display: flex; align-items: stretch; margin-bottom: 5px; border: 2px solid #bbdefb; border-radius: 5px; overflow: hidden;">
-                                <div class="fragment current-visible" data-fragment-index="2" 
-                                     style="width: 20%; background-color: rgba(187,222,251,0.95); border-right: 2px solid #bbdefb; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1em; color: #333; padding: 5px;">
+                            <div
+                                style="display: flex; align-items: stretch; margin-bottom: 8px; border: 3px solid #42a5f5; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+                                <div class="fragment current-visible" data-fragment-index="2"
+                                    style="width: 20%; background: linear-gradient(135deg, #bbdefb, #90caf9); border-right: 3px solid #42a5f5; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1em; color: #0d47a1; padding: 8px;">
                                     Context
                                 </div>
-                                <div style="flex: 1; padding: 5px; background-color: rgba(187, 222, 251, 0.2);">
-                                    My application uses SQL Server with a large dataset containing millions of records. The most frequent queries involve searching, filtering, and joining multiple tables. The application experiences slow response times, especially under high concurrent load.
+                                <div
+                                    style="flex: 1; padding: 8px; background: linear-gradient(135deg, #e3f2fd, #f3e5f5); color: #333;">
+                                    My application uses SQL Server with a large dataset containing millions of records.
+                                    The most frequent queries involve searching, filtering, and joining multiple tables.
+                                    The application experiences slow response times, especially under high concurrent
+                                    load.
                                 </div>
                             </div>
 
                             <!-- Constraints and Guidelines -->
-                            <div style="display: flex; align-items: stretch; margin-bottom: 5px; border: 2px solid #ffcdd2; border-radius: 5px; overflow: hidden;">
-                                <div class="fragment current-visible" data-fragment-index="3" 
-                                     style="width: 20%; background-color: rgba(255,205,210,0.95); border-right: 2px solid #ffcdd2; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1em; color: #333; padding: 5px;">
+                            <div
+                                style="display: flex; align-items: stretch; margin-bottom: 8px; border: 3px solid #e91e63; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+                                <div class="fragment current-visible" data-fragment-index="3"
+                                    style="width: 20%; background: linear-gradient(135deg, #ffcdd2, #f8bbd9); border-right: 3px solid #e91e63; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1em; color: #ad1457; padding: 8px;">
                                     Constraints
                                 </div>
-                                <div style="flex: 1; padding: 5px; background-color: rgba(255, 205, 210, 0.2);">
-                                    Provide recommendations on indexing strategies, query optimization, caching techniques, and database schema design.
+                                <div
+                                    style="flex: 1; padding: 8px; background: linear-gradient(135deg, #fce4ec, #f3e5f5); color: #333;">
+                                    Provide recommendations on indexing strategies, query optimization, caching
+                                    techniques, and database schema design.
                                 </div>
                             </div>
 
                             <!-- Output Format -->
-                            <div style="display: flex; align-items: stretch; margin-bottom: 5px; border: 2px solid #d1c4e9; border-radius: 5px; overflow: hidden;">
-                                <div class="fragment current-visible" data-fragment-index="4" 
-                                     style="width: 20%; background-color: rgba(209,196,233,0.95); border-right: 2px solid #d1c4e9; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1em; color: #333; padding: 5px;">
+                            <div
+                                style="display: flex; align-items: stretch; margin-bottom: 8px; border: 3px solid #ba68c8; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+                                <div class="fragment current-visible" data-fragment-index="4"
+                                    style="width: 20%; background: linear-gradient(135deg, #e1bee7, #ce93d8); border-right: 3px solid #ba68c8; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1em; color: #6a1b9a; padding: 8px;">
                                     Output Format
                                 </div>
-                                <div style="flex: 1; padding: 5px; background-color: rgba(209, 196, 233, 0.2);">
-                                    Your response should include clear explanations, practical examples, and code snippets where applicable.
+                                <div
+                                    style="flex: 1; padding: 8px; background: linear-gradient(135deg, #f3e5f5, #fce4ec); color: #333;">
+                                    Your response should include clear explanations, practical examples, and code
+                                    snippets where applicable.
                                 </div>
                             </div>
                         </div>
@@ -657,18 +820,19 @@
                             style="position: absolute; top: 0; left: 0; width: 1px; height: 1px; opacity: 0;"></div>
                     </div>
                     <aside class="notes">
-                        <p>..Now I'm not going to show you here, but the sheets will be available to everyone at the end, And I will cahllenge to try it yourself. far more effective.</p>
-                        <p>even though prompting is very forgiving. using it effectively like this  is much like strict
+                        <p>MARCO:..Now I'm not going to show you here, but the sheets will be available to everyone at
+                            the end, And I will cahllenge to try it yourself. far more effective.</p>
+                        <p>even though prompting is very forgiving. using it effectively like this is much like strict
                             syntax in programming languages.</p>
                     </aside>
                 </section>
                 <!--
-                <section>
+                <section class="slide-bg">
 
                     <h3>#2. Modular prompts enables reusability, similar to functions.</h3>
                     <div class="definition-box r-vstack r-stretch">
                         <p class="small" style="text-align: left;">Please translate the following text to English and
-                            determine it's category: <span style="color: aqua;">"{{text}}"</span>.
+                            determine it's category: <span style="color: #1565c0; font-weight: bold;">"{{text}}"</span>.
                             Only use words a 10 year old could understand well.
                             Format your response as follows:
                             Category: (instruction, joke or other)
@@ -681,13 +845,13 @@
                     </aside>
                 </section>
 
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <img src="assets/img/parameters.png" style="width: 90%;">
                     </div>
                 </section>-->
 
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h3>Argument #2.</h3>
                         <p>Emerging best practices and patterns in prompt design parallel those in programming
@@ -717,7 +881,7 @@
                     </aside>
                 </section>
 
-                <section>
+                <section class="slide-bg">
                     <h2>Example: Chain of thought</h2>
                     <div class="r-vstack r-stretch">
                         <img src="assets/img/chainofthought.png">
@@ -738,7 +902,7 @@
                     </aside>
                 </section-->
 
-                <section>
+                <section class="slide-bg">
                     <h2>Prompting design patterns</h2>
                     <div class="r-vstack r-stretch">
                         <img src="assets/img/promptpatterns.png">
@@ -747,18 +911,22 @@
                     </div>
                     <aside class="notes">
                         <ul>
-                            <li>In recent years, researchers from companies like Google, OpenAI, and Meta have explored prompt patterns.</li>
-                            <li>These are patterned approaches to solve generic problems. Much like design patterns in programming.</li>
-                            <li>Funny thing here: Do you realize this is the first tool we use where we have to research the best way to use it? there's no manual.</li>                                                        
-                            <li>Right, so, All experienced software engineers in this room will be aware of design patterns, right? like Factory, Strategy, Decorator, etc.</li>
-                            <li>These also exist in prompting. For example, Research from Vanderbilt University in 2023 outlined 16 different prompt patterns—general approaches you can use to solve certain problems.</li>
+                            <li>MARCO:In recent years, researchers from companies like Google, OpenAI, and Meta have
+                                explored prompt patterns.</li>
+                            <li>These are patterned approaches to solve generic problems. Much like design patterns in
+                                programming.</li>
+                            <li>Right, so, All experienced software engineers in this room will be aware of design
+                                patterns, right? like Factory, Strategy, Decorator, etc.</li>
+                            <li>These also exist in prompting. For example, Research from Vanderbilt University in 2023
+                                outlined 16 different prompt patterns—general approaches you can use to solve certain
+                                problems.</li>
                             <li>Let's look at one of my favorites: the "flipped interaction" pattern.</li>
                         </ul>
 
                     </aside>
                 </section>
 
-                <section>
+                <section class="slide-bg">
                     <h2>Example: flipped interaction</h2>
                     <ul>
                         <li>For tasks you are not familliar with,</li>
@@ -769,26 +937,34 @@
                     <p class="small" style="text-align: right; margin-top: 10px;">Let's check this out....</p>
                     <aside class="notes">
                         <ul>
-                        <li>Flipped interaction.</li>
-                        <li>So, when prompting, you're probably used to asking questions and getting answers, right?</li>
-                        <li>But what if you don’t know the questions?</li>
-                        <li>What if you need an answer in a domain you know nothing about?</li>
-                        <li>Let's check this out.</li>
-                        <li>---DEMO---</li>
-                        <li>SO, a patterned approach, to a generic problem. Much like design patterns in programming</li>
+                            <li>MARCO:Flipped interaction.</li>
+                            <li>So, when prompting, you're probably used to asking questions and getting answers, right?
+                            </li>
+                            <li>But what if you don’t know the questions?</li>
+                            <li>What if you need an answer in a domain you know nothing about?</li>
+                            <li>Let's check this out.</li>
+                            <li>---DEMO---</li>
+                            <li>SO, a patterned approach, to a generic problem. Much like design patterns in programming
+                            </li>
 
                         </ul>
 
                         Prompt to use to demo flipped interaction:
 
-                        I am a starting hobby beer brewer and have just bought a Grainfather G40 home brewing installation. I want to brew a west coast style IPA. I need help on which ingredients to use and help creating a recipe with temperatures and times for mashing and fermenting. Please ask the most important questions, one by one, until you have sufficient information to make a recommendation. it's my first time, so you can assume a lot.  I still have to learn all the technicalities of brewing, so please use common words. Once you have enough information, share your proposal.
+                        I am a starting hobby beer brewer and have just bought a Grainfather G40 home brewing
+                        installation. I want to brew a west coast style IPA. I need help on which ingredients to use and
+                        help creating a recipe with temperatures and times for mashing and fermenting. Please ask the
+                        most important questions, one by one, until you have sufficient information to make a
+                        recommendation. it's my first time, so you can assume a lot. I still have to learn all the
+                        technicalities of brewing, so please use common words. Once you have enough information, share
+                        your proposal.
                     </aside>
                 </section>
             </section>
 
             <!-- Grouped Slides: Syntax and Structure (Against) -->
             <section>
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h2>Syntax and Structure</h2>
                         <h3>Against the Motion</h3>
@@ -813,42 +989,44 @@
                         language, it’s a suggestion.
                     </aside>
                 </section>
-                <section>
-                <div class="r-vstack r-stretch">
-                    <h3>When Natural Language Gets… Weird</h3>
-                    <div
-                                style="font-size: 0.8em; border: 1px solid #666; padding: 1em; border-radius: 8px; background: #2b2b2b; color: #f1f1f1;">
-                    <strong>Prompt:</strong> <em>“I saw a man with a telescope.”</em>
+                <section class="slide-bg">
+                    <div class="r-vstack r-stretch">
+                        <h3>When Natural Language Gets… Weird</h3>
+                        <div
+                            style="font-size: 0.8em; border: 1px solid #666; padding: 1em; border-radius: 8px; background: #2b2b2b; color: #f1f1f1;">
+                            <strong>Prompt:</strong> <em>“I saw a man with a telescope.”</em>
+                        </div>
+
+                        <ul style="margin-top: 1em; font-size: 0.7em;">
+                            <li><strong>Did I use the telescope to see him?</strong></li>
+                            <li><strong>Or was the man holding the telescope?</strong></li>
+                            <li><strong>Was the telescope *part* of the man?</strong></li>
+                        </ul>
                     </div>
 
-                    <ul style="margin-top: 1em; font-size: 0.7em;">
-                    <li><strong>Did I use the telescope to see him?</strong></li>
-                    <li><strong>Or was the man holding the telescope?</strong></li>
-                    <li><strong>Was the telescope *part* of the man?</strong></li>
-                    </ul>
-                </div>
+                    <aside class="notes">
+                        Let this sentence sink in for a moment:
+                        This is a fun — but classic — example of natural language ambiguity.
+                        <br />
+                        “I saw a man with a telescope.”
+                        <br />
 
-                <aside class="notes">
-                    Let this sentence sink in for a moment:
-                    This is a fun — but classic — example of natural language ambiguity.
-                    <br/>
-                    “I saw a man with a telescope.”
-                    <br/>
+                        Sounds straightforward, right? But what does it mean?
+                        <br />
 
-                    Sounds straightforward, right? But what does it mean?
-                    <br/>
+                        - Did I see a man, and I used a telescope to do it?
+                        - Or was the man holding a telescope?
+                        <br />
 
-                    - Did I see a man, and I used a telescope to do it?
-                    - Or was the man holding a telescope?
-                    <br/>
+                        The point is: **this sentence is grammatically correct**, but completely ambiguous in meaning.
+                        And prompts work the same way.
+                        <br />
 
-                    The point is: **this sentence is grammatically correct**, but completely ambiguous in meaning. And prompts work the same way.
-                    <br/>
-
-                    That might be fine for a bedtime story, but it’s a terrible trait for a language meant to define logic and behavior.
-                </aside>
+                        That might be fine for a bedtime story, but it’s a terrible trait for a language meant to define
+                        logic and behavior.
+                    </aside>
                 </section>
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h3>When Good Prompts Go Bad</h3>
                         <div>
@@ -905,7 +1083,7 @@
                         programming.
                     </aside>
                 </section>
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h2>Missing Typical Constructs</h2>
                         <div
@@ -943,7 +1121,7 @@
                         real foundation for building scalable systems.
                     </aside>
                 </section>
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h2>Unpredictability</h2>
                         <ul>
@@ -958,7 +1136,7 @@
                             The language model might guess differently next time!</p>
                     </aside>
                 </section>
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
 
                         <p>Even basic programming prompts yield inconsistent code:</p>
@@ -998,7 +1176,7 @@
 
             <!-- Grouped Slides: Knowledge and Expertise (For) -->
             <section>
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h2>Knowledge and Expertise</h2>
                         <h3>For the Motion</h3>
@@ -1011,88 +1189,91 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        
-                    <ul>                        
-                        <li>onto the next category, knowledge and expertise.</li>
-                        <li>Effective prompt engineering requires understanding AI model workings</li>
-                        <li>Prompt engineering has a learning curve, comparable to programming languages</li>
-                        <li>Advanced applications, comparable to programming architectures, like RAG and agents build on prompt engineering</li>
-                    </ul>
 
-                    </aside>
-                </section>
-                <section>
-                    <div class="r-vstack r-stretch">
-                        <h2>Next Token Generator</h2>
-                        <div class="r-vstack r-stretch">
-                            <img src="assets/drawio/next-token-generator.svg">
-                        </div>
-                    </div>
-                    <aside class="notes">
                         <ul>
-                            <li>Mastering prompt engineering requires some knowledge of what happens under the hood, similar to programming languages.</li>
-                            <li>High-level language features might make it easier to write code, but you need to understand what happens on lower levels to use it effectively (e.g., how async handles threads).</li>
-                            <li>The same is true for prompt engineering.</li>
-                            <li>Let's talk a little bit about how AI models work.</li>
-                            <li>Some of the most well-known AI models now are what we call "next token generators."</li>
+                            <li>Marco: onto the next category, knowledge and expertise.</li>
+                            <li>Effective prompt engineering requires understanding AI model workings</li>
+                            <li>Prompt engineering has a learning curve, comparable to programming languages</li>
+                            <li>Advanced applications, comparable to programming architectures, like RAG and agents
+                                build on prompt engineering</li>
+                        </ul>
+                                will answer Vietnamese again. An LLM might have a different answer the next time you
+                                ask.</li>
+
                         </ul>
                     </aside>
                     </aside>
                 </section>
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h2>#1 Specialized knowledge</h2>
                         <h3>Tuning parameters</h3>
-                        <p><span style="color: aqua;">Sampling options</span> and <span
-                                style="color: aqua;">Temperature</span></p>
+                        <p><span style="color: #1565c0; font-weight: bold;">Sampling options</span> and <span
+                                style="color: #1565c0; font-weight: bold;">Temperature</span></p>
                         <p>Demo: Effects of prompt parameters (e.g., temperature)</p>
                     </div>
                     <aside class="notes">
                         <ul>
-                           		<li>Let's dive a little bit deeper. Because, if it's always as random as this, model wouldn’t be very useful.</li>
-	                            <li>So there are some tuning knobs you can tweak to modify how the model generates an answer. </li>
-                                    <li>Think of temperature as a dial to set how creative the model needs to be.</li>
-	                            <li>Sampling methods are a way to limit the number of possible answers it considers.</li>
-	                            <li> Let's look at a small example. The temperature adjusts the probability distribution through a mathematical function. When the temperature is low, the probability gap between words widen, favoring the high probability words. When the temperature is high, the probability distribution becomes more even, giving lower probability words a better chance of being selected.</li>
-	                            <li>A good analogy is, that at a  lower temperature, the a.i. model acts like a baker who follows the recipy exactly, step by st. And at higher temperature, the model acts like a wild experimental chef, throwing together ingredients, hoping that it will taste good</li>
-                                <li> Top-P acts like a filter or a window. When the value is high, the window size is larger, so allow more words to come in, to be selected as the next word, and vice versa, when it's low and it's narrow, so less words will get in. This will become more clear when we go into a demo.</li>
-                                
+                            <li>MARCO:Let's dive a little bit deeper. Because, if it's always as random as this, model
+                                wouldn’t be very useful.</li>
+                            <li>So there are some tuning knobs you can tweak to modify how the model generates an
+                                answer. I will show you 2 of the most common ones.</li>
+                            <li>Think of temperature as a dial to set how creative the model needs to be.</li>
+                            <li>Sampling methods are a way to limit the number of possible answers it considers.</li>
+                            <li> This will be more clear when we look at a small example. The temperature adjusts the
+                                probability distribution through a mathematical function. When the temperature is low,
+                                the probability gap between words widen, favoring the high probability words. When the
+                                temperature is high, the probability distribution becomes more even, giving lower
+                                probability words a better chance of being selected.</li>
+                            <li>A good analogy is, that at a lower temperature, the a.i. model acts like a baker who
+                                follows the recipy exactly, step by st. And at higher temperature, the model acts like a
+                                wild experimental chef, throwing together ingredients, hoping that it will taste good
+                            </li>
+                            <li> Top-P acts like a filter or a window. When the value is high, the window size is
+                                larger, so allow more words to come in, to be selected as the next word, and vice versa,
+                                when it's low and it's narrow, so less words will get in.</li>
+                            <li>Having an idea of how this works under the hood, can greatly improve your effectiveness
+                                of using AI models, just like with programming languages..</li>
 
                         </ul>
                     </aside>
                 </section>
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h2>#2 Learning curve</h2>
                         <p>A learning curve that parallels learning a programming language</p>
                         <p class="small">The prompt report</p>
                     </div>
                 </section>
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <img src="assets/img/promptingtechniques.png" style="width: 90%; margin: auto;">
                         <div style="display: flex; justify-content: space-between; margin-top: 10px;">
                             <div class="definition-box"
-                                style="flex: 1; margin-right: 10px; text-align: center; color: #ffcc00;">
-                                <p>1565 papers</p>
+                                style="flex: 1; margin-right: 10px; text-align: center; color: inherit; font-weight: bold;">
+                                <p style="color: #e65100;">1565 papers</p>
                             </div>
                             <div class="definition-box"
-                                style="flex: 1; margin-left: 10px; text-align: center; color: #ffcc00;">
-                                <p>~100 prompting techniques</p>
+                                style="flex: 1; margin-left: 10px; text-align: center; color: inherit; font-weight: bold;">
+                                <p style="color: #e65100;">~100 prompting techniques</p>
                             </div>
                         </div>
                     </div>
                     <aside class="notes">
                         <ul>
-                            <li>Prompt techniques are diverse and evolving.</li>
+                            <li>MARCO: Prompt techniques are diverse and evolving.</li>
                             <li>This report from OpenAI and Microsoft was published in 2024.</li>
-                            <li>They conducted a literature review of over 1,500 prompt engineering related papers, analyzing different kinds of techniques.</li>
-                            <li>The point here is that mastering prompt engineering is not just about using natural language.</li>
-                            <li>There are numerous techniques, and as software engineers, we must learn or figure out how to best apply them in our specific use cases—just like using a programming language.</li>
+                            <li>They conducted a literature review of over 1,500 prompt engineering related papers,
+                                analyzing different kinds of techniques.</li>
+                            <li>The point here is that mastering prompt engineering is not just about using natural
+                                language.</li>
+                            <li>There are numerous techniques, and as software engineers, we must learn or figure out
+                                how to best apply them in our specific use cases—just like using a programming language.
+                            </li>
                         </ul>
                         </ul>
                 </section>
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h2>#3 Evolution!</h2>
                         <p>How we interact with these models evolves!</p>
@@ -1112,29 +1293,36 @@
                     </div>
                     <aside class="notes">
                         <ul>
-                            <li>How we interact with AI is evolving—just like programming languages did.</li>
-                            <li>Reasoning models are advancing: not just answering questions, but understanding intent more deeply.</li>
+                            <li>MARCO:How we interact with AI is evolving—just like programming languages did.</li>
+                            <li>Reasoning models are advancing: not just answering questions, but understanding intent
+                                more deeply.</li>
                             <li>Complex architectures are emerging, such as:
                                 <ul>
-                                    <li><strong>RAG (Retrieval-Augmented Generation):</strong> Adds external context to improve responses.</li>
-                                    <li><strong>Agentic AI:</strong> Enables autonomous, multi-step reasoning and task execution.</li>
+                                    <li><strong>RAG (Retrieval-Augmented Generation):</strong> Adds external context to
+                                        improve responses.</li>
+                                    <li><strong>Agentic AI:</strong> Enables autonomous, multi-step reasoning and task
+                                        execution.</li>
                                 </ul>
                             </li>
-                           
+
                         </ul>
 
                         </ul>
                     </aside>
                 </section>
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <img src="assets/img/agentic.gif">
                     </div>
-                        <aside class="notes">
+                    <aside class="notes">
                         <ul>
-                            <li>Here you see an example of a multi-agent architecture. where A.I. applications autonomously work together.</li>
-                            <li>So one of these systems, is able to process a request, autonomously determine the course of action, and take that action by using tools and leveraging the capabilities of its fellow agents.</li>
-                            <li>At the core of these systems are prompts—prompts that are reviewed, tested (even as units), and versioned.</li>
+                            <li>MARCO:Here you see an example of a multi-agent architecture. where A.I. applications
+                                autonomously work together.</li>
+                            <li>So one of these systems, is able to process a request, autonomously determine the course
+                                of action, and take that action by using tools and leveraging the capabilities of its
+                                fellow agents.</li>
+                            <li>At the core of these systems are prompts—prompts that are reviewed, tested (even as
+                                units), and versioned.</li>
                             <li>Just like source code in programming languages.</li>
                         </ul>
                     </aside>
@@ -1144,7 +1332,7 @@
 
             <!-- Grouped Slides: Knowledge and Expertise (Against) -->
             <section>
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h2>Knowledge and Expertise</h2>
                         <h3>Against the Motion</h3>
@@ -1172,7 +1360,7 @@
                     </aside>
                 </section>
 
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h2>Fewer Prerequisites</h2>
                         <div
@@ -1201,7 +1389,7 @@
                         It’s not about building algorithms — it’s about nudging a black box in the right direction.
                     </aside>
                 </section>
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h3>Understanding ≠ Programming the Model</h3>
                         <ul style="font-size: 0.65em; margin-top: 0.5em;">
@@ -1225,66 +1413,24 @@
                         Programming means defining behavior. It means writing instructions that are executed in a
                         controlled, repeatable way.
                         <br /><br />
-                        Prompting doesn’t give you that. You’re not programming — you’re influencing. You’re steering a
-                        black box that generates text based on probability, not logic flow.
+                        Prompting doesn’t give you that. You’re not programming — you’re influencing. You’re steering a black box that generates text based on probability, not logic flow.
                         <br /><br />
                         So yes, understanding the model matters. But that’s like saying “understanding a microwave makes
                         you an electrical engineer.” It helps — but it’s not the same thing.
                     </aside>
                 </section>
-                <section>
+
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h2>Tuning Parameters</h2>
-
-
-                        <ul style="font-size: 0.65em; margin-top: 1.5em;">
-                            <li>🎛️ Temperature doesn’t define logic — it shapes personality</li>
-                            <li>🎲 Same prompt, different mood — no consistent behavior</li>
-                            <li>🧱 Programming means control — this is suggestion + luck</li>
-                        </ul>
-
-                    </div>
-                    <aside class="notes">
-                        Let’s look at what happens when we run the exact same prompt — something simple and
-                        well-defined: "Write a function that returns the nth Fibonacci number."
-                        <br /><br />
-                        At temperature 0, we get a clean, iterative implementation. It's minimal, predictable, and
-                        exactly what most developers would expect.
-                        <br /><br />
-                        But at temperature 1? The model might go recursive, add commentary, memoization, or even switch
-                        languages entirely. One version might use LINQ. Another might give you an object-oriented class.
-                        <br /><br />
-                        This is the point. You can tweak the model’s behavior, but you're not writing deterministic
-                        logic — you're steering a probability engine.
-                        <br /><br />
-                        Programming gives you guarantees. Prompting gives you options, interpretations, and occasionally
-                        surprises.
-                    </aside>
-                </section>
-                <section>
-                    <div class="r-vstack r-stretch">
-                        <h2>Tuning Parameters</h2>
-
-
                         <div
                             style="margin-top: 2em; font-size: 0.65em; border-left: 3px solid #888; padding-left: 1em;">
                             <strong>Prompt:</strong><br />
                             <code>Write a function that returns the nth Fibonacci number.</code>
                         </div>
-
-                        <ul style="margin-top: 1em; font-size: 0.55em;">
-                            <li class="fragment">🧊 <strong>Temp 0.0:</strong> Iterative function, clean, minimal,
-                                accurate</li>
-                            <li class="fragment">🔥 <strong>Temp 1.0:</strong> Recursive version, maybe with comments,
-                                or “for fun” in Python instead of C#</li>
-                        </ul>
-
-                        <p class="fragment" style="margin-top: 1.5em;font-size: 0.55em;">
-                            <strong>You’re managing creative entropy.</strong>
-                        </p>
-
                     </div>
                     <aside class="notes">
+                        ---- DEMO ---- TODO: Create a different order in the demo
                         Let’s look at what happens when we run the exact same prompt — something simple and
                         well-defined: "Write a function that returns the nth Fibonacci number."
                         <br /><br />
@@ -1304,7 +1450,7 @@
             </section>
             <!-- Grouped Slides: Impact and Longevity (For) -->
             <section>
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h2>Impact and Longevity</h2>
                         <h3>For the Motion</h3>
@@ -1314,20 +1460,20 @@
                         </ul>
                     </div>
                     <aside class="notes">
-                        <li>Impact and longevity, where we will be exploring whether this is A Paradigm shift in
+                        <li>MARCO:Impact and longevity, where we will be exploring whether this is A Paradigm shift in
                             human-computer interaction</li>
                         <li>Or just a fleeting trend???</li>
                     </aside>
                 </section>
                 <!--
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h3>The future of programming?</h3>
                         <img src="assets/img/andrej.png" alt="Andrej Karpathy Tweet"
                             style="width: 90%; border-radius: 5px; margin: auto;">
                     </div>
                 </section>-->
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h3>Explosion of A.I. centered dev tooling</h3>
                         <div
@@ -1365,42 +1511,51 @@
                     </div>
                     <aside class="notes">
                         <ul>
-                            <li>Just curious. If you're a developer, raise your hand. Now, who of you regularly uses some kind of AI tool to assist you in software engineering?</li>
-                            <li>A survey from the Pragmatic Engineer (2024) found that 75% of developers use some kind of AI tool for software engineering related work.</li>
-                            <li>It's hard to believe that it was only 2.5 years ago, November 2022, that ChatGPT was released to the world.</li>
-                            <li>By now, the world is being flooded with AI tooling for software engineers, where you can prompt to develop your software.</li>
-                            <li>There are new parties like Cursor, Windsurf, and Devin who center around the concept, but also traditional parties like GitHub Copilot and JetBrains are pivoting towards some kind of AI assistance.</li>                            
+                            <li>MARCO:Just curious. If you're a developer, raise your hand. Now, who of you regularly
+                                uses some kind of AI tool to assist you in software engineering?</li>
+                            <li>A survey from the Pragmatic Engineer (2024) found that 75% of developers use some kind
+                                of AI tool for software engineering related work.</li>
+                            <li>It's hard to believe that it was only 2.5 years ago, November 2022, that ChatGPT was
+                                released to the world.</li>
+                            <li>By now, the world is being flooded with AI tooling for software engineers, where you can
+                                prompt to develop your software.</li>
+                            <li>There are new parties like Cursor, Windsurf, and Devin who center around the concept,
+                                but also traditional parties like GitHub Copilot and JetBrains are pivoting towards some
+                                kind of AI assistance.</li>
                         </ul>
 
                         </ul>
                     </aside>
                 </section>
 
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h3>Example: Windsurf editor</h3>
                         <img src="assets/img/assistants/windsurf_lg.png" alt="Windsurf"
                             style="width: 400px; margin: 20px auto; display: block;">
                         <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
-                            <button data-preview-video="assets/video/windsurf1.mp4"
-                                style="padding: 10px 20px; background: #ffcc00; border: none; border-radius: 5px; cursor: pointer;">Video:
-                                giving context...</button>
-                            <button data-preview-video="assets/video/windsurf2.mp4"
-                                style="padding: 10px 20px; background: #ffcc00; border: none; border-radius: 5px; cursor: pointer;">Video:
-                                A.I. coding</button>
+                            <button data-preview-video="assets/video/windsurf_hq.mp4"
+                                style="padding: 10px 20px; background: #ffcc00; border: none; border-radius: 5px; cursor: pointer;">Watch
+                                Demo</button>
                         </div>
                     </div>
                     <aside class="notes">
-                        <li>Let's look at an example. This is Windsurf, a fork of VS Code centered around AI-assisted development.</li>
-                        <li>I've opened this presentation you are watching right now. It was made in Reveal.js and mostly built using tools like this.</li>
-                        <li>One of the most annoying things I run into every time I try to code using AI is that it has difficulty understanding the context it's working in. These new tools are way better at this—so good that you can just ask it for the context.</li>
-                        <li>Now, let's add a feature. I'll continue the thread and ask it how I can deploy this presentation to an Azure Static Website.</li>
-                        <li>I've given instructions to a computer to alter my software, just like a programming language.</li>
+                        <li>MARCO:Let's look at an example. This is Windsurf, a fork of VS Code centered around
+                            AI-assisted development.</li>
+                        <li>I've opened this presentation you are watching right now. It was made in Reveal.js and
+                            mostly built using tools like this.</li>
+                        <li>One of the most annoying things I run into every time I try to code using AI is that it has
+                            difficulty understanding the context it's working in. These new tools are way better at
+                            this—so good that you can just ask it for the context.</li>
+                        <li>Now, let's add a feature. I'll continue the thread and ask it how I can deploy this
+                            presentation to an Azure Static Website.</li>
+                        <li>I've given instructions to a computer to alter my software, just like a programming
+                            language.</li>
 
                         </ul>
                 </section>
 
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h3>These systems are maturing.</h3>
                         <ul>
@@ -1413,12 +1568,17 @@
                     </div>
                     <aside class="notes">
                         <ul>
-                            <li>A.I. software is maturing every day.</li>
-                            <li>Protocols are being designed to standardize communication between A.I. applications.</li>
-                            <li>MCP (Model Context Protocol) provides a standard way for A.I. systems to access data sources—very useful for dev tooling.</li>
-                            <li>For example, with an MCP server linked to your test database, you could ask GitHub Copilot to consider your database structure when helping you code.</li>
-                            <li>Google released the A2A protocol to standardize communication between autonomous agentic applications.</li>
-                            <li>The key point: we're already designing protocols for A.I., just like we did with SOAP and REST.</li>
+                            <li>MARCO:A.I. software is maturing every day.</li>
+                            <li>Protocols are being designed to standardize communication between A.I. applications.
+                            </li>
+                            <li>MCP (Model Context Protocol) provides a standard way for A.I. systems to access data
+                                sources—very useful for dev tooling.</li>
+                            <li>For example, with an MCP server linked to your test database, you could ask GitHub
+                                Copilot to consider your database structure when helping you code.</li>
+                            <li>Google released the A2A protocol to standardize communication between autonomous agentic
+                                applications.</li>
+                            <li>The key point: we're already designing protocols for A.I., just like we did with SOAP
+                                and REST.</li>
                         </ul>
 
                         </ul>
@@ -1429,7 +1589,7 @@
 
             <!-- Grouped Slides: Impact and Longevity (Against) -->
             <section>
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h2>Impact and Longevity</h2>
                         <h3>Against the Motion</h3>
@@ -1459,7 +1619,7 @@
                     </aside>
                 </section>
 
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h2>Obsolescence by Design?</h2>
                         <div style="font-size: 0.85em">
@@ -1486,44 +1646,53 @@
                         made obsolete by the technology itself.
                     </aside>
                 </section>
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
-                    <h3>Same Prompt, Different Century</h3>
-                    <div style="font-size: 0.75em">
-                        <div style="font-family: monospace; font-size: 0.95em; background: #2b2b2b; color: #f1f1f1; padding: 10px 15px; border-radius: 6px;">
-                            Plan a one-week trip to Japan.
-                        </div>
-                        <p><strong>GPT-3.5:</strong></p>
-                        <div style="font-size: 0.9em; background: #333; color: #eee; padding: 12px 16px; border-radius: 6px;">
-                            "Japan is a beautiful country with many attractions. You can consider visiting Tokyo, Kyoto, and Osaka.
-                            Be sure to check flight prices and hotel availability. Enjoy your trip!"
-                        </div>
-                        <p><strong>GPT-4o:</strong></p>
-                        <div style="font-size: 0.7em; background: #333; color: #eee; padding: 12px 16px; border-radius: 6px;">
-                            <strong>Here’s a suggested 7-day itinerary:</strong><br/>
-                            <strong>Day 1:</strong> Arrive in Tokyo. Explore Shibuya, visit Tokyo Tower.<br/>
-                            <strong>Day 2:</strong> Day trip to Nikko for historical temples.<br/>
-                            <strong>Day 3:</strong> ... etc <br/>
+                        <h3>Same Prompt, Different Century</h3>
+                        <div style="font-size: 0.75em">
+                            <div
+                                style="font-family: monospace; font-size: 0.95em; background: #2b2b2b; color: #f1f1f1; padding: 10px 15px; border-radius: 6px;">
+                                Plan a one-week trip to Japan.
+                            </div>
+                            <p><strong>GPT-3.5:</strong></p>
+                            <div
+                                style="font-size: 0.9em; background: #333; color: #eee; padding: 12px 16px; border-radius: 6px;">
+                                "Japan is a beautiful country with many attractions. You can consider visiting Tokyo,
+                                Kyoto, and Osaka.
+                                Be sure to check flight prices and hotel availability. Enjoy your trip!"
+                            </div>
+                            <p><strong>GPT-4o:</strong></p>
+                            <div
+                                style="font-size: 0.7em; background: #333; color: #eee; padding: 12px 16px; border-radius: 6px;">
+                                <strong>Here’s a suggested 7-day itinerary:</strong><br />
+                                <strong>Day 1:</strong> Arrive in Tokyo. Explore Shibuya, visit Tokyo Tower.<br />
+                                <strong>Day 2:</strong> Day trip to Nikko for historical temples.<br />
+                                <strong>Day 3:</strong> ... etc <br />
+                            </div>
                         </div>
                     </div>
-                  </div>
-                  <aside class="notes">
+                    <aside class="notes">
                         This example speaks for itself — literally.
-                        <br/>
-                        We gave both models the exact same prompt: <em>“Plan a one-week trip to Japan.”</em> No system message, no detailed instructions, no constraints.
-                        <br/>
-                        GPT-3.5 returns something vague — a list of cities and a generic sendoff. It’s basically a fancy autocomplete.
-                        <br/>
-                        GPT-4o, on the other hand, builds a fully structured plan. It makes assumptions, fills in gaps, adds sequencing, balances travel and rest, and even offers to refine the itinerary based on your interests.
-                        <br/>
+                        <br />
+                        We gave both models the exact same prompt: <em>“Plan a one-week trip to Japan.”</em> No system
+                        message, no detailed instructions, no constraints.
+                        <br />
+                        GPT-3.5 returns something vague — a list of cities and a generic sendoff. It’s basically a fancy
+                        autocomplete.
+                        <br />
+                        GPT-4o, on the other hand, builds a fully structured plan. It makes assumptions, fills in gaps,
+                        adds sequencing, balances travel and rest, and even offers to refine the itinerary based on your
+                        interests.
+                        <br />
                         This wasn’t possible without prompt engineering a year ago. Today, it’s just one vague sentence.
-                        <br/>
-                        That’s the point: as models improve, the need for specialized prompt design disappears. Not because we’re getting better at prompting — but because the models no longer need us to.
-                        <br/>
+                        <br />
+                        That’s the point: as models improve, the need for specialized prompt design disappears. Not
+                        because we’re getting better at prompting — but because the models no longer need us to.
+                        <br />
                         That’s not how programming languages evolve. That’s how interfaces vanish into the background.
                     </aside>
                 </section>
-                <section>
+                <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h2>We Still Need Code</h2>
                         <div style="font-size: 0.85em">
@@ -1547,13 +1716,11 @@
                         In the end, prompting is useful — but programming remains essential.
                     </aside>
                 </section>
-                </section>
-              </section>
-
+            </section>
             <!-- Slide 13: Closing Arguments -->
 
             <!-- Main Closing Arguments Slide -->
-            <section>
+            <section class="slide-bg">
                 <div class="r-vstack r-stretch"></div>
                 <h2>Closing Arguments</h2>
                 <div style="display: flex; justify-content: space-around; align-items: center;">
@@ -1566,80 +1733,87 @@
                     you’ve heard sway you toward a future formal “prompt language” or remain unconvinced.</p>
             </aside>
             </section>
-                 <section>
-                    <div class="r-vstack r-stretch">
-                        <h2>Closing Arguments</h2>
-                        <h3>For the Motion</h3>
-                        <ul>
-                            <li>Prompt engineering is evolving into a structured discipline</li>
-                            <li>Clear patterns and best practices are emerging</li>                            
-                            <li>Here to stay. Growing ecosystem of tools and frameworks</li>
-                        </ul>
-                    </div>
-                    <aside class="notes">
-                        <ul>
-                            <li>Prompt engineering is the new programming language of the future. Like traditional programming, prompting will require careful structure, precision, and an understanding of the underlying system.</li>
-                            <li>Prompt engineering has evolved beyond mere suggestions into a structured language with its own syntax, patterns, and specialized expertise. From Chain-of-Thought to RAG to agentic systems, we're building complex computational systems through the power of well-crafted prompts.</li>
-                            <li>Just as programming languages evolved before, from punched cards, to functions, to object orientation and beyond, we now stand at the threshold of the next great paradigm shift.</li>
-                            <li>The evidence is clear—as AI tools multiply and companies invest millions upon millions, prompt engineering isn't just knocking at the door of programming languages; it has already walked through and taken a seat at the table.</li>
-                        </ul>
-                    </aside>
+            <section class="slide-bg">
+                <div class="r-vstack r-stretch">
+                    <h2>Closing Arguments</h2>
+                    <h3>For the Motion</h3>
+                    <ul>
+                        <li>Prompt engineering is evolving into a structured discipline</li>
+                        <li>Clear patterns and best practices are emerging</li>
+                        <li>Here to stay. Growing ecosystem of tools and frameworks</li>
+                    </ul>
+                </div>
+                <aside class="notes">
+                    <ul>
+                        <li>MARCO: Prompt engineering is the new programming language of the future. Like traditional
+                            programming, prompting will require careful structure, precision, and an understanding of
+                            the underlying system.</li>
+                        <li>Prompt engineering has evolved beyond mere suggestions into a structured language with its
+                            own syntax, patterns, and specialized expertise. From Chain-of-Thought to RAG to agentic
+                            systems, we're building complex computational systems through the power of well-crafted
+                            prompts.</li>
+                        <li>Just as programming languages evolved before, from punched cards, to functions, to object
+                            orientation and beyond, we now stand at the threshold of the next great paradigm shift.</li>
+                        <li>The evidence is clear—as AI tools multiply and companies invest millions upon millions,
+                            prompt engineering isn't just knocking at the door of programming languages; it has already
+                            walked through and taken a seat at the table.</li>
+                    </ul>
+                </aside>
 
-                    </aside>
-                </section>                                      
-                
-            <section>
-            <div class="r-vstack r-stretch">
-                <h2>Closing Arguments</h2>
-                <h3>Against the Motion</h3>
-                <ul>
-                <li>You don't "compile" a conversation</li>
-                <li>Prompting is asking, coding is telling</li>
-                <li>A hammer and a screwdriver — both tools, different jobs</li>
-                </ul>
-            </div>
+                </aside>
+            </section>
+
+            <section class="slide-bg">
+                <div class="r-vstack r-stretch">
+                    <h2>Closing Arguments</h2>
+                    <h3>Against the Motion</h3>
+                    <ul>
+                        <li>You don't "compile" a conversation</li>
+                        <li>Prompting is asking, coding is telling</li>
+                        <li>A hammer and a screwdriver — both tools, different jobs</li>
+                    </ul>
+                </div>
                 <aside class="notes">
                     Let’s step back and ask: what defines a programming language?
-                    <br/><br/>
-                    It’s not just usefulness; it’s structure, precision, and repeatability.  
+                    <br /><br />
+                    It’s not just usefulness; it’s structure, precision, and repeatability.
                     Languages have syntax. They compile. They behave the same way every time.
-                    <br/><br/>
+                    <br /><br />
                     Prompt engineering? It doesn’t offer that.
-                    <br/><br/>
-                    It’s built on natural language; ambiguous, inconsistent, and probabilistic.  
+                    <br /><br />
+                    It’s built on natural language; ambiguous, inconsistent, and probabilistic.
                     Even the best prompt can produce different outputs on different days — or in different models.
 
-                    <br/><br/>
+                    <br /><br />
 
                     We showed you that with a single sentence: “Plan a one-week trip to Japan.”
                     GPT-3.5 gave a vague list. GPT-4o returned a full itinerary — flights, meals, probably a zen garden.
                     Same prompt. Drastically different results.
                     And that’s not because of better prompting — it’s because the model got better.
-                    <br/><br/>
+                    <br /><br />
 
-                    That’s the irony here: the better these models become, the less prompting matters.  
+                    That’s the irony here: the better these models become, the less prompting matters.
                     It’s not evolving into a language — it’s being absorbed by the interface.
-                    <br/><br/>
-                    And while prompting can be powerful, let’s not mistake communication for code.  
-                    You don’t “compile” a conversation. You don’t “version control” a sentence.  
+                    <br /><br />
+                    And while prompting can be powerful, let’s not mistake communication for code.
+                    You don’t “compile” a conversation. You don’t “version control” a sentence.
                     And last I checked, no one’s writing unit tests for vibes.
 
-                    <br/><br/>
+                    <br /><br />
 
                     So yes; prompting is useful. It’s even technical at times.
 
-                    But a programming language?  
-                    No. It’s something different.  
+                    But a programming language?
+                    No. It’s something different.
                     And trying to call it one doesn’t make it so.
-                    </aside>
+                </aside>
             </section>
 
             <!-- Final Vote -->
-            <section>
+            <section class="slide-bg">
                 <h2>Time to Vote</h2>
-                <p>Has prompt engineering earned its place as the next programming language?</p>
-                <button
-                    style="font-size: 1.2em; padding: 10px; background-color: #ffcc00; border: none; border-radius: 5px; margin: 20px;">Cast
+                <p>Has prompt engineering earned its place as the next programming language?</p> <button
+                    style="font-size: 1.2em; padding: 15px 25px; background: linear-gradient(45deg, #e65000, #ff9800); color: white; border: none; border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.2); cursor: pointer; font-weight: bold; margin: 20px;">Cast
                     Your Vote</button>
                 <aside class="notes">
                     <p>Marco: Drawing from Hien’s final thoughts: it might not be a full-fledged language yet, but it’s
@@ -1649,13 +1823,13 @@
             </section>
 
             <!-- Final Slide: QR Code -->
-            <section>
+            <section class="slide-bg">
                 <div class="r-vstack r-stretch">
                     <h2>Check out the slides?</h2>
-                    <img src="assets/img/site-qr.svg" alt="QR Code to presentation"
+                    <img src="assets/img/site-qr2.svg" alt="QR Code to presentation"
                         style="width: 300px; height: 300px; margin: 20px auto;">
                     <p>Or on slack: </p>
-                    <p><span style="color: aqua;">#topiconf-prompt-engineering</span> </p>
+                    <p><span style="color: #1565c0; font-weight: bold;">#topiconf-prompt-engineering</span> </p>
                 </div>
                 <aside class="notes">
                     <p>Encourage the audience to reflect on Hien’s viewpoint: is the future “programming via intention,”

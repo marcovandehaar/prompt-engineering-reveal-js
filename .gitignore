@@ -13,3 +13,4 @@ node_modules/
 # Build output directories
 output/
 dist/
+assets/video/windsurf_hq.mp4
