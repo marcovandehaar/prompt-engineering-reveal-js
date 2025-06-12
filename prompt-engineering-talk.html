@@ -250,7 +250,7 @@
 
         /* Make opening slide fill the screen vertically */
         .reveal .slides > section:first-child {
-            height: 70vh !important;
+            height:90% !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: center !important;
@@ -304,13 +304,13 @@
                 <div style="position: absolute; bottom: -50px; left: 100px; width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(45deg, #e91e63, #ff5722); opacity: 0.6; z-index: 1;"></div>
 
                 <!-- Speaker Name Box -->
-                <div style="position: absolute; top: 120px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.3); border-radius: 8px; padding: 8px 20px; backdrop-filter: blur(10px); z-index: 5;">
+                <div style="position: absolute; top: 80px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.3); border-radius: 8px; padding: 8px 20px; backdrop-filter: blur(10px); z-index: 5;">
                     <span style="color: #ffeb3b; font-size: 1.0em; font-weight: bold;">/ Joris van Hien and Marco van de Haar</span>
                 </div>
 
                 <!-- Main Title -->
                 <div style="position: relative; z-index: 5; text-align: center; margin-top: 200px;">
-                    <h1 style="font-size: 1.5em; font-weight: bold; line-height: 1.1; margin: 0; text-shadow: 3px 3px 6px rgba(0,0,0,0.4); color: white;">
+                    <h1 style="font-size: 1.4em; font-weight: bold; line-height: 1.1; margin: 0; text-shadow: 3px 3px 6px rgba(0,0,0,0.4); color: white;">
                         Is Prompt Engineering the Next Programming Language?
                     </h1>
                     <div style="margin-top: 30px; font-size: 1.2em; color: rgba(255,255,255,0.9);">
@@ -444,8 +444,7 @@
                     <p>Marco: So what is an oxford style debate?</p>
                     <ul>
                         <li>We'll start with a motion, which we'll explain to you first.</li>
-                        <li>Then we'll hold an initial vote, together with you guys. we'll explain more about this when
-                            we get there.</li>
+                        <li>Then we'll hold an initial vote, together with you guys. </li>
                         <li>After we voted, we'll start the discussion. there's be 2 sides: I will present arguments FOR
                             the motion, Joris will present arguments AGAINST the motion.</li>
                         <li>We'll close the discussion with passionate closing arguments, after which you can vote
@@ -514,8 +513,8 @@
                         <li>MARCO: Here we asked two major LLMs what prompt engineering is. The first one is Claude, by
                             Anthropic, the second one ChatGpt, by Openai.</li>
                         <li>The answers are Pretty similar,</li>
-                        <li>Apart from the fact that ChatGPT apparently has a bigger EGO, finding it necessary to
-                            mention itself.</li>
+                        <li>Apparently ChatGPT  has a bigger EGO, finding it necessary to
+                            mention itself. but other than that, the answers are pretty similar.</li>
                     </ul>
                 </aside>
 
@@ -694,6 +693,7 @@
                                         document.querySelector('[data-fragment-index="4"]').style.backgroundColor = 'rgba(209, 196, 233, 0.2)';
                                     }
                                 });
+
                             </script>
                         </div>
 
@@ -996,7 +996,7 @@
                         <h3>When Natural Language Gets… Weird</h3>
                         <div
                             style="font-size: 0.8em; border: 1px solid #666; padding: 1em; border-radius: 8px; background: #2b2b2b; color: #f1f1f1;">
-                            <strong>Prompt:</strong> <em>“I saw a man with a telescope.”</em>
+                            <strong>Prompt:</strong> <em>“Describe the scene: I saw a man with a telescope.”</em>
                         </div>
 
                         <ul style="margin-top: 1em; font-size: 0.7em;">
@@ -1177,6 +1177,8 @@
             </section>
 
             <!-- Grouped Slides: Knowledge and Expertise (For) -->
+             
+                            
             <section>
                 <section class="slide-bg">
                     <div class="r-vstack r-stretch">
@@ -1185,7 +1187,6 @@
                         <div class="small">
                             <ul>
                                 <li>Requires understanding AI model workings</li>
-                                <li>Learning curve comparable to programming languages</li>
                                 <li>Advanced applications like RAG and agents</li>
                             </ul>
                         </div>
@@ -1194,43 +1195,51 @@
 
                         <ul>
                             <li>Marco: onto the next category, knowledge and expertise.</li>
-                            <li>Effective prompt engineering requires understanding AI model workings</li>
-                            <li>Prompt engineering has a learning curve, comparable to programming languages</li>
-                            <li>Advanced applications, comparable to programming architectures, like RAG and agents
-                                build on prompt engineering</li>
+                            <li>I have 2 arguments I would like to talk to you about.</li>                        
                         </ul>
-                                will answer Vietnamese again. An LLM might have a different answer the next time you
-                                ask.</li>
-
-                        </ul>
-                    </aside>
                     </aside>
                 </section>
                 <section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h2>#1 Specialized knowledge</h2>
-                        <h3>Tuning parameters</h3>
+                        <h3>Next Token Generator</h3>
+                        <div class="r-vstack r-stretch">
+                            <img src="assets/drawio/next-token-generator.svg">
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        <ul>
+                            <li>Mastering prompt engineering requires some knowledge of what happens under the hood, similar to programming languages.</li>
+                            <li>High-level language features might make it easier to write code, but you need to understand what happens on lower levels to use it effectively (e.g., how async handles threads).</li>
+                            <li>The same is true for prompt engineering.</li>
+                            <li>Let's talk a little bit about how AI models work.</li>
+                            <li>Some of the most well-known AI models now are what we call "next token generators."</li>
+                            <li> This means that given an input, these models will use probabilistic calculations to determine an output.</li>
+                            <li> What does this mean? this means that when I ask you a question, what is the best kitchen in the world?...</li>
+                        </ul>
+                    </aside>
+                </section>
+                <section class="slide-bg">
+                    <div class="r-vstack r-stretch">
+                        
+                        <h2>Tuning parameters</h2>
                         <p><span style="color: #1565c0; font-weight: bold;">Sampling options</span> and <span
                                 style="color: #1565c0; font-weight: bold;">Temperature</span></p>
                         <p>Demo: Effects of prompt parameters (e.g., temperature)</p>
                     </div>
                     <aside class="notes">
                         <ul>
-                            <li>MARCO:Let's dive a little bit deeper. Because, if it's always as random as this, model
-                                wouldn’t be very useful.</li>
+                            <li>MARCO:Let's dive a little bit deeper. Because, if it's always as random as this, these models
+                                would be useless.</li>
                             <li>So there are some tuning knobs you can tweak to modify how the model generates an
                                 answer. I will show you 2 of the most common ones.</li>
                             <li>Think of temperature as a dial to set how creative the model needs to be.</li>
                             <li>Sampling methods are a way to limit the number of possible answers it considers.</li>
-                            <li> This will be more clear when we look at a small example. The temperature adjusts the
+                            <li>DEMO:  This will be more clear when we look at a small example. The temperature adjusts the
                                 probability distribution through a mathematical function. When the temperature is low,
                                 the probability gap between words widen, favoring the high probability words. When the
                                 temperature is high, the probability distribution becomes more even, giving lower
                                 probability words a better chance of being selected.</li>
-                            <li>A good analogy is, that at a lower temperature, the a.i. model acts like a baker who
-                                follows the recipy exactly, step by st. And at higher temperature, the model acts like a
-                                wild experimental chef, throwing together ingredients, hoping that it will taste good
-                            </li>
                             <li> Top-P acts like a filter or a window. When the value is high, the window size is
                                 larger, so allow more words to come in, to be selected as the next word, and vice versa,
                                 when it's low and it's narrow, so less words will get in.</li>
@@ -1240,7 +1249,7 @@
                         </ul>
                     </aside>
                 </section>
-                <section class="slide-bg">
+                <!--section class="slide-bg">
                     <div class="r-vstack r-stretch">
                         <h2>#2 Learning curve</h2>
                         <p>A learning curve that parallels learning a programming language</p>
@@ -1274,10 +1283,10 @@
                             </li>
                         </ul>
                         </ul>
-                </section>
+                </section-->
                 <section class="slide-bg">
                     <div class="r-vstack r-stretch">
-                        <h2>#3 Evolution!</h2>
+                        <h2>#2 Evolution!</h2>
                         <p>How we interact with these models evolves!</p>
                         <div class="small">
                             <ul>
@@ -1285,7 +1294,7 @@
                                     Reasoning models, deep research
                                 </li>
                                 <li>
-                                    RAG
+                                    RAG (Retrieval-Augmented Generation)
                                 </li>
                                 <li>
                                     Agentic A.I.
@@ -1321,7 +1330,7 @@
                             <li>MARCO:Here you see an example of a multi-agent architecture. where A.I. applications
                                 autonomously work together.</li>
                             <li>So one of these systems, is able to process a request, autonomously determine the course
-                                of action, and take that action by using tools and leveraging the capabilities of its
+                                of action, and execute that action by using tools and leveraging the capabilities of its
                                 fellow agents.</li>
                             <li>At the core of these systems are prompts—prompts that are reviewed, tested (even as
                                 units), and versioned.</li>
@@ -1400,7 +1409,7 @@
                             <li>🧠 Model behavior is statistical, not deterministic — you don’t write code, you shape
                                 probability</li>
                         </ul>
-                        <p class="fragment" style="margin-top: 1.5em;">
+                        <p style="margin-top: 1.5em;">
                             <strong>Knowing how a language model works doesn’t mean you’re writing in a
                                 language.</strong>
                         </p>
@@ -1519,8 +1528,7 @@
                                 of AI tool for software engineering related work.</li>
                             <li>It's hard to believe that it was only 2.5 years ago, November 2022, that ChatGPT was
                                 released to the world.</li>
-                            <li>By now, the world is being flooded with AI tooling for software engineers, where you can
-                                prompt to develop your software.</li>
+                            <li>By now, the world is being flooded with AI tooling for software engineers.</li>
                             <li>There are new parties like Cursor, Windsurf, and Devin who center around the concept,
                                 but also traditional parties like GitHub Copilot and JetBrains are pivoting towards some
                                 kind of AI assistance.</li>
@@ -1654,7 +1662,7 @@
                         <div style="font-size: 0.75em">
                             <div
                                 style="font-family: monospace; font-size: 0.95em; background: #2b2b2b; color: #f1f1f1; padding: 10px 15px; border-radius: 6px;">
-                                Plan a one-week trip to Japan.
+                                Plan a one-week trip to Japan. TODO: replace with better prompt in 2 slides
                             </div>
                             <p><strong>GPT-3.5:</strong></p>
                             <div
@@ -1827,11 +1835,15 @@
             <!-- Final Slide: QR Code -->
             <section class="slide-bg">
                 <div class="r-vstack r-stretch">
-                    <h2>Check out the slides?</h2>
+                    <h2>Check out the slides!</h2>
                     <img src="assets/img/site-qr2.svg" alt="QR Code to presentation"
-                        style="width: 300px; height: 300px; margin: 20px auto;">
-                    <p>Or on slack: </p>
-                    <p><span style="color: #1565c0; font-weight: bold;">#topiconf-prompt-engineering</span> </p>
+                        style="width: 600px; height: 600px; display: block;">
+                    <div style="font-size: 0.8em; line-height: 1.3; margin-top: 10px;">
+                        <div>Continue the discussions</div>
+                        <div><strong>@ meet-the-speaker table outside!</strong></div>
+                        <div>Or on <img src="assets/img/Slack-logo.png" alt="Slack" style="height: 2.0em; vertical-align: middle;"></div>
+                        <div><span style="color: #1565c0; font-weight: bold;">#topiconf-prompt-engineering</span></div>
+                    </div>
                 </div>
                 <aside class="notes">
                     <p>Encourage the audience to reflect on Hien’s viewpoint: is the future “programming via intention,”
@@ -1856,7 +1868,24 @@
         });
 
         // Progress indicator functionality
-        document.body.setAttribute('data-section', 'intro'); // Default to intro section
+        document.body.setAttribute('data-section', 'intro'); // Default to intro section        // Video overlay space key handler
+        document.addEventListener('keydown', function(event) {
+            // Check if space key is pressed and there's an active video overlay
+            if (event.code === 'Space') {
+                const overlay = document.querySelector('.r-overlay[data-state="loaded"]');
+                if (overlay) {
+                    const video = overlay.querySelector('video');
+                    if (video) {
+                        event.preventDefault(); // Prevent default space behavior (slide navigation)
+                        if (video.paused) {
+                            video.play();
+                        } else {
+                            video.pause();
+                        }
+                    }
+                }
+            }
+        });
 
         // Define slide index ranges for each section
         const sectionRanges = {
